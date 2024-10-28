@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import styles from '../styles/home.module.css';
 
 const wordList = [
   { word: "apple", meaning: "사과" },
@@ -7,7 +8,6 @@ const wordList = [
   { word: "school", meaning: "학교" },
   { word: "banana", meaning: "바나나" },
   { word: "pencil", meaning: "연필" },
-  // 추가 단어
 ];
 
 export default function Home() {
@@ -15,11 +15,18 @@ export default function Home() {
   const [options, setOptions] = useState([]);
   const [score, setScore] = useState(0);
   const [results, setResults] = useState([]);
+  const [questionType, setQuestionType] = useState("wordToMeaning"); // 초기 유형 설정
   const router = useRouter();
 
   useEffect(() => {
+    generateQuestionType();
     generateOptions();
   }, [questionIndex]);
+
+  const generateQuestionType = () => {
+    // 문제 유형을 랜덤으로 선택
+    setQuestionType(Math.random() > 0.5 ? "wordToMeaning" : "meaningToWord");
+  };
 
   const generateOptions = () => {
     const currentWord = wordList[questionIndex];
@@ -35,7 +42,9 @@ export default function Home() {
 
   const handleAnswer = (selectedOption) => {
     const currentWord = wordList[questionIndex];
-    const isCorrect = selectedOption.meaning === currentWord.meaning;
+    const isCorrect =
+      (questionType === "wordToMeaning" && selectedOption.meaning === currentWord.meaning) ||
+      (questionType === "meaningToWord" && selectedOption.word === currentWord.word);
 
     setResults([...results, { ...currentWord, isCorrect }]);
     if (isCorrect) setScore(score + 1);
@@ -43,7 +52,6 @@ export default function Home() {
     if (questionIndex < 4) {
       setQuestionIndex(questionIndex + 1);
     } else {
-      // 결과를 localStorage에 저장하고 결과 페이지로 이동
       localStorage.setItem("score", score);
       localStorage.setItem("results", JSON.stringify([...results, { ...currentWord, isCorrect }]));
       router.push('/results');
@@ -51,17 +59,26 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <h1>영어 테스트</h1>
-      <div>
-        <h2>문제: {wordList[questionIndex].word}</h2>
-      </div>
-      <div>
-        {options.map((option, index) => (
-          <button key={index} onClick={() => handleAnswer(option)}>
-            {option.meaning}
-          </button>
-        ))}
+    <div className={styles.container}>
+      <div className={styles.quizContainer}>
+        <h1 className={styles.title}>VOCA TEST</h1>
+        <div className={styles.question}>
+          {questionType === "wordToMeaning"
+            ? `${wordList[questionIndex].word}`.toUpperCase()
+            : `${wordList[questionIndex].meaning}`}
+        </div>
+        <div className={styles.options}>
+          {options.map((option, index) => (
+            <button
+              key={index}
+              className={styles.optionButton}
+              onClick={() => handleAnswer(option)}
+            >
+              {questionType === "wordToMeaning" ? option.meaning : option.word}
+            </button>
+          ))}
+        </div>
+        <div className={styles.score}>현재 점수: {score}</div>
       </div>
     </div>
   );
