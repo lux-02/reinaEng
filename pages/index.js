@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import styles from '../styles/home.module.css';
+import styles from '@/styles/Home.module.css';
 
 const wordList = [
   { word: "apple", meaning: "사과" },
@@ -45,23 +45,29 @@ export default function Home() {
     const isCorrect =
       (questionType === "wordToMeaning" && selectedOption.meaning === currentWord.meaning) ||
       (questionType === "meaningToWord" && selectedOption.word === currentWord.word);
-
-    setResults([...results, { ...currentWord, isCorrect }]);
+  
+    // 정답일 때만 점수 증가
     if (isCorrect) setScore(score + 1);
-
+  
+    // 결과 업데이트
+    setResults([...results, { ...currentWord, isCorrect }]);
+  
     if (questionIndex < 4) {
+      // 다음 문제로 이동
       setQuestionIndex(questionIndex + 1);
     } else {
-      localStorage.setItem("score", score);
+      // 마지막 문제 이후 점수를 최신 상태로 저장
+      const finalScore = isCorrect ? score + 1 : score;
+      localStorage.setItem("score", finalScore);
       localStorage.setItem("results", JSON.stringify([...results, { ...currentWord, isCorrect }]));
       router.push('/results');
     }
   };
+  
 
   return (
     <div className={styles.container}>
       <div className={styles.quizContainer}>
-        <h1 className={styles.title}>VOCA TEST</h1>
         <div className={styles.question}>
           {questionType === "wordToMeaning"
             ? `${wordList[questionIndex].word}`.toUpperCase()
