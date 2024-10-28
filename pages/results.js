@@ -25,6 +25,7 @@ export default function Results() {
 
   const correctCount = score;
   const incorrectCount = results.length - score;
+  const percent = (score / results.length) * 100;
 
   const data = {
     datasets: [
@@ -37,10 +38,11 @@ export default function Results() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.resultContainer}>
-        <h1 className={styles.title}>결과</h1>
-        <p className={styles.score}>점수: {score} / {results.length}</p>
-
+        <div className={styles.scoreWrap}>
+            <div className={styles.score}>
+              점수: {percent}점
+            </div>  
+        </div>
         <div className={styles.chartContainer}>
           <div className={styles.chartWrapper}>
             <Pie data={data} />
@@ -53,22 +55,25 @@ export default function Results() {
           </div>
         </div>
 
-        <ul className={styles.resultList}>
-          {results.map((result, index) => (
-            <li
-              key={index}
-              className={`${styles.resultItem} ${result.isCorrect ? styles.correct : styles.incorrect}`}
-            >
-              {result.word} - {result.meaning}
-              <span>{result.isCorrect ? "정답" : "오답"}</span>
-            </li>
-          ))}
-        </ul>
-
-        <button onClick={() => router.push('/')} className={styles.retryButton}>
-          다시 하기
-        </button>
+        <div className={styles.resultWrap}>
+          <ul className={styles.resultList}>
+            {results.map((result, index) => (
+              <li
+                key={index}
+                className={`${styles.resultItem} ${result.isCorrect ? styles.correct : styles.incorrect}`}
+              >
+                {result.word} - {result.meaning}
+                <span>{result.isCorrect ? "정답" : "오답"}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+       
+       <div className={styles.returnWrap}>
+          <button onClick={() => router.push('/')} className={styles.retryButton}>
+            RETRY
+          </button>
+       </div>
       </div>
-    </div>
   );
 }
