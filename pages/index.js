@@ -3,14 +3,15 @@ import { useRouter } from 'next/router';
 import styles from '@/styles/Home.module.css';
 
 export default function Home() {
-  const [wordList, setWordList] = useState([]); // 전체 데이터를 저장
-  const [selectedQuestions, setSelectedQuestions] = useState([]); // 랜덤으로 선택된 20개의 문제
+  const [wordList, setWordList] = useState([]); 
+  const [selectedQuestions, setSelectedQuestions] = useState([]); 
   const [questionIndex, setQuestionIndex] = useState(0);
   const [options, setOptions] = useState([]);
   const [score, setScore] = useState(0);
   const [results, setResults] = useState([]);
   const [questionType, setQuestionType] = useState("wordToMeaning");
   const [progress, setProgress] = useState(0);
+  const [cnt, setCnt] = useState(20);
   const router = useRouter();
 
   useEffect(() => {
@@ -20,8 +21,7 @@ export default function Home() {
         const data = await response.json();
         setWordList(data);
 
-        // 랜덤으로 20개의 문제 선택
-        const randomQuestions = data.sort(() => 0.5 - Math.random()).slice(0, 20);
+        const randomQuestions = data.sort(() => 0.5 - Math.random()).slice(0, cnt);
         setSelectedQuestions(randomQuestions);
       } catch (error) {
         console.error("Failed to load data:", error);
@@ -79,6 +79,7 @@ export default function Home() {
       <div className={styles.quizContainer}>
         {selectedQuestions.length > 0 ? (
           <>
+          <div className={styles.quizCount}>{cnt} 문제</div>
             <div className={styles.question}>
               {questionType === "wordToMeaning"
                 ? `${selectedQuestions[questionIndex].word}`.toUpperCase()
