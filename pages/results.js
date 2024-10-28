@@ -24,8 +24,10 @@ export default function Results() {
   }, []);
 
   const correctCount = score;
-  const incorrectCount = results.length - score;
-  const percent = (score / results.length) * 100;
+  const Rlength = results.length
+  const incorrectCount = Rlength - score;
+  const percent = (score / Rlength) * 100;
+  
 
   const data = {
     datasets: [
@@ -38,6 +40,7 @@ export default function Results() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.resultContainer}>
         <div className={styles.scoreWrap}>
             <div className={styles.score}>
               점수: {percent}점
@@ -50,7 +53,7 @@ export default function Results() {
           <div className={styles.legendWrapper}>
             <ul>
               <li><span className={styles.legendColor} style={{ backgroundColor: '#36A2EB' }}></span>정답 {score}</li>
-              <li><span className={styles.legendColor} style={{ backgroundColor: '#FF6384' }}></span>오답 {5-score}</li>
+              <li><span className={styles.legendColor} style={{ backgroundColor: '#FF6384' }}></span>오답 {Rlength-score}</li>
             </ul>
           </div>
         </div>
@@ -75,5 +78,6 @@ export default function Results() {
           </button>
        </div>
       </div>
+    </div>
   );
 }

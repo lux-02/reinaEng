@@ -8,6 +8,11 @@ const wordList = [
   { word: "School", meaning: "학교" },
   { word: "Banana", meaning: "바나나" },
   { word: "Pencil", meaning: "연필" },
+  { word: "Apple", meaning: "사과" },
+  { word: "Car", meaning: "자동차" },
+  { word: "School", meaning: "학교" },
+  { word: "Banana", meaning: "바나나" },
+  { word: "Pencil", meaning: "연필" },
 ];
 
 export default function Home() {
@@ -16,13 +21,13 @@ export default function Home() {
   const [score, setScore] = useState(0);
   const [results, setResults] = useState([]);
   const [questionType, setQuestionType] = useState("wordToMeaning");
-  const [progress, setProgress] = useState(0); // Progress 상태 추가
+  const [progress, setProgress] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
     generateQuestionType();
     generateOptions();
-    setProgress(((questionIndex + 1) / wordList.length) * 100); // Progress 업데이트
+    setProgress(((questionIndex + 1) / wordList.length) * 100); 
   }, [questionIndex]);
 
   const generateQuestionType = () => {
