@@ -3,11 +3,11 @@ import { useRouter } from 'next/router';
 import styles from '@/styles/Home.module.css';
 
 const wordList = [
-  { word: "apple", meaning: "사과" },
-  { word: "car", meaning: "자동차" },
-  { word: "school", meaning: "학교" },
-  { word: "banana", meaning: "바나나" },
-  { word: "pencil", meaning: "연필" },
+  { word: "Apple", meaning: "사과" },
+  { word: "Car", meaning: "자동차" },
+  { word: "School", meaning: "학교" },
+  { word: "Banana", meaning: "바나나" },
+  { word: "Pencil", meaning: "연필" },
 ];
 
 export default function Home() {
@@ -63,26 +63,28 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.quizContainer}>
-        
-
         <div className={styles.question}>
           {questionType === "wordToMeaning"
             ? `${wordList[questionIndex].word}`.toUpperCase()
             : `${wordList[questionIndex].meaning}`}
         </div>
-        <div className={styles.progressBarContainer}>
-          <div className={styles.progressBar} style={{ width: `${progress}%` }}></div>
+        <div className={styles.progressBarWrap}>
+          <div className={styles.progressBarContainer}>
+            <div className={styles.progressBar} style={{ width: `${progress}%` }}></div>
+          </div>
         </div>
-        <div className={styles.options}>
-          {options.map((option, index) => (
-            <button
-              key={index}
-              className={styles.optionButton}
-              onClick={() => handleAnswer(option)}
-            >
-              {questionType === "wordToMeaning" ? option.meaning : option.word}
-            </button>
-          ))}
+        <div className={styles.optionsWrap}>
+          <div className={styles.options}>
+            {options.map((option, index) => (
+              <button
+                key={index}
+                className={styles.optionButton}
+                onClick={() => handleAnswer(option)}
+              >
+                {questionType === "wordToMeaning" ? option.meaning : option.word}
+              </button>
+            ))}
+          </div>
         </div>
         <div className={styles.score}>현재 점수: {score}</div>
       </div>

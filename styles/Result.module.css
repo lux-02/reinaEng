@@ -1,11 +1,11 @@
 /* result.module.css */
 
 .container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   background-color: #f1f3f5;
   font-family: Arial, sans-serif;
 }
