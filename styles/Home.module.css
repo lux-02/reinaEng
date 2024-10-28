@@ -6,12 +6,12 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #222;
+  background-color: #111;
   font-family: Arial, sans-serif;
 }
 
 .quizContainer {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 2rem;
   border-radius: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -20,13 +20,26 @@
   text-align: center;
 }
 
+.progressBarContainer {
+  width: 100%;
+  background-color: #e0e0e0;
+  height: 6px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: #49accd;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
 .question {
-  border-radius: 1rem;
   font-size: 1.4rem;
-  margin-bottom: 1.5rem;
-  background-color: black;
-  color: white;
-  padding: 2rem;
+  color: black;
+  font-weight: bold;
+  padding:  2rem;
 }
 
 .options {
@@ -52,6 +65,7 @@
 
 .score {
   margin-top: 2rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #333;
+  font-weight: bold;
 }

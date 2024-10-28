@@ -15,16 +15,17 @@ export default function Home() {
   const [options, setOptions] = useState([]);
   const [score, setScore] = useState(0);
   const [results, setResults] = useState([]);
-  const [questionType, setQuestionType] = useState("wordToMeaning"); // 초기 유형 설정
+  const [questionType, setQuestionType] = useState("wordToMeaning");
+  const [progress, setProgress] = useState(0); // Progress 상태 추가
   const router = useRouter();
 
   useEffect(() => {
     generateQuestionType();
     generateOptions();
+    setProgress(((questionIndex + 1) / wordList.length) * 100); // Progress 업데이트
   }, [questionIndex]);
 
   const generateQuestionType = () => {
-    // 문제 유형을 랜덤으로 선택
     setQuestionType(Math.random() > 0.5 ? "wordToMeaning" : "meaningToWord");
   };
 
@@ -46,32 +47,31 @@ export default function Home() {
       (questionType === "wordToMeaning" && selectedOption.meaning === currentWord.meaning) ||
       (questionType === "meaningToWord" && selectedOption.word === currentWord.word);
   
-    // 정답일 때만 점수 증가
     if (isCorrect) setScore(score + 1);
-  
-    // 결과 업데이트
     setResults([...results, { ...currentWord, isCorrect }]);
-  
-    if (questionIndex < 4) {
-      // 다음 문제로 이동
+
+    if (questionIndex < wordList.length - 1) {
       setQuestionIndex(questionIndex + 1);
     } else {
-      // 마지막 문제 이후 점수를 최신 상태로 저장
       const finalScore = isCorrect ? score + 1 : score;
       localStorage.setItem("score", finalScore);
       localStorage.setItem("results", JSON.stringify([...results, { ...currentWord, isCorrect }]));
       router.push('/results');
     }
   };
-  
 
   return (
     <div className={styles.container}>
       <div className={styles.quizContainer}>
+        
+
         <div className={styles.question}>
           {questionType === "wordToMeaning"
             ? `${wordList[questionIndex].word}`.toUpperCase()
             : `${wordList[questionIndex].meaning}`}
+        </div>
+        <div className={styles.progressBarContainer}>
+          <div className={styles.progressBar} style={{ width: `${progress}%` }}></div>
         </div>
         <div className={styles.options}>
           {options.map((option, index) => (

@@ -7,9 +7,8 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import styles from '../styles/result.module.css';
+import styles from '@/styles/Result.module.css';
 
-// Chart.js 요소 등록
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Pie = dynamic(() => import('react-chartjs-2').then((mod) => mod.Pie), { ssr: false });
@@ -20,7 +19,6 @@ export default function Results() {
   const router = useRouter();
 
   useEffect(() => {
-    // 로컬 저장소에서 데이터 불러오기
     setScore(parseInt(localStorage.getItem("score"), 10));
     setResults(JSON.parse(localStorage.getItem("results")) || []);
   }, []);
@@ -28,13 +26,11 @@ export default function Results() {
   const correctCount = score;
   const incorrectCount = results.length - score;
 
-  // 차트 데이터 구성
   const data = {
-    labels: ['정답', '오답'],
     datasets: [
       {
         data: [correctCount, incorrectCount],
-        backgroundColor: ['#36A2EB', '#FF6384'], // 정답: 파란색, 오답: 빨간색
+        backgroundColor: ['#36A2EB', '#FF6384'],
       },
     ],
   };
@@ -45,12 +41,18 @@ export default function Results() {
         <h1 className={styles.title}>결과</h1>
         <p className={styles.score}>점수: {score} / {results.length}</p>
 
-        {/* 원형 그래프 */}
-        <div style={{ width: '20%', margin: '0 auto' }}>
-          <Pie data={data} />
+        <div className={styles.chartContainer}>
+          <div className={styles.chartWrapper}>
+            <Pie data={data} />
+          </div>
+          <div className={styles.legendWrapper}>
+            <ul>
+              <li><span className={styles.legendColor} style={{ backgroundColor: '#36A2EB' }}></span>정답 {score}</li>
+              <li><span className={styles.legendColor} style={{ backgroundColor: '#FF6384' }}></span>오답 {5-score}</li>
+            </ul>
+          </div>
         </div>
 
-        {/* 정답/오답 리스트 */}
         <ul className={styles.resultList}>
           {results.map((result, index) => (
             <li
