@@ -31,9 +31,6 @@
   font-weight: bold;
 }
 
-
-
-
 .question {
   padding-top: 2rem;
   font-size: 2rem;
@@ -106,6 +103,10 @@
 }
 
 .optionButton:hover {
+  background-color: #0056b3;
+}
+
+.optionButton.selected {
   background-color: #0056b3;
 }
 

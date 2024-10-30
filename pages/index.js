@@ -13,9 +13,9 @@ export default function Home() {
   const [progress, setProgress] = useState(0);
   const [numQuestions, setNumQuestions] = useState(20); // 사용자 정의 문제 수
   const [isEditing, setIsEditing] = useState(false); // 문제 수 수정 모드
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState(null); // 클릭된 버튼 추적
   const router = useRouter();
 
-  // 데이터 불러오기
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -31,7 +31,6 @@ export default function Home() {
     loadData();
   }, []);
 
-  // 선택된 문제 수만큼 무작위로 선택
   const selectRandomQuestions = (data, num) => {
     const randomQuestions = data.sort(() => 0.5 - Math.random()).slice(0, num);
     setSelectedQuestions(randomQuestions);
@@ -39,23 +38,22 @@ export default function Home() {
     setScore(0); // 점수 초기화
     setResults([]); // 결과 초기화
     setProgress(0); // 진행 상태 초기화
+    setSelectedOptionIndex(null); // 선택한 옵션 초기화
   };
 
-  // 문제 생성 및 업데이트
   useEffect(() => {
     if (selectedQuestions.length > 0) {
       generateQuestionType();
       generateOptions();
       setProgress(((questionIndex + 1) / selectedQuestions.length) * 100);
+      setSelectedOptionIndex(null); // 다음 문제로 넘어갈 때 선택 초기화
     }
   }, [questionIndex, selectedQuestions]);
 
-  // 문제 유형 랜덤 설정
   const generateQuestionType = () => {
     setQuestionType(Math.random() > 0.5 ? "wordToMeaning" : "meaningToWord");
   };
 
-  // 4개의 객관식 보기 생성
   const generateOptions = () => {
     const currentWord = selectedQuestions[questionIndex];
     const choices = [currentWord];
@@ -68,8 +66,9 @@ export default function Home() {
     setOptions(choices.sort(() => Math.random() - 0.5));
   };
 
-  // 사용자가 선택한 답안 확인
-  const handleAnswer = (selectedOption) => {
+  const handleAnswer = (selectedOption, index) => {
+    setSelectedOptionIndex(index); // 클릭된 버튼 인덱스를 저장
+
     const currentWord = selectedQuestions[questionIndex];
     const isCorrect =
       (questionType === "wordToMeaning" && selectedOption.meaning === currentWord.meaning) ||
@@ -79,7 +78,7 @@ export default function Home() {
     setResults([...results, { ...currentWord, isCorrect }]);
 
     if (questionIndex < selectedQuestions.length - 1) {
-      setQuestionIndex(questionIndex + 1);
+      setTimeout(() => setQuestionIndex(questionIndex + 1), 300); // 0.3초 후 다음 문제로 이동
     } else {
       const finalScore = isCorrect ? score + 1 : score;
       localStorage.setItem("score", finalScore);
@@ -88,11 +87,17 @@ export default function Home() {
     }
   };
 
-  // 문제 수 수정
   const handleQuestionCountChange = () => {
     const validNum = Math.max(1, Math.min(numQuestions, wordList.length));
     selectRandomQuestions(wordList, validNum);
     setIsEditing(false);
+  };
+
+  // Enter 키로 문제 수 설정 적용
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleQuestionCountChange();
+    }
   };
 
   return (
@@ -107,6 +112,7 @@ export default function Home() {
                 value={numQuestions}
                 onChange={(e) => setNumQuestions(parseInt(e.target.value))}
                 onBlur={handleQuestionCountChange}
+                onKeyDown={handleKeyDown} // Enter 키 적용
                 min="1"
                 max={wordList.length}
                 className={styles.numInput}
@@ -135,8 +141,10 @@ export default function Home() {
                 {options.map((option, index) => (
                   <button
                     key={index}
-                    className={styles.optionButton}
-                    onClick={() => handleAnswer(option)}
+                    className={`${styles.optionButton} ${
+                      selectedOptionIndex === index ? styles.selected : ""
+                    }`}
+                    onClick={() => handleAnswer(option, index)}
                   >
                     {questionType === "wordToMeaning" ? option.meaning : option.word}
                   </button>

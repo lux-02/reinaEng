@@ -26,7 +26,7 @@ export default function Results() {
   const correctCount = score;
   const Rlength = results.length
   const incorrectCount = Rlength - score;
-  const percent = (score / Rlength) * 100;
+  const percent = Math.round((score / Rlength) * 100);
   
 
   const data = {
