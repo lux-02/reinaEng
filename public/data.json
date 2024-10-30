@@ -1,63 +1,289 @@
-[
-    { "word": "abandon", "meaning": "버리다, 포기하다" },
-    { "word": "abuse", "meaning": "남용하다, 학대하다" },
-    { "word": "accept", "meaning": "받아들이다" },
-    { "word": "accompany", "meaning": "동행하다, 동반하다" },
-    { "word": "accomplish", "meaning": "이루다, 성취하다" },
-    { "word": "accuse", "meaning": "고발하다, 비난하다" },
-    { "word": "achieve", "meaning": "성취하다" },
-    { "word": "acknoledge", "meaning": "인정하다, 승인하다" },
-    { "word": "acquire", "meaning": "얻다" },
-    { "word": "act", "meaning": "행동하다" },
-    { "word": "adapt", "meaning": "적응하다" },
-    { "word": "add", "meaning": "더하다, 추가하다" },
-    { "word": "adjust", "meaning": "조절하다, 조정하다" },
-    { "word": "admire", "meaning": "감탄하다, 존경하다" },
-    { "word": "admit", "meaning": "인정하다, 허가하다" },
-    { "word": "adopt", "meaning": "채택하다, 입양하다" },
-    { "word": "advance", "meaning": "미리, 사전에" },
-    { "word": "advertisement", "meaning": "광고, 선전" },
-    { "word": "advise", "meaning": "충고하다, 조언하다" },
-    { "word": "advocate", "meaning": "지지하다, 옹호하다" },
-    { "word": "affect", "meaning": "영향을 미치다" },
-    { "word": "afford", "meaning": "~할 여유가 있다, 제공하다" },
-    { "word": "agree", "meaning": "동의하다, 의견이 일치하다" },
-    { "word": "aid", "meaning": "돕다" },
-    { "word": "allege", "meaning": "주장하다, 단언하다" },
-    { "word": "allow", "meaning": "허락하다, 인정하다" },
-    { "word": "alter", "meaning": "바꾸다, 변경하다" },
-    { "word": "amaze", "meaning": "놀라게 하다" },
-    { "word": "analyze", "meaning": "분석하다, 검토하다" },
-    { "word": "anger", "meaning": "화, 분노" },
-    { "word": "announcement", "meaning": "공고, 발표" },
-    { "word": "anticipate", "meaning": "예상하다, 기대하다" },
-    { "word": "apologize", "meaning": "사과하다, 사죄하다" },
-    { "word": "appeal", "meaning": "관심을 끌다, 매력적이다" },
-    { "word": "appear", "meaning": "나타나다, 출현하다" },
-    { "word": "appoint", "meaning": "임명하다, 지명하다" },
-    { "word": "apply", "meaning": "적용하다, 지원하다" },
-    { "word": "appreciate", "meaning": "감사하다, 감상하다" },
-    { "word": "approach", "meaning": "접근하다, 접근" },
-    { "word": "approve", "meaning": "찬성하다, 승인하다" },
-    { "word": "argue", "meaning": "논쟁하다, 주장하다" },
-    { "word": "arise", "meaning": "발생하다, 일어나다" },
-    { "word": "arrange", "meaning": "배열하다, 정돈하다" },
-    { "word": "arrest", "meaning": "체포하다, 체포" },
-    { "word": "arrive", "meaning": "도착하다, 도달하다" },
-    { "word": "ask", "meaning": "요청하다" },
-    { "word": "assess", "meaning": "평가하다" },
-    { "word": "assign", "meaning": "배정하다, 할당하다" },
-    { "word": "assist", "meaning": "돕다, 조력하다" },
-    { "word": "assume", "meaning": "가정하다, 추정하다" },
-    { "word": "assure", "meaning": "확신시키다, 보장하다" },
-    { "word": "attach", "meaning": "붙이다, 첨부하다" },
-    { "word": "attack", "meaning": "공격하다, 공격" },
-    { "word": "attempt", "meaning": "시도하다, 시도" },
-    { "word": "attend", "meaning": "참석하다, 출석하다" },
-    { "word": "attract", "meaning": "끌다, 유인하다" },
-    { "word": "avoid", "meaning": "피하다, 회피하다" },
-    { "word": "award", "meaning": "상, 수여하다" },
-    { "word": "balance", "meaning": "균형, 은행 잔고, 균형을 이루다" },
-    { "word": "ban", "meaning": "금지하다, 금지" }
+{
+  "updatedAt": "2024-10-30T04:45:03.544Z",
+  "terms": [
+    {
+      "word": "abandon",
+      "meaning": "버리다, 포기하다"
+    },
+    {
+      "word": "abuse",
+      "meaning": "남용하다, 학대하다"
+    },
+    {
+      "word": "accept",
+      "meaning": "받아들이다"
+    },
+    {
+      "word": "accompany",
+      "meaning": "동행하다, 동반하다"
+    },
+    {
+      "word": "accomplish",
+      "meaning": "이루다, 성취하다"
+    },
+    {
+      "word": "accuse",
+      "meaning": "고발하다, 비난하다"
+    },
+    {
+      "word": "achieve",
+      "meaning": "성취하다"
+    },
+    {
+      "word": "acknoledge",
+      "meaning": "인정하다, 승인하다"
+    },
+    {
+      "word": "acquire",
+      "meaning": "얻다"
+    },
+    {
+      "word": "act",
+      "meaning": "행동하다"
+    },
+    {
+      "word": "adapt",
+      "meaning": "적응하다"
+    },
+    {
+      "word": "add",
+      "meaning": "더하다, 추가하다"
+    },
+    {
+      "word": "adjust",
+      "meaning": "조절하다, 조정하다"
+    },
+    {
+      "word": "admire",
+      "meaning": "감탄하다, 존경하다"
+    },
+    {
+      "word": "admit",
+      "meaning": "인정하다, 허가하다"
+    },
+    {
+      "word": "adopt",
+      "meaning": "채택하다, 입양하다"
+    },
+    {
+      "word": "advance",
+      "meaning": "미리, 사전에"
+    },
+    {
+      "word": "advertisement",
+      "meaning": "광고, 선전"
+    },
+    {
+      "word": "advise",
+      "meaning": "충고하다, 조언하다"
+    },
+    {
+      "word": "advocate",
+      "meaning": "지지하다, 옹호하다"
+    },
+    {
+      "word": "affect",
+      "meaning": "영향을 미치다"
+    },
+    {
+      "word": "afford",
+      "meaning": "~할 여유가 있다, 제공하다"
+    },
+    {
+      "word": "agree",
+      "meaning": "동의하다, 의견이 일치하다"
+    },
+    {
+      "word": "aid",
+      "meaning": "돕다"
+    },
+    {
+      "word": "allege",
+      "meaning": "주장하다, 단언하다"
+    },
+    {
+      "word": "allow",
+      "meaning": "허락하다, 인정하다"
+    },
+    {
+      "word": "alter",
+      "meaning": "바꾸다, 변경하다"
+    },
+    {
+      "word": "amaze",
+      "meaning": "놀라게 하다"
+    },
+    {
+      "word": "analyze",
+      "meaning": "분석하다, 검토하다"
+    },
+    {
+      "word": "anger",
+      "meaning": "화, 분노"
+    },
+    {
+      "word": "announcement",
+      "meaning": "공고, 발표"
+    },
+    {
+      "word": "anticipate",
+      "meaning": "예상하다, 기대하다"
+    },
+    {
+      "word": "apologize",
+      "meaning": "사과하다, 사죄하다"
+    },
+    {
+      "word": "appeal",
+      "meaning": "관심을 끌다, 매력적이다"
+    },
+    {
+      "word": "appear",
+      "meaning": "나타나다, 출현하다"
+    },
+    {
+      "word": "appoint",
+      "meaning": "임명하다, 지명하다"
+    },
+    {
+      "word": "apply",
+      "meaning": "적용하다, 지원하다"
+    },
+    {
+      "word": "appreciate",
+      "meaning": "감사하다, 감상하다"
+    },
+    {
+      "word": "approach",
+      "meaning": "접근하다, 접근"
+    },
+    {
+      "word": "approve",
+      "meaning": "찬성하다, 승인하다"
+    },
+    {
+      "word": "argue",
+      "meaning": "논쟁하다, 주장하다"
+    },
+    {
+      "word": "arise",
+      "meaning": "발생하다, 일어나다"
+    },
+    {
+      "word": "arrange",
+      "meaning": "배열하다, 정돈하다"
+    },
+    {
+      "word": "arrest",
+      "meaning": "체포하다, 체포"
+    },
+    {
+      "word": "arrive",
+      "meaning": "도착하다, 도달하다"
+    },
+    {
+      "word": "ask",
+      "meaning": "요청하다"
+    },
+    {
+      "word": "assess",
+      "meaning": "평가하다"
+    },
+    {
+      "word": "assign",
+      "meaning": "배정하다, 할당하다"
+    },
+    {
+      "word": "assist",
+      "meaning": "돕다, 조력하다"
+    },
+    {
+      "word": "assume",
+      "meaning": "가정하다, 추정하다"
+    },
+    {
+      "word": "assure",
+      "meaning": "확신시키다, 보장하다"
+    },
+    {
+      "word": "attach",
+      "meaning": "붙이다, 첨부하다"
+    },
+    {
+      "word": "attack",
+      "meaning": "공격하다, 공격"
+    },
+    {
+      "word": "attempt",
+      "meaning": "시도하다, 시도"
+    },
+    {
+      "word": "attend",
+      "meaning": "참석하다, 출석하다"
+    },
+    {
+      "word": "attract",
+      "meaning": "끌다, 유인하다"
+    },
+    {
+      "word": "avoid",
+      "meaning": "피하다, 회피하다"
+    },
+    {
+      "word": "award",
+      "meaning": "상, 수여하다"
+    },
+    {
+      "word": "Balance",
+      "meaning": "균형, 은행 잔고, 균형을 이루다"
+    },
+    {
+      "word": "ban",
+      "meaning": "금지하다, 금지"
+    },
+    {
+      "word": "bit",
+      "meaning": "조금, 약간"
+    },
+    {
+      "word": "bind",
+      "meaning": "묶다, 결속시키다"
+    },
+    {
+      "word": "bite",
+      "meaning": "물다, 물어뜯다"
+    },
+    {
+      "word": "blame",
+      "meaning": "비난하다"
+    },
+    {
+      "word": "bless",
+      "meaning": "축복하다, 감사하다"
+    },
+    {
+      "word": "block",
+      "meaning": "막다, 차단하다"
+    },
+    {
+      "word": "blow",
+      "meaning": "불다, 바람에 날리다"
+    },
+    {
+      "word": "bomb",
+      "meaning": "폭탄, 폭격하다"
+    },
+    {
+      "word": "bond",
+      "meaning": "유대, 결속"
+    },
+    {
+      "word": "boom",
+      "meaning": "갑자기 번창하다"
+    },
+    {
+      "word": "bid",
+      "meaning": "명령하다, 말하다"
+    }
   ]
-  
+}

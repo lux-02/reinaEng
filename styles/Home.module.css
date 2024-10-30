@@ -146,3 +146,13 @@
   font-size: 1rem;
   text-align: center;
 }
+
+
+.updateButton {
+  background-color: none;
+  border: none;
+  background: none;
+  color: gray;
+  border-bottom: 1px solid gray;
+  margin: 2rem;
+}

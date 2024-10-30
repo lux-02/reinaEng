@@ -11,9 +11,10 @@ export default function Home() {
   const [results, setResults] = useState([]);
   const [questionType, setQuestionType] = useState("wordToMeaning");
   const [progress, setProgress] = useState(0);
-  const [numQuestions, setNumQuestions] = useState(20); // 사용자 정의 문제 수
-  const [isEditing, setIsEditing] = useState(false); // 문제 수 수정 모드
-  const [selectedOptionIndex, setSelectedOptionIndex] = useState(null); // 클릭된 버튼 추적
+  const [numQuestions, setNumQuestions] = useState(20);
+  const [isEditing, setIsEditing] = useState(false);
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState(null);
+  const [lastUpdateDate, setLastUpdateDate] = useState(""); // 마지막 업데이트 날짜
   const router = useRouter();
 
   useEffect(() => {
@@ -21,24 +22,31 @@ export default function Home() {
       try {
         const response = await fetch('/data.json');
         const data = await response.json();
-        setWordList(data);
-        selectRandomQuestions(data, numQuestions);
+  
+        if (Array.isArray(data.terms)) {
+          setWordList(data.terms);
+          selectRandomQuestions(data.terms, numQuestions);
+          setLastUpdateDate(data.updatedAt ? data.updatedAt.split("T")[0] : "");
+        } else {
+          console.error("Data format is incorrect", data);
+        }
       } catch (error) {
         console.error("Failed to load data:", error);
       }
     };
-
+  
     loadData();
   }, []);
+  
 
   const selectRandomQuestions = (data, num) => {
     const randomQuestions = data.sort(() => 0.5 - Math.random()).slice(0, num);
     setSelectedQuestions(randomQuestions);
-    setQuestionIndex(0); // 처음으로 초기화
-    setScore(0); // 점수 초기화
-    setResults([]); // 결과 초기화
-    setProgress(0); // 진행 상태 초기화
-    setSelectedOptionIndex(null); // 선택한 옵션 초기화
+    setQuestionIndex(0);
+    setScore(0);
+    setResults([]);
+    setProgress(0);
+    setSelectedOptionIndex(null);
   };
 
   useEffect(() => {
@@ -46,7 +54,7 @@ export default function Home() {
       generateQuestionType();
       generateOptions();
       setProgress(((questionIndex + 1) / selectedQuestions.length) * 100);
-      setSelectedOptionIndex(null); // 다음 문제로 넘어갈 때 선택 초기화
+      setSelectedOptionIndex(null);
     }
   }, [questionIndex, selectedQuestions]);
 
@@ -67,7 +75,7 @@ export default function Home() {
   };
 
   const handleAnswer = (selectedOption, index) => {
-    setSelectedOptionIndex(index); // 클릭된 버튼 인덱스를 저장
+    setSelectedOptionIndex(index);
 
     const currentWord = selectedQuestions[questionIndex];
     const isCorrect =
@@ -78,7 +86,7 @@ export default function Home() {
     setResults([...results, { ...currentWord, isCorrect }]);
 
     if (questionIndex < selectedQuestions.length - 1) {
-      setTimeout(() => setQuestionIndex(questionIndex + 1), 300); // 0.3초 후 다음 문제로 이동
+      setTimeout(() => setQuestionIndex(questionIndex + 1), 300);
     } else {
       const finalScore = isCorrect ? score + 1 : score;
       localStorage.setItem("score", finalScore);
@@ -93,7 +101,33 @@ export default function Home() {
     setIsEditing(false);
   };
 
-  // Enter 키로 문제 수 설정 적용
+  const handleQuizletUpdate = async () => {
+    try {
+      const response = await fetch("/api/updateQuizletData", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: "https://quizlet.com/ph/963436043/reina-english-class-flash-cards/?i=e38um&x=1jqt" })
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert("문제 데이터가 갱신되었습니다!");
+        setWordList(result.data.terms);
+        selectRandomQuestions(result.data.terms, numQuestions);
+
+        // 업데이트 날짜 설정
+        const today = result.data.updatedAt.split("T")[0];
+        setLastUpdateDate(today);
+        localStorage.setItem("lastUpdateDate", today);
+      } else {
+        alert("데이터 갱신에 실패했습니다: " + result.message);
+      }
+    } catch (error) {
+      console.error("Error updating quizlet data:", error);
+      alert("오류가 발생했습니다. 콘솔을 확인하세요.");
+    }
+  };
+
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       handleQuestionCountChange();
@@ -103,7 +137,6 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.quizContainer}>
-        {/* 문제 수 설정 영역 */}
         <div className={styles.numQuestionsWrap}>
           <div className={styles.numQuestions} onClick={() => setIsEditing(true)}>
             {isEditing ? (
@@ -112,7 +145,7 @@ export default function Home() {
                 value={numQuestions}
                 onChange={(e) => setNumQuestions(parseInt(e.target.value))}
                 onBlur={handleQuestionCountChange}
-                onKeyDown={handleKeyDown} // Enter 키 적용
+                onKeyDown={handleKeyDown}
                 min="1"
                 max={wordList.length}
                 className={styles.numInput}
@@ -123,7 +156,6 @@ export default function Home() {
           </div>
         </div>
         
-        {/* 문제 */}
         {selectedQuestions.length > 0 ? (
           <>
             <div className={styles.question}>
@@ -157,6 +189,9 @@ export default function Home() {
           <p>Loading...</p>
         )}
       </div>
+      <button onClick={handleQuizletUpdate} className={styles.updateButton}>
+        Data Update {lastUpdateDate && `(${lastUpdateDate})`}
+      </button>
     </div>
   );
 }
