@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const quizletUrl = req.body.url || "https://quizlet.com/ph/963436043/reina-english-class-flash-cards/?i=e38um&x=1jqt";
+  const quizletUrl = req.body.url || "https://quizlet.com/ph/960787628/english-flash-cards/?i=61ajga&x=1jqt";
 
   try {
     const browser = await puppeteer.launch({
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       const terms = Array.from(document.querySelectorAll(".SetPageTerms-term"));
       return terms.map(term => {
         const word = term.querySelector(".TermText.lang-en")?.innerText.trim();
-        const meaning = term.querySelector(".TermText.lang-ko")?.innerText.trim();
+        const meaning = term.querySelector(".TermText.lang-ja")?.innerText.trim();
         return { word, meaning };
       }).filter(term => term.word && term.meaning);
     });

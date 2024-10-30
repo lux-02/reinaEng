@@ -106,7 +106,7 @@ export default function Home() {
       const response = await fetch("/api/updateQuizletData", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: "https://quizlet.com/ph/963436043/reina-english-class-flash-cards/?i=e38um&x=1jqt" })
+        body: JSON.stringify({ url: "https://quizlet.com/ph/960787628/english-flash-cards/?i=61ajga&x=1jqt" })
       });
 
       const result = await response.json();

@@ -1,289 +1,365 @@
 {
-  "updatedAt": "2024-10-30T04:45:03.544Z",
+  "updatedAt": "2024-10-30T12:29:42.441Z",
   "terms": [
     {
-      "word": "abandon",
-      "meaning": "버리다, 포기하다"
-    },
-    {
-      "word": "abuse",
-      "meaning": "남용하다, 학대하다"
-    },
-    {
-      "word": "accept",
-      "meaning": "받아들이다"
-    },
-    {
-      "word": "accompany",
-      "meaning": "동행하다, 동반하다"
-    },
-    {
-      "word": "accomplish",
-      "meaning": "이루다, 성취하다"
-    },
-    {
-      "word": "accuse",
-      "meaning": "고발하다, 비난하다"
-    },
-    {
-      "word": "achieve",
-      "meaning": "성취하다"
-    },
-    {
-      "word": "acknoledge",
-      "meaning": "인정하다, 승인하다"
-    },
-    {
-      "word": "acquire",
-      "meaning": "얻다"
-    },
-    {
-      "word": "act",
-      "meaning": "행동하다"
-    },
-    {
       "word": "adapt",
-      "meaning": "적응하다"
+      "meaning": "適応する"
     },
     {
       "word": "add",
-      "meaning": "더하다, 추가하다"
+      "meaning": "加える"
     },
     {
       "word": "adjust",
-      "meaning": "조절하다, 조정하다"
+      "meaning": "調整する、慣れる"
     },
     {
       "word": "admire",
-      "meaning": "감탄하다, 존경하다"
+      "meaning": "賞賛する、感心する"
     },
     {
       "word": "admit",
-      "meaning": "인정하다, 허가하다"
+      "meaning": "認める"
     },
     {
       "word": "adopt",
-      "meaning": "채택하다, 입양하다"
+      "meaning": "採用する、取り入れる、養子にする"
     },
     {
       "word": "advance",
-      "meaning": "미리, 사전에"
+      "meaning": "前進、進む"
     },
     {
-      "word": "advertisement",
-      "meaning": "광고, 선전"
+      "word": "Advertise",
+      "meaning": "宣伝する"
     },
     {
       "word": "advise",
-      "meaning": "충고하다, 조언하다"
+      "meaning": "忠告する、勧める"
     },
     {
       "word": "advocate",
-      "meaning": "지지하다, 옹호하다"
+      "meaning": "提唱する、主張する"
+    },
+    {
+      "word": "abandon",
+      "meaning": "見捨てる、あきらめる"
+    },
+    {
+      "word": "abuse",
+      "meaning": "[名] ①虐待 ②乱用 [他] ③～を悪用する"
+    },
+    {
+      "word": "accept",
+      "meaning": "受け入れる"
+    },
+    {
+      "word": "accompany",
+      "meaning": "同行する"
+    },
+    {
+      "word": "accomplish",
+      "meaning": "成し遂げる、達成する"
+    },
+    {
+      "word": "accuse",
+      "meaning": "を非難する；を訴える"
+    },
+    {
+      "word": "achieve",
+      "meaning": "達成する、成功する"
+    },
+    {
+      "word": "acknowledge",
+      "meaning": "認める、正当に認識する"
+    },
+    {
+      "word": "acquired",
+      "meaning": "獲得する、習得する"
+    },
+    {
+      "word": "act",
+      "meaning": "行動する、ふるまう"
     },
     {
       "word": "affect",
-      "meaning": "영향을 미치다"
+      "meaning": "影響する"
     },
     {
       "word": "afford",
-      "meaning": "~할 여유가 있다, 제공하다"
+      "meaning": "～する余裕がある"
     },
     {
       "word": "agree",
-      "meaning": "동의하다, 의견이 일치하다"
+      "meaning": "同意する"
     },
     {
       "word": "aid",
-      "meaning": "돕다"
+      "meaning": "援助する"
     },
     {
       "word": "allege",
-      "meaning": "주장하다, 단언하다"
+      "meaning": "(証拠なしに)を主張する"
     },
     {
       "word": "allow",
-      "meaning": "허락하다, 인정하다"
+      "meaning": "を許可する、配分する"
     },
     {
       "word": "alter",
-      "meaning": "바꾸다, 변경하다"
+      "meaning": "変更する"
     },
     {
       "word": "amaze",
-      "meaning": "놀라게 하다"
+      "meaning": "をびっくりさせる、困惑させる"
     },
     {
       "word": "analyze",
-      "meaning": "분석하다, 검토하다"
+      "meaning": "分析する"
     },
     {
       "word": "anger",
-      "meaning": "화, 분노"
+      "meaning": "怒らせる、怒る"
     },
     {
-      "word": "announcement",
-      "meaning": "공고, 발표"
+      "word": "announce",
+      "meaning": "知らせる；公表する"
     },
     {
       "word": "anticipate",
-      "meaning": "예상하다, 기대하다"
+      "meaning": "予期する、予測する"
     },
     {
       "word": "apologize",
-      "meaning": "사과하다, 사죄하다"
+      "meaning": "謝罪する"
     },
     {
       "word": "appeal",
-      "meaning": "관심을 끌다, 매력적이다"
+      "meaning": "訴える"
     },
     {
       "word": "appear",
-      "meaning": "나타나다, 출현하다"
-    },
-    {
-      "word": "appoint",
-      "meaning": "임명하다, 지명하다"
+      "meaning": "...のように見える；現れる"
     },
     {
       "word": "apply",
-      "meaning": "적용하다, 지원하다"
+      "meaning": "申し込む、申請する"
+    },
+    {
+      "word": "appoint",
+      "meaning": "～を任命する、～を指定する"
     },
     {
       "word": "appreciate",
-      "meaning": "감사하다, 감상하다"
+      "meaning": "ありがたく思う、感謝する"
     },
     {
       "word": "approach",
-      "meaning": "접근하다, 접근"
+      "meaning": "近づく、接近する"
     },
     {
       "word": "approve",
-      "meaning": "찬성하다, 승인하다"
+      "meaning": "賛成する；を承認する"
     },
     {
       "word": "argue",
-      "meaning": "논쟁하다, 주장하다"
+      "meaning": "言い争う"
     },
     {
       "word": "arise",
-      "meaning": "발생하다, 일어나다"
+      "meaning": "生じる、起こる"
     },
     {
       "word": "arrange",
-      "meaning": "배열하다, 정돈하다"
+      "meaning": "きちんと並べる; 整える、手配する"
     },
     {
       "word": "arrest",
-      "meaning": "체포하다, 체포"
+      "meaning": "逮捕する"
     },
     {
       "word": "arrive",
-      "meaning": "도착하다, 도달하다"
+      "meaning": "到着する"
     },
     {
       "word": "ask",
-      "meaning": "요청하다"
+      "meaning": "尋ねる"
     },
     {
       "word": "assess",
-      "meaning": "평가하다"
+      "meaning": "を評価する、を査定する、(税金・罰金)を課す"
     },
     {
       "word": "assign",
-      "meaning": "배정하다, 할당하다"
+      "meaning": "割り当てる、譲渡する"
     },
     {
       "word": "assist",
-      "meaning": "돕다, 조력하다"
+      "meaning": "手伝う、援助する"
     },
     {
       "word": "assume",
-      "meaning": "가정하다, 추정하다"
+      "meaning": "仮定する、推測する"
     },
     {
       "word": "assure",
-      "meaning": "확신시키다, 보장하다"
+      "meaning": "保証する"
     },
     {
       "word": "attach",
-      "meaning": "붙이다, 첨부하다"
+      "meaning": "取り付ける、添付する"
     },
     {
       "word": "attack",
-      "meaning": "공격하다, 공격"
+      "meaning": "攻撃する"
     },
     {
       "word": "attempt",
-      "meaning": "시도하다, 시도"
+      "meaning": "試みる、企てる"
     },
     {
       "word": "attend",
-      "meaning": "참석하다, 출석하다"
+      "meaning": "出席する"
     },
     {
       "word": "attract",
-      "meaning": "끌다, 유인하다"
+      "meaning": "魅了する、引きつける"
     },
     {
       "word": "avoid",
-      "meaning": "피하다, 회피하다"
+      "meaning": "避ける"
     },
     {
       "word": "award",
-      "meaning": "상, 수여하다"
+      "meaning": "を授与する"
     },
     {
-      "word": "Balance",
-      "meaning": "균형, 은행 잔고, 균형을 이루다"
+      "word": "balance",
+      "meaning": "釣り合う; バランスをとる"
     },
     {
       "word": "ban",
-      "meaning": "금지하다, 금지"
+      "meaning": "禁止する"
     },
     {
-      "word": "bit",
-      "meaning": "조금, 약간"
+      "word": "bar",
+      "meaning": "塞ぐ、出入りを禁じる"
     },
     {
-      "word": "bind",
-      "meaning": "묶다, 결속시키다"
+      "word": "be",
+      "meaning": "〜である"
     },
     {
-      "word": "bite",
-      "meaning": "물다, 물어뜯다"
+      "word": "beat",
+      "meaning": "（を）打つ；を打ち負かす"
     },
     {
-      "word": "blame",
-      "meaning": "비난하다"
+      "word": "become",
+      "meaning": "～になる"
     },
     {
-      "word": "bless",
-      "meaning": "축복하다, 감사하다"
+      "word": "begin",
+      "meaning": "始まる"
     },
     {
-      "word": "block",
-      "meaning": "막다, 차단하다"
+      "word": "behave",
+      "meaning": "振る舞う、行動する"
     },
     {
-      "word": "blow",
-      "meaning": "불다, 바람에 날리다"
+      "word": "believe",
+      "meaning": "信じる"
     },
     {
-      "word": "bomb",
-      "meaning": "폭탄, 폭격하다"
+      "word": "belong",
+      "meaning": "属する"
     },
     {
-      "word": "bond",
-      "meaning": "유대, 결속"
+      "word": "bend",
+      "meaning": "曲げる"
     },
     {
-      "word": "boom",
-      "meaning": "갑자기 번창하다"
+      "word": "bet",
+      "meaning": "賭ける、〜だと確信している"
     },
     {
       "word": "bid",
-      "meaning": "명령하다, 말하다"
+      "meaning": "値をつける、競り落とす"
+    },
+    {
+      "word": "bind",
+      "meaning": "縛る,結ぶ"
+    },
+    {
+      "word": "bite",
+      "meaning": "噛む"
+    },
+    {
+      "word": "blame",
+      "meaning": "非難する、責める"
+    },
+    {
+      "word": "bless",
+      "meaning": "祝福する"
+    },
+    {
+      "word": "block",
+      "meaning": "妨げる； 塞ぐ"
+    },
+    {
+      "word": "blow",
+      "meaning": "吹く、爆破する"
+    },
+    {
+      "word": "bomb",
+      "meaning": "爆撃する"
+    },
+    {
+      "word": "bond",
+      "meaning": "くっつける； 接着する"
+    },
+    {
+      "word": "boom",
+      "meaning": "とどろく、にわかに景気づく"
+    },
+    {
+      "word": "boost",
+      "meaning": "促進する、引き上げる"
+    },
+    {
+      "word": "borrow",
+      "meaning": "借りる"
+    },
+    {
+      "word": "bother",
+      "meaning": "悩ます、迷惑をかける"
+    },
+    {
+      "word": "break",
+      "meaning": "壊す"
+    },
+    {
+      "word": "breathe",
+      "meaning": "呼吸する"
+    },
+    {
+      "word": "breed",
+      "meaning": "動物が子を生む; 繁殖する"
+    },
+    {
+      "word": "bring",
+      "meaning": "持ってくる"
+    },
+    {
+      "word": "broadcast",
+      "meaning": "放送する"
+    },
+    {
+      "word": "build",
+      "meaning": "建てる"
+    },
+    {
+      "word": "burden",
+      "meaning": "重い荷物を積む、負担をかける"
     }
   ]
 }
