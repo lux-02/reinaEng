@@ -3,4 +3,12 @@
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: 'CookieRun-Regular';
+}
+
+@font-face {
+  font-family: 'CookieRun-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
