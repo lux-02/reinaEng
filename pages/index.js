@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import styles from '@/styles/Home.module.css';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import styles from "@/styles/Home.module.css";
 
 export default function Home() {
   const [wordList, setWordList] = useState([]);
@@ -14,15 +14,15 @@ export default function Home() {
   const [numQuestions, setNumQuestions] = useState(20);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(null);
-  const [lastUpdateDate, setLastUpdateDate] = useState(""); // 마지막 업데이트 날짜
+  const [lastUpdateDate, setLastUpdateDate] = useState("");
   const router = useRouter();
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('/data.json');
+        const response = await fetch("/data.json");
         const data = await response.json();
-  
+
         if (Array.isArray(data.terms)) {
           setWordList(data.terms);
           selectRandomQuestions(data.terms, numQuestions);
@@ -34,10 +34,9 @@ export default function Home() {
         console.error("Failed to load data:", error);
       }
     };
-  
+
     loadData();
   }, []);
-  
 
   const selectRandomQuestions = (data, num) => {
     const randomQuestions = data.sort(() => 0.5 - Math.random()).slice(0, num);
@@ -79,8 +78,10 @@ export default function Home() {
 
     const currentWord = selectedQuestions[questionIndex];
     const isCorrect =
-      (questionType === "wordToMeaning" && selectedOption.meaning === currentWord.meaning) ||
-      (questionType === "meaningToWord" && selectedOption.word === currentWord.word);
+      (questionType === "wordToMeaning" &&
+        selectedOption.meaning === currentWord.meaning) ||
+      (questionType === "meaningToWord" &&
+        selectedOption.word === currentWord.word);
 
     if (isCorrect) setScore(score + 1);
     setResults([...results, { ...currentWord, isCorrect }]);
@@ -90,8 +91,11 @@ export default function Home() {
     } else {
       const finalScore = isCorrect ? score + 1 : score;
       localStorage.setItem("score", finalScore);
-      localStorage.setItem("results", JSON.stringify([...results, { ...currentWord, isCorrect }]));
-      router.push('/results');
+      localStorage.setItem(
+        "results",
+        JSON.stringify([...results, { ...currentWord, isCorrect }])
+      );
+      router.push("/results");
     }
   };
 
@@ -106,7 +110,9 @@ export default function Home() {
       const response = await fetch("/api/updateQuizletData", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: "https://quizlet.com/ph/960787628/english-flash-cards/?i=61ajga&x=1jqt" })
+        body: JSON.stringify({
+          url: "https://quizlet.com/ph/960787628/english-flash-cards/?i=61ajga&x=1jqt",
+        }),
       });
 
       const result = await response.json();
@@ -129,7 +135,7 @@ export default function Home() {
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       handleQuestionCountChange();
     }
   };
@@ -138,7 +144,10 @@ export default function Home() {
     <div className={styles.container}>
       <div className={styles.quizContainer}>
         <div className={styles.numQuestionsWrap}>
-          <div className={styles.numQuestions} onClick={() => setIsEditing(true)}>
+          <div
+            className={styles.numQuestions}
+            onClick={() => setIsEditing(true)}
+          >
             {isEditing ? (
               <input
                 type="number"
@@ -155,7 +164,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        
+
         {selectedQuestions.length > 0 ? (
           <>
             <div className={styles.question}>
@@ -165,7 +174,10 @@ export default function Home() {
             </div>
             <div className={styles.progressBarWrap}>
               <div className={styles.progressBarContainer}>
-                <div className={styles.progressBar} style={{ width: `${progress}%` }}></div>
+                <div
+                  className={styles.progressBar}
+                  style={{ width: `${progress}%` }}
+                ></div>
               </div>
             </div>
             <div className={styles.optionsWrap}>
@@ -178,7 +190,9 @@ export default function Home() {
                     }`}
                     onClick={() => handleAnswer(option, index)}
                   >
-                    {questionType === "wordToMeaning" ? option.meaning : option.word}
+                    {questionType === "wordToMeaning"
+                      ? option.meaning
+                      : option.word}
                   </button>
                 ))}
               </div>
@@ -189,9 +203,17 @@ export default function Home() {
           <p>Loading...</p>
         )}
       </div>
-      <button onClick={handleQuizletUpdate} className={styles.updateButton}>
-        Data Update {lastUpdateDate && `(${lastUpdateDate})`}
-      </button>
+      <div className={styles.btnWrap}>
+        <button onClick={handleQuizletUpdate} className={styles.updateButton}>
+          Data Update {lastUpdateDate && `(${lastUpdateDate})`}
+        </button>
+        <button
+          onClick={() => router.push("/data")}
+          className={styles.viewAllButton}
+        >
+          전체 단어 보기
+        </button>
+      </div>
     </div>
   );
 }

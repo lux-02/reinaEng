@@ -1,0 +1,52 @@
+.container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+.wordTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+}
+
+.wordTable th,
+.wordTable td {
+  border: 1px solid #fff;
+  padding: 10px;
+  text-align: left;
+}
+
+.wordTable th {
+  background-color: #000055;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+.wordTable tr:nth-child(even) {
+  background-color: #222;
+}
+
+.wordTable tr:hover {
+  background-color: #000055;
+  cursor: pointer;
+}
+
+.backButton {
+  margin: 2rem 0;
+  padding: 1rem 20px;
+  background-color: #00009f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  font-weight: bold;
+  font-family: "CookieRun-Regular";
+}
