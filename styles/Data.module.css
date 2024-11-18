@@ -50,3 +50,18 @@
   font-weight: bold;
   font-family: "CookieRun-Regular";
 }
+
+.updateButton {
+  margin-top: 2rem;
+  background-color: none;
+  border: none;
+  background: none;
+  color: gray;
+  border-bottom: 1px solid gray;
+  font-family: "CookieRun-Regular";
+}
+
+.updateButton:hover {
+  color: rgb(194, 194, 194);
+  cursor: pointer;
+}

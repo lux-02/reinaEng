@@ -14,7 +14,6 @@ export default function Home() {
   const [numQuestions, setNumQuestions] = useState(20);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(null);
-  const [lastUpdateDate, setLastUpdateDate] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -105,35 +104,6 @@ export default function Home() {
     setIsEditing(false);
   };
 
-  const handleQuizletUpdate = async () => {
-    try {
-      const response = await fetch("/api/updateQuizletData", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          url: "https://quizlet.com/ph/960787628/english-flash-cards/?i=61ajga&x=1jqt",
-        }),
-      });
-
-      const result = await response.json();
-      if (response.ok) {
-        alert("문제 데이터가 갱신되었습니다!");
-        setWordList(result.data.terms);
-        selectRandomQuestions(result.data.terms, numQuestions);
-
-        // 업데이트 날짜 설정
-        const today = result.data.updatedAt.split("T")[0];
-        setLastUpdateDate(today);
-        localStorage.setItem("lastUpdateDate", today);
-      } else {
-        alert("데이터 갱신에 실패했습니다: " + result.message);
-      }
-    } catch (error) {
-      console.error("Error updating quizlet data:", error);
-      alert("오류가 발생했습니다. 콘솔을 확인하세요.");
-    }
-  };
-
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       handleQuestionCountChange();
@@ -204,9 +174,6 @@ export default function Home() {
         )}
       </div>
       <div className={styles.btnWrap}>
-        <button onClick={handleQuizletUpdate} className={styles.updateButton}>
-          Data Update {lastUpdateDate && `(${lastUpdateDate})`}
-        </button>
         <button
           onClick={() => router.push("/data")}
           className={styles.viewAllButton}

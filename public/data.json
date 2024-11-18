@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2024-10-31T18:34:42.441Z",
+  "updatedAt": "2024-11-18",
   "terms": [
     {
       "word": "adapt",
@@ -423,14 +423,14 @@
     },
     {
       "word": "characterize",
-      "meaning": "～とみなす、描く、特徴づける"
+      "meaning": "〜とみなす、描く、特徴づける"
     },
     {
       "word": "charge",
       "meaning": "請求する"
     },
     {
-      "word": "change",
+      "word": "chase",
       "meaning": "追いかける"
     },
     {
@@ -438,8 +438,248 @@
       "meaning": "おしゃべりする、チャットする"
     },
     {
-      "word": "check",
+      "word": "cheak",
       "meaning": "確認する"
+    },
+    {
+      "word": "chip",
+      "meaning": "細かく砕ける"
+    },
+    {
+      "word": "choose",
+      "meaning": "選ぶ"
+    },
+    {
+      "word": "cite",
+      "meaning": "引用する、引き合いに出す"
+    },
+    {
+      "word": "claim",
+      "meaning": "主張する、要求する"
+    },
+    {
+      "word": "climb",
+      "meaning": "登る"
+    },
+    {
+      "word": "cluster",
+      "meaning": "群がる"
+    },
+    {
+      "word": "collapse",
+      "meaning": "つぶれる、崩壊する、倒れる"
+    },
+    {
+      "word": "collect",
+      "meaning": "集める"
+    },
+    {
+      "word": "combine",
+      "meaning": "組み合わせる, 混ぜ合わせる"
+    },
+    {
+      "word": "come",
+      "meaning": "来る"
+    },
+    {
+      "word": "command",
+      "meaning": "命令する、指揮する"
+    },
+    {
+      "word": "commit",
+      "meaning": "〈罪など〉を犯す"
+    },
+    {
+      "word": "communicate",
+      "meaning": "伝える、やり取りする"
+    },
+    {
+      "word": "compare",
+      "meaning": "比較する"
+    },
+    {
+      "word": "compete",
+      "meaning": "競争する"
+    },
+    {
+      "word": "complain",
+      "meaning": "不平を言う"
+    },
+    {
+      "word": "complete",
+      "meaning": "完了する、全部揃える"
+    },
+    {
+      "word": "complicate",
+      "meaning": "を複雑にする"
+    },
+    {
+      "word": "compose",
+      "meaning": "構成する、作る、創作する"
+    },
+    {
+      "word": "comprise",
+      "meaning": "含む、構成する"
+    },
+    {
+      "word": "compromise",
+      "meaning": "妥協する"
+    },
+    {
+      "word": "compute",
+      "meaning": "計算する"
+    },
+    {
+      "word": "concentrate",
+      "meaning": "集中する"
+    },
+    {
+      "word": "conclude",
+      "meaning": "結論を出す、締結する"
+    },
+    {
+      "word": "conduct",
+      "meaning": "導く、案内する"
+    },
+    {
+      "word": "confirm",
+      "meaning": "確認する"
+    },
+    {
+      "word": "conflict",
+      "meaning": "対立する、矛盾する"
+    },
+    {
+      "word": "confuse",
+      "meaning": "混乱させる"
+    },
+    {
+      "word": "connect",
+      "meaning": "つなぐ、接続する"
+    },
+    {
+      "word": "consider",
+      "meaning": "考慮する、みなす"
+    },
+    {
+      "word": "consist",
+      "meaning": "〜から成り立つ"
+    },
+    {
+      "word": "constitute",
+      "meaning": "構成する"
+    },
+    {
+      "word": "construct",
+      "meaning": "〜を建設する,組み立てる"
+    },
+    {
+      "word": "consult",
+      "meaning": "相談する、調べる"
+    },
+    {
+      "word": "consume",
+      "meaning": "消費する"
+    },
+    {
+      "word": "contact",
+      "meaning": "連絡する、接触する"
+    },
+    {
+      "word": "contain",
+      "meaning": "含む、入る"
+    },
+    {
+      "word": "continue",
+      "meaning": "続く、続ける"
+    },
+    {
+      "word": "contrast",
+      "meaning": "対照させる"
+    },
+    {
+      "word": "contribute",
+      "meaning": "貢献する、寄与する"
+    },
+    {
+      "word": "control",
+      "meaning": "支配する、管理する"
+    },
+    {
+      "word": "convert",
+      "meaning": "転換する、変える"
+    },
+    {
+      "word": "convince",
+      "meaning": "納得させる"
+    },
+    {
+      "word": "cook",
+      "meaning": "料理する"
+    },
+    {
+      "word": "cope",
+      "meaning": "対処する"
+    },
+    {
+      "word": "copy",
+      "meaning": "写す； コピーする； まねる"
+    },
+    {
+      "word": "correspond",
+      "meaning": "対応する、一致する"
+    },
+    {
+      "word": "cough",
+      "meaning": "咳をする"
+    },
+    {
+      "word": "count",
+      "meaning": "数える、重要である"
+    },
+    {
+      "word": "counter",
+      "meaning": "反論する"
+    },
+    {
+      "word": "crack",
+      "meaning": "割れる"
+    },
+    {
+      "word": "craft",
+      "meaning": "(手作業)で作る、巧妙に作り上げる"
+    },
+    {
+      "word": "crash",
+      "meaning": "衝突する"
+    },
+    {
+      "word": "create",
+      "meaning": "創造する、作り出す"
+    },
+    {
+      "word": "criticize",
+      "meaning": "批判する"
+    },
+    {
+      "word": "cross",
+      "meaning": "横断する、交差する"
+    },
+    {
+      "word": "cry",
+      "meaning": "泣く"
+    },
+    {
+      "word": "cut",
+      "meaning": "切る"
+    },
+    {
+      "word": "dance",
+      "meaning": "踊る"
+    },
+    {
+      "word": "dare",
+      "meaning": "あえて～する、する勇気がある"
     }
   ]
 }
