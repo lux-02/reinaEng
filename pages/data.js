@@ -6,84 +6,110 @@ export default function Data() {
   const [wordList, setWordList] = useState([]);
   const router = useRouter();
   const [lastUpdateDate, setLastUpdateDate] = useState("");
-  const [isLoadingMore, setIsLoadingMore] = useState(false);
-
-  const handleQuizletUpdate = async () => {
-    try {
-      const response = await fetch("/api/updateQuizletData", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          url: "https://quizlet.com/ph/960787628/english-flash-cards/?i=61ajga&x=1jqt",
-        }),
-      });
-
-      const result = await response.json();
-      if (response.ok) {
-        alert("문제 데이터가 갱신되었습니다!");
-        setWordList(result.data.terms);
-
-        // 업데이트 날짜 설정
-        const today = result.data.updatedAt.split("T")[0];
-        setLastUpdateDate(today);
-        localStorage.setItem("lastUpdateDate", today);
-      } else {
-        alert("데이터 갱신에 실패했습니다: " + result.message);
-      }
-    } catch (error) {
-      console.error("Error updating quizlet data:", error);
-      alert("오류가 발생했습니다. 콘솔을 확인하세요.");
-    }
-  };
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [selectedWord, setSelectedWord] = useState(null);
+  const [editForm, setEditForm] = useState({ word: "", meaning: "" });
+  const [addForm, setAddForm] = useState({ word: "", meaning: "" });
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/data.json");
-        const data = await response.json();
-
-        if (Array.isArray(data.terms)) {
-          setWordList(data.terms);
-        } else {
-          console.error("Data format is incorrect", data);
-        }
-      } catch (error) {
-        console.error("Failed to load data:", error);
-      }
-    };
-
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const scrollAndClickMore = () => {
-      if (isLoadingMore) return; // Prevent multiple clicks if still waiting
-      setIsLoadingMore(true);
+  const fetchData = async () => {
+    try {
+      const response = await fetch("/api/getWords");
+      const data = await response.json();
 
-      const moreButton = document.querySelector(
-        'button[aria-label="See more"]'
-      );
-      if (moreButton) {
-        moreButton.click();
-
-        // Wait 3 seconds before continuing to allow content to load
-        setTimeout(() => {
-          setIsLoadingMore(false); // Allow next scroll and click
-        }, 3000);
-      } else {
-        window.scrollBy(0, window.innerHeight); // Scroll down to load more content
-        setIsLoadingMore(false);
+      if (Array.isArray(data.terms)) {
+        setWordList(data.terms);
+        if (data.updatedAt) {
+          setLastUpdateDate(data.updatedAt.split("T")[0]);
+        }
       }
-    };
+    } catch (error) {
+      console.error("데이터 로드 실패:", error);
+    }
+  };
 
-    const observer = new MutationObserver(scrollAndClickMore);
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
+  const handleWordClick = (word) => {
+    setSelectedWord({
+      ...word,
+      _id: word._id.toString(),
     });
+    setEditForm({ word: word.word, meaning: word.meaning });
+    setIsEditModalOpen(true);
+  };
 
-    return () => observer.disconnect();
-  }, [isLoadingMore]);
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("/api/updateWord", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          _id: selectedWord._id,
+          ...editForm,
+        }),
+      });
+
+      if (response.ok) {
+        setIsEditModalOpen(false);
+        fetchData(); // 데이터 새로고침
+      } else {
+        alert("단어 수정에 실패했습니다.");
+      }
+    } catch (error) {
+      console.error("단어 수정 실패:", error);
+      alert("단어 수정에 실패했습니다.");
+    }
+  };
+
+  const handleAddSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("/api/addWord", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(addForm),
+      });
+
+      if (response.ok) {
+        setIsAddModalOpen(false);
+        setAddForm({ word: "", meaning: "" });
+        fetchData(); // 데이터 새로고침
+      } else {
+        alert("단어 추가에 실패했습니다.");
+      }
+    } catch (error) {
+      console.error("단어 추가 실패:", error);
+      alert("단어 추가에 실패했습니다.");
+    }
+  };
+
+  const handleDeleteWord = async () => {
+    if (window.confirm("정말로 이 단어를 삭제하시겠습니까?")) {
+      try {
+        const response = await fetch("/api/deleteWord", {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            _id: selectedWord._id,
+          }),
+        });
+
+        if (response.ok) {
+          setIsEditModalOpen(false);
+          fetchData(); // 데이터 새로고침
+        } else {
+          alert("단어 삭제에 실패했습니다.");
+        }
+      } catch (error) {
+        console.error("단어 삭제 실패:", error);
+        alert("단어 삭제에 실패했습니다.");
+      }
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -96,20 +122,119 @@ export default function Data() {
           </tr>
         </thead>
         <tbody>
-          {wordList.map((wordItem, index) => (
-            <tr key={index}>
+          {wordList.map((wordItem) => (
+            <tr key={wordItem._id} onClick={() => handleWordClick(wordItem)}>
               <td>{wordItem.word}</td>
               <td>{wordItem.meaning}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <button onClick={handleQuizletUpdate} className={styles.updateButton}>
-        Data Update {lastUpdateDate && `(${lastUpdateDate})`}
-      </button>
-      <button onClick={() => router.push("/")} className={styles.backButton}>
-        메인 페이지로 돌아가기
-      </button>
+
+      <div className={styles.buttonContainer}>
+        <button
+          onClick={() => setIsAddModalOpen(true)}
+          className={styles.addButton}
+        >
+          단어 추가
+        </button>
+        <button onClick={() => router.push("/")} className={styles.backButton}>
+          메인 페이지로 돌아가기
+        </button>
+      </div>
+
+      {/* 수정 모달 */}
+      {isEditModalOpen && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>
+              <h2>단어 수정</h2>
+              <button
+                type="button"
+                onClick={() => setIsEditModalOpen(false)}
+                className={styles.closeButton}
+              >
+                ×
+              </button>
+            </div>
+            <form onSubmit={handleEditSubmit}>
+              <input
+                type="text"
+                value={editForm.word}
+                onChange={(e) =>
+                  setEditForm({ ...editForm, word: e.target.value })
+                }
+                placeholder="단어"
+                required
+              />
+              <input
+                type="text"
+                value={editForm.meaning}
+                onChange={(e) =>
+                  setEditForm({ ...editForm, meaning: e.target.value })
+                }
+                placeholder="의미"
+                required
+              />
+              <div className={styles.modalButtons}>
+                <button
+                  type="button"
+                  onClick={handleDeleteWord}
+                  className={styles.deleteButton}
+                >
+                  삭제
+                </button>
+                <button type="submit" className={styles.editButton}>
+                  수정
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* 추가 모달 */}
+      {isAddModalOpen && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>
+              <h2>단어 추가</h2>
+              <button
+                type="button"
+                onClick={() => setIsAddModalOpen(false)}
+                className={styles.closeButton}
+              >
+                ×
+              </button>
+            </div>
+            <form onSubmit={handleAddSubmit}>
+              <input
+                type="text"
+                value={addForm.word}
+                onChange={(e) =>
+                  setAddForm({ ...addForm, word: e.target.value })
+                }
+                placeholder="단어"
+                required
+              />
+              <input
+                type="text"
+                value={addForm.meaning}
+                onChange={(e) =>
+                  setAddForm({ ...addForm, meaning: e.target.value })
+                }
+                placeholder="의미"
+                required
+              />
+              <div className={styles.modalButtons}>
+                <button type="submit" className={styles.addSubmitButton}>
+                  단어 추가
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

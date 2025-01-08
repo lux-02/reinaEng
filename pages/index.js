@@ -14,28 +14,40 @@ export default function Home() {
   const [numQuestions, setNumQuestions] = useState(20);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(null);
+  const [lastUpdateDate, setLastUpdateDate] = useState("");
   const router = useRouter();
 
   useEffect(() => {
-    const loadData = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch("/data.json");
-        const data = await response.json();
+        console.log("데이터 fetch 시�");
+        const response = await fetch("/api/getWords");
+        console.log("API 응답:", response.status);
 
-        if (Array.isArray(data.terms)) {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("받은 데이�:", data);
+
+        if (Array.isArray(data.terms) && data.terms.length > 0) {
           setWordList(data.terms);
+          if (data.updatedAt) {
+            setLastUpdateDate(data.updatedAt.split("T")[0]);
+          }
+          // 데이터를 받은 후 바로 문제 생성
           selectRandomQuestions(data.terms, numQuestions);
-          setLastUpdateDate(data.updatedAt ? data.updatedAt.split("T")[0] : "");
         } else {
-          console.error("Data format is incorrect", data);
+          console.error("데이터가 �어있거나 형식이 올바르지 않습니다", data);
         }
       } catch (error) {
-        console.error("Failed to load data:", error);
+        console.error("데이터 로드 실패:", error);
       }
     };
 
-    loadData();
-  }, []);
+    fetchData();
+  }, [numQuestions]);
 
   const selectRandomQuestions = (data, num) => {
     const randomQuestions = data.sort(() => 0.5 - Math.random()).slice(0, num);
