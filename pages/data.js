@@ -21,6 +21,8 @@ export default function Data() {
   const router = useRouter();
 
   useEffect(() => {
+    const savedLanguage = localStorage.getItem("selectedLanguage");
+    if (savedLanguage) setSelectedLanguage(savedLanguage);
     fetchWords();
   }, []);
 
@@ -120,7 +122,9 @@ export default function Data() {
   };
 
   const toggleLanguage = () => {
-    setSelectedLanguage((prev) => (prev === "ko" ? "jp" : "ko"));
+    const newLanguage = selectedLanguage === "ko" ? "jp" : "ko";
+    setSelectedLanguage(newLanguage);
+    localStorage.setItem("selectedLanguage", newLanguage);
   };
 
   return (

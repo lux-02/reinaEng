@@ -37,6 +37,9 @@ export default function Home() {
       }
     };
 
+    const savedLanguage = localStorage.getItem("selectedLanguage");
+    if (savedLanguage) setSelectedLanguage(savedLanguage);
+
     fetchData();
   }, [numQuestions]);
 
@@ -116,7 +119,9 @@ export default function Home() {
   };
 
   const toggleLanguage = () => {
-    setSelectedLanguage((prev) => (prev === "ko" ? "jp" : "ko"));
+    const newLanguage = selectedLanguage === "ko" ? "jp" : "ko";
+    setSelectedLanguage(newLanguage);
+    localStorage.setItem("selectedLanguage", newLanguage);
   };
 
   return (
@@ -144,7 +149,9 @@ export default function Home() {
                 className={styles.numInput}
               />
             ) : (
-              <span>{numQuestions} 문제</span>
+              <span>
+                {numQuestions} {selectedLanguage === "ko" ? "문제" : "問題"}
+              </span>
             )}
           </div>
         </div>
@@ -187,10 +194,13 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className={styles.score}>현재 점수: {score}</div>
+            <div className={styles.score}>
+              {selectedLanguage === "ko" ? "현재 점수" : "現在のスコア"}:{" "}
+              {score}
+            </div>
           </>
         ) : (
-          <p>Loading...</p>
+          <p>{selectedLanguage === "ko" ? "로딩 중..." : "読み込み中..."}</p>
         )}
       </div>
       <div className={styles.btnWrap}>
@@ -198,13 +208,13 @@ export default function Home() {
           onClick={() => router.push("/data")}
           className={styles.viewAllButton}
         >
-          전체 단어 보기
+          {selectedLanguage === "ko" ? "전체 단어 보기" : "全ての単語を見る"}
         </button>
         <button
           onClick={() => router.push("/conversation")}
           className={styles.viewAllButton}
         >
-          영어 회화
+          {selectedLanguage === "ko" ? "영어 회화" : "英会話"}
         </button>
       </div>
     </div>

@@ -22,11 +22,23 @@ export default function Results() {
     router.push("/");
   };
 
+  const toggleLanguage = () => {
+    setSelectedLanguage((prev) => (prev === "ko" ? "jp" : "ko"));
+  };
+
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>퀴즈 결과</h1>
+      <div className={styles.header}>
+        <button onClick={toggleLanguage} className={styles.localeButton}>
+          {selectedLanguage === "ko" ? "한국어" : "日本語"}
+        </button>
+      </div>
+      <h1 className={styles.title}>
+        {selectedLanguage === "ko" ? "퀴즈 결과" : "クイズ結果"}
+      </h1>
       <div className={styles.score}>
-        점수: {score} / {results.length}
+        {selectedLanguage === "ko" ? "점수" : "スコア"}: {score} /{" "}
+        {results.length}
       </div>
       <div className={styles.resultList}>
         {results.map((result, index) => (
@@ -45,7 +57,7 @@ export default function Results() {
         ))}
       </div>
       <button onClick={handleRetry} className={styles.retryButton}>
-        다시 시작
+        {selectedLanguage === "ko" ? "다시 시작" : "もう一度"}
       </button>
     </div>
   );

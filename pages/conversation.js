@@ -1,18 +1,21 @@
-import { useState, useRef, useEffect } from "react";
-import styles from "@/styles/Conversation.module.css";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import styles from "@/styles/Conversation.module.css";
 import ReactMarkdown from "react-markdown";
 
 export default function Conversation() {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedLanguage, setSelectedLanguage] = useState("ko");
   const [sessionId, setSessionId] = useState("");
   const messagesEndRef = useRef(null);
   const router = useRouter();
-  const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
+    const savedLanguage = localStorage.getItem("selectedLanguage");
+    if (savedLanguage) setSelectedLanguage(savedLanguage);
+
     const newSessionId = Math.random().toString(36).substring(7);
     setSessionId(newSessionId);
 
@@ -30,7 +33,6 @@ export default function Conversation() {
         });
 
         const data = await response.json();
-
         if (response.ok) {
           setMessages([
             {
@@ -85,7 +87,6 @@ export default function Conversation() {
       });
 
       const data = await response.json();
-
       if (response.ok) {
         setMessages((prev) => [
           ...prev,
@@ -111,7 +112,10 @@ export default function Conversation() {
         ...prev,
         {
           role: "assistant",
-          content: "Sorry, there was a network error. Please try again.",
+          content:
+            selectedLanguage === "ko"
+              ? "죄송합니다. 네트워크 오류가 발생했습니다. 다시 시도해주세요."
+              : "申し訳ありません。ネットワークエラーが発生しました。もう一度お試しください。",
         },
       ]);
     } finally {
@@ -120,7 +124,15 @@ export default function Conversation() {
   };
 
   const handleSaveConversation = async () => {
-    setIsSaving(true);
+    if (messages.length === 0) {
+      alert(
+        selectedLanguage === "ko"
+          ? "저장할 대화가 없습니다."
+          : "保存する会話がありません。"
+      );
+      return;
+    }
+
     try {
       const response = await fetch("/api/saveConversation", {
         method: "POST",
@@ -128,7 +140,7 @@ export default function Conversation() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          sessionId,
+          sessionId: sessionId,
           messages,
         }),
       });
@@ -137,71 +149,94 @@ export default function Conversation() {
         router.push("/conversationHistory");
       }
     } catch (error) {
-      console.error("Save error:", error);
-    } finally {
-      setIsSaving(false);
+      console.error("Error saving conversation:", error);
+      alert(
+        selectedLanguage === "ko"
+          ? "대화 저장에 실패했습니다."
+          : "会話の保存に失敗しました。"
+      );
     }
+  };
+
+  const toggleLanguage = () => {
+    const newLanguage = selectedLanguage === "ko" ? "jp" : "ko";
+    setSelectedLanguage(newLanguage);
+    localStorage.setItem("selectedLanguage", newLanguage);
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.chatContainer}>
-        <div className={styles.messagesContainer}>
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`${styles.message} ${
-                message.role === "user" ? styles.userMessage : styles.botMessage
-              }`}
-            >
-              <div className={styles.messageContent}>
-                {message.role === "user" ? (
-                  message.content
-                ) : (
-                  <ReactMarkdown>{message.content}</ReactMarkdown>
-                )}
-              </div>
-            </div>
-          ))}
-          {isLoading && (
-            <div className={`${styles.message} ${styles.botMessage}`}>
-              <div className={styles.loadingDots}>
-                <span>.</span>
-                <span>.</span>
-                <span>.</span>
-              </div>
-            </div>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
-        <form onSubmit={handleSubmit} className={styles.inputForm}>
-          <input
-            type="text"
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            placeholder="메시지를 입력하세요..."
-            className={styles.input}
-          />
-          <button
-            type="submit"
-            className={styles.sendButton}
-            disabled={isLoading}
-          >
-            전송
-          </button>
-        </form>
-      </div>
-      <div className={styles.buttonContainer}>
+      <div className={styles.header}>
+        <button onClick={toggleLanguage} className={styles.localeButton}>
+          {selectedLanguage === "ko" ? "한국어" : "日本語"}
+        </button>
         <button onClick={() => router.push("/")} className={styles.backButton}>
-          메인으로 돌아가기
+          {selectedLanguage === "ko" ? "메인으로" : "メインへ"}
         </button>
-        <button
-          onClick={handleSaveConversation}
-          className={styles.saveButton}
-          disabled={isSaving || messages.length < 2}
-        >
-          {isSaving ? "저장 중..." : "대화 저장하기"}
-        </button>
+      </div>
+
+      <div className={styles.content}>
+        <div className={styles.chatContainer}>
+          <div className={styles.messageList}>
+            {messages.map((message, index) => (
+              <div
+                key={index}
+                className={`${styles.message} ${
+                  message.role === "user"
+                    ? styles.userMessage
+                    : styles.aiMessage
+                }`}
+              >
+                <div className={styles.messageContent}>
+                  {message.role === "user" ? (
+                    message.content
+                  ) : (
+                    <ReactMarkdown>{message.content}</ReactMarkdown>
+                  )}
+                </div>
+              </div>
+            ))}
+            {isLoading && (
+              <div className={styles.loadingMessage}>
+                {selectedLanguage === "ko"
+                  ? "답변 생성 중..."
+                  : "回答を生成中..."}
+              </div>
+            )}
+            <div ref={messagesEndRef} />
+          </div>
+
+          <form onSubmit={handleSubmit} className={styles.inputForm}>
+            <input
+              type="text"
+              value={inputMessage}
+              onChange={(e) => setInputMessage(e.target.value)}
+              placeholder={
+                selectedLanguage === "ko"
+                  ? "메시지를 입력하세요..."
+                  : "メッセージを入力してください..."
+              }
+              className={styles.input}
+            />
+            <button
+              type="submit"
+              className={styles.sendButton}
+              disabled={isLoading}
+            >
+              {selectedLanguage === "ko" ? "전송" : "送信"}
+            </button>
+          </form>
+        </div>
+
+        <div className={styles.buttonContainer}>
+          <button
+            onClick={handleSaveConversation}
+            className={styles.saveButton}
+            disabled={messages.length === 0}
+          >
+            {selectedLanguage === "ko" ? "대화 저장" : "会話を保存"}
+          </button>
+        </div>
       </div>
     </div>
   );
