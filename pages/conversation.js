@@ -167,10 +167,22 @@ export default function Conversation() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <button onClick={toggleLanguage} className={styles.localeButton}>
+        <button
+          onClick={toggleLanguage}
+          className={`${styles.localeButton} ${
+            selectedLanguage === "ko" ? "ko-text" : "jp-text"
+          }`}
+          lang={selectedLanguage === "ko" ? "ko" : "ja"}
+        >
           {selectedLanguage === "ko" ? "한국어" : "日本語"}
         </button>
-        <button onClick={() => router.push("/")} className={styles.backButton}>
+        <button
+          onClick={() => router.push("/")}
+          className={`${styles.backButton} ${
+            selectedLanguage === "ko" ? "ko-text" : "jp-text"
+          }`}
+          lang={selectedLanguage === "ko" ? "ko" : "ja"}
+        >
           {selectedLanguage === "ko" ? "메인으로" : "メインへ"}
         </button>
       </div>
@@ -185,7 +197,8 @@ export default function Conversation() {
                   message.role === "user"
                     ? styles.userMessage
                     : styles.aiMessage
-                }`}
+                } ${selectedLanguage === "ko" ? "ko-text" : "jp-text"}`}
+                lang={selectedLanguage === "ko" ? "ko" : "ja"}
               >
                 <div className={styles.messageContent}>
                   {message.role === "user" ? (
@@ -197,7 +210,12 @@ export default function Conversation() {
               </div>
             ))}
             {isLoading && (
-              <div className={styles.loadingMessage}>
+              <div
+                className={`${styles.loadingMessage} ${
+                  selectedLanguage === "ko" ? "ko-text" : "jp-text"
+                }`}
+                lang={selectedLanguage === "ko" ? "ko" : "ja"}
+              >
                 {selectedLanguage === "ko"
                   ? "답변 생성 중..."
                   : "回答を生成中..."}
@@ -216,12 +234,18 @@ export default function Conversation() {
                   ? "메시지를 입력하세요..."
                   : "メッセージを入力してください..."
               }
-              className={styles.input}
+              className={`${styles.input} ${
+                selectedLanguage === "ko" ? "ko-text" : "jp-text"
+              }`}
+              lang={selectedLanguage === "ko" ? "ko" : "ja"}
             />
             <button
               type="submit"
-              className={styles.sendButton}
+              className={`${styles.sendButton} ${
+                selectedLanguage === "ko" ? "ko-text" : "jp-text"
+              }`}
               disabled={isLoading}
+              lang={selectedLanguage === "ko" ? "ko" : "ja"}
             >
               {selectedLanguage === "ko" ? "전송" : "送信"}
             </button>
@@ -231,8 +255,11 @@ export default function Conversation() {
         <div className={styles.buttonContainer}>
           <button
             onClick={handleSaveConversation}
-            className={styles.saveButton}
+            className={`${styles.saveButton} ${
+              selectedLanguage === "ko" ? "ko-text" : "jp-text"
+            }`}
             disabled={messages.length === 0}
+            lang={selectedLanguage === "ko" ? "ko" : "ja"}
           >
             {selectedLanguage === "ko" ? "대화 저장" : "会話を保存"}
           </button>

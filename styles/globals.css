@@ -5,14 +5,119 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: "CookieRun-Regular";
   background-color: black;
 }
 
 @font-face {
   font-family: "CookieRun-Regular";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff")
-    format("woff");
+  src: url("/fonts/CookieRun-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "Natsuzemi";
+  src: url("/fonts/Natsuzemi.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  height: 100vh;
+  background-color: black;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Language specific font classes */
+.ko-text {
+  font-family: "CookieRun-Regular", sans-serif !important;
+}
+
+.jp-text {
+  font-family: "Natsuzemi", sans-serif !important;
+}
+
+.en-text {
+  font-family: "CookieRun-Regular", sans-serif !important;
+}
+
+/* Japanese text specific styles */
+[lang="ja"],
+.jp-text,
+*[class*="jp-"],
+*[class*="japanese"],
+*:lang(ja),
+button[lang="ja"],
+input[lang="ja"],
+textarea[lang="ja"],
+select[lang="ja"],
+label[lang="ja"],
+h1[lang="ja"],
+h2[lang="ja"],
+h3[lang="ja"],
+p[lang="ja"],
+span[lang="ja"] {
+  font-family: "Natsuzemi", sans-serif !important;
+}
+
+/* Default font settings */
+body,
+button,
+input,
+textarea,
+select {
+  font-family: "CookieRun-Regular", sans-serif;
+}
+
+/* Ensure Japanese text in buttons and inputs */
+.jp-text button,
+.jp-text input,
+.jp-text textarea,
+.jp-text select,
+button.jp-text,
+input.jp-text,
+textarea.jp-text,
+select.jp-text {
+  font-family: "Natsuzemi", sans-serif !important;
+}
+
+/* Modal and UI elements */
+.modal[lang="ja"],
+.modal.jp-text,
+.header[lang="ja"],
+.header.jp-text,
+.title[lang="ja"],
+.title.jp-text {
+  font-family: "Natsuzemi", sans-serif !important;
+}
+
+/* Ensure Japanese text in placeholders */
+input.jp-text::placeholder,
+textarea.jp-text::placeholder,
+input[lang="ja"]::placeholder,
+textarea[lang="ja"]::placeholder {
+  font-family: "Natsuzemi", sans-serif !important;
 }

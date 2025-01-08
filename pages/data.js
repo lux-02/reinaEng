@@ -130,20 +130,40 @@ export default function Data() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <button onClick={toggleLanguage} className={styles.localeButton}>
+        <button
+          onClick={toggleLanguage}
+          className={`${styles.localeButton} ${
+            selectedLanguage === "ko" ? "ko-text" : "jp-text"
+          }`}
+          lang={selectedLanguage === "ko" ? "ko" : "ja"}
+        >
           {selectedLanguage === "ko" ? "한국어" : "日本語"}
         </button>
-        <button onClick={() => router.push("/")} className={styles.backButton}>
+        <button
+          onClick={() => router.push("/")}
+          className={`${styles.backButton} ${
+            selectedLanguage === "ko" ? "ko-text" : "jp-text"
+          }`}
+          lang={selectedLanguage === "ko" ? "ko" : "ja"}
+        >
           {selectedLanguage === "ko" ? "메인으로" : "メインへ"}
         </button>
       </div>
 
       <div className={styles.content}>
         <div className={styles.titleRow}>
-          <h1>{selectedLanguage === "ko" ? "단어 목록" : "単語リスト"}</h1>
+          <h1
+            className={selectedLanguage === "ko" ? "ko-text" : "jp-text"}
+            lang={selectedLanguage === "ko" ? "ko" : "ja"}
+          >
+            {selectedLanguage === "ko" ? "단어 목록" : "単語リスト"}
+          </h1>
           <button
             onClick={() => setIsAddModalOpen(true)}
-            className={styles.addButton}
+            className={`${styles.addButton} ${
+              selectedLanguage === "ko" ? "ko-text" : "jp-text"
+            }`}
+            lang={selectedLanguage === "ko" ? "ko" : "ja"}
           >
             {selectedLanguage === "ko" ? "단어 추가" : "単語追加"}
           </button>
@@ -156,8 +176,13 @@ export default function Data() {
               className={styles.wordItem}
               onClick={() => handleWordClick(word)}
             >
-              <span className={styles.wordText}>{word.word}</span>
-              <span className={styles.meaningText}>
+              <span className={`${styles.wordText} en-text`}>{word.word}</span>
+              <span
+                className={`${styles.meaningText} ${
+                  selectedLanguage === "ko" ? "ko-text" : "jp-text"
+                }`}
+                lang={selectedLanguage === "ko" ? "ko" : "ja"}
+              >
                 {selectedLanguage === "ko" ? word.ko_mean : word.jp_mean}
               </span>
             </div>
@@ -169,7 +194,12 @@ export default function Data() {
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>
             <div className={styles.modalHeader}>
-              <h2>{selectedLanguage === "ko" ? "단어 수정" : "単語編集"}</h2>
+              <h2
+                className={selectedLanguage === "ko" ? "ko-text" : "jp-text"}
+                lang={selectedLanguage === "ko" ? "ko" : "ja"}
+              >
+                {selectedLanguage === "ko" ? "단어 수정" : "単語編集"}
+              </h2>
               <button
                 onClick={() => setIsEditModalOpen(false)}
                 className={styles.closeButton}
@@ -179,7 +209,12 @@ export default function Data() {
             </div>
             <form onSubmit={handleEditSubmit}>
               <div className={styles.inputGroup}>
-                <label>{selectedLanguage === "ko" ? "단어" : "単語"}</label>
+                <label
+                  className={selectedLanguage === "ko" ? "ko-text" : "jp-text"}
+                  lang={selectedLanguage === "ko" ? "ko" : "ja"}
+                >
+                  {selectedLanguage === "ko" ? "단어" : "単語"}
+                </label>
                 <input
                   type="text"
                   value={editedWord.word}
@@ -187,10 +222,14 @@ export default function Data() {
                     setEditedWord({ ...editedWord, word: e.target.value })
                   }
                   required
+                  className="en-text"
                 />
               </div>
               <div className={styles.inputGroup}>
-                <label>
+                <label
+                  className={selectedLanguage === "ko" ? "ko-text" : "jp-text"}
+                  lang={selectedLanguage === "ko" ? "ko" : "ja"}
+                >
                   {selectedLanguage === "ko" ? "일본어 뜻" : "日本語の意味"}
                 </label>
                 <input
@@ -200,10 +239,15 @@ export default function Data() {
                     setEditedWord({ ...editedWord, jp_mean: e.target.value })
                   }
                   required
+                  className="jp-text"
+                  lang="ja"
                 />
               </div>
               <div className={styles.inputGroup}>
-                <label>
+                <label
+                  className={selectedLanguage === "ko" ? "ko-text" : "jp-text"}
+                  lang={selectedLanguage === "ko" ? "ko" : "ja"}
+                >
                   {selectedLanguage === "ko" ? "한국어 뜻" : "韓国語の意味"}
                 </label>
                 <input
@@ -213,17 +257,28 @@ export default function Data() {
                     setEditedWord({ ...editedWord, ko_mean: e.target.value })
                   }
                   required
+                  className="ko-text"
+                  lang="ko"
                 />
               </div>
               <div className={styles.modalButtons}>
                 <button
                   type="button"
                   onClick={handleDeleteWord}
-                  className={styles.deleteButton}
+                  className={`${styles.deleteButton} ${
+                    selectedLanguage === "ko" ? "ko-text" : "jp-text"
+                  }`}
+                  lang={selectedLanguage === "ko" ? "ko" : "ja"}
                 >
                   {selectedLanguage === "ko" ? "삭제" : "削除"}
                 </button>
-                <button type="submit" className={styles.saveButton}>
+                <button
+                  type="submit"
+                  className={`${styles.saveButton} ${
+                    selectedLanguage === "ko" ? "ko-text" : "jp-text"
+                  }`}
+                  lang={selectedLanguage === "ko" ? "ko" : "ja"}
+                >
                   {selectedLanguage === "ko" ? "저장" : "保存"}
                 </button>
               </div>
@@ -236,7 +291,10 @@ export default function Data() {
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>
             <div className={styles.modalHeader}>
-              <h2>
+              <h2
+                className={selectedLanguage === "ko" ? "ko-text" : "jp-text"}
+                lang={selectedLanguage === "ko" ? "ko" : "ja"}
+              >
                 {selectedLanguage === "ko" ? "새 단어 추가" : "新しい単語追加"}
               </h2>
               <button
@@ -248,7 +306,12 @@ export default function Data() {
             </div>
             <form onSubmit={handleAddSubmit}>
               <div className={styles.inputGroup}>
-                <label>{selectedLanguage === "ko" ? "단어" : "単語"}</label>
+                <label
+                  className={selectedLanguage === "ko" ? "ko-text" : "jp-text"}
+                  lang={selectedLanguage === "ko" ? "ko" : "ja"}
+                >
+                  {selectedLanguage === "ko" ? "단어" : "単語"}
+                </label>
                 <input
                   type="text"
                   value={newWord.word}
@@ -256,10 +319,14 @@ export default function Data() {
                     setNewWord({ ...newWord, word: e.target.value })
                   }
                   required
+                  className="en-text"
                 />
               </div>
               <div className={styles.inputGroup}>
-                <label>
+                <label
+                  className={selectedLanguage === "ko" ? "ko-text" : "jp-text"}
+                  lang={selectedLanguage === "ko" ? "ko" : "ja"}
+                >
                   {selectedLanguage === "ko" ? "일본어 뜻" : "日本語の意味"}
                 </label>
                 <input
@@ -269,10 +336,15 @@ export default function Data() {
                     setNewWord({ ...newWord, jp_mean: e.target.value })
                   }
                   required
+                  className="jp-text"
+                  lang="ja"
                 />
               </div>
               <div className={styles.inputGroup}>
-                <label>
+                <label
+                  className={selectedLanguage === "ko" ? "ko-text" : "jp-text"}
+                  lang={selectedLanguage === "ko" ? "ko" : "ja"}
+                >
                   {selectedLanguage === "ko" ? "한국어 뜻" : "韓国語の意味"}
                 </label>
                 <input
@@ -282,10 +354,18 @@ export default function Data() {
                     setNewWord({ ...newWord, ko_mean: e.target.value })
                   }
                   required
+                  className="ko-text"
+                  lang="ko"
                 />
               </div>
               <div className={styles.modalButtons}>
-                <button type="submit" className={styles.saveButton}>
+                <button
+                  type="submit"
+                  className={`${styles.saveButton} ${
+                    selectedLanguage === "ko" ? "ko-text" : "jp-text"
+                  }`}
+                  lang={selectedLanguage === "ko" ? "ko" : "ja"}
+                >
                   {selectedLanguage === "ko" ? "추가" : "追加"}
                 </button>
               </div>

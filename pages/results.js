@@ -29,14 +29,27 @@ export default function Results() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <button onClick={toggleLanguage} className={styles.localeButton}>
+        <button
+          onClick={toggleLanguage}
+          className={`${styles.localeButton} ${
+            selectedLanguage === "ko" ? "ko-text" : "jp-text"
+          }`}
+        >
           {selectedLanguage === "ko" ? "한국어" : "日本語"}
         </button>
       </div>
-      <h1 className={styles.title}>
+      <h1
+        className={`${styles.title} ${
+          selectedLanguage === "ko" ? "ko-text" : "jp-text"
+        }`}
+      >
         {selectedLanguage === "ko" ? "퀴즈 결과" : "クイズ結果"}
       </h1>
-      <div className={styles.score}>
+      <div
+        className={`${styles.score} ${
+          selectedLanguage === "ko" ? "ko-text" : "jp-text"
+        }`}
+      >
         {selectedLanguage === "ko" ? "점수" : "スコア"}: {score} /{" "}
         {results.length}
       </div>
@@ -48,15 +61,24 @@ export default function Results() {
               result.isCorrect ? styles.correct : styles.incorrect
             }`}
           >
-            <div className={styles.word}>{result.word}</div>
-            <div className={styles.meaning}>
+            <div className={`${styles.word} en-text`}>{result.word}</div>
+            <div
+              className={`${styles.meaning} ${
+                selectedLanguage === "ko" ? "ko-text" : "jp-text"
+              }`}
+            >
               {selectedLanguage === "ko" ? result.ko_mean : result.jp_mean}
             </div>
             <div className={styles.status}>{result.isCorrect ? "✓" : "✗"}</div>
           </div>
         ))}
       </div>
-      <button onClick={handleRetry} className={styles.retryButton}>
+      <button
+        onClick={handleRetry}
+        className={`${styles.retryButton} ${
+          selectedLanguage === "ko" ? "ko-text" : "jp-text"
+        }`}
+      >
         {selectedLanguage === "ko" ? "다시 시작" : "もう一度"}
       </button>
     </div>

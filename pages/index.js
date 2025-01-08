@@ -127,7 +127,13 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <button onClick={toggleLanguage} className={styles.localeButton}>
+        <button
+          onClick={toggleLanguage}
+          className={`${styles.localeButton} ${
+            selectedLanguage === "ko" ? "ko-text" : "jp-text"
+          }`}
+          lang={selectedLanguage === "ko" ? "ko" : "ja"}
+        >
           {selectedLanguage === "ko" ? "한국어" : "日本語"}
         </button>
       </div>
@@ -159,13 +165,23 @@ export default function Home() {
         {selectedQuestions.length > 0 ? (
           <>
             <div className={styles.question}>
-              {questionType === "wordToMeaning"
-                ? `${selectedQuestions[questionIndex].word}`.toUpperCase()
-                : `${
-                    selectedQuestions[questionIndex][
-                      selectedLanguage === "ko" ? "ko_mean" : "jp_mean"
-                    ]
-                  }`}
+              <span
+                className={
+                  questionType === "wordToMeaning"
+                    ? "en-text"
+                    : selectedLanguage === "ko"
+                    ? "ko-text"
+                    : "jp-text"
+                }
+              >
+                {questionType === "wordToMeaning"
+                  ? `${selectedQuestions[questionIndex].word}`.toUpperCase()
+                  : `${
+                      selectedQuestions[questionIndex][
+                        selectedLanguage === "ko" ? "ko_mean" : "jp_mean"
+                      ]
+                    }`}
+              </span>
             </div>
             <div className={styles.progressBarWrap}>
               <div className={styles.progressBarContainer}>
@@ -182,6 +198,12 @@ export default function Home() {
                     key={index}
                     className={`${styles.optionButton} ${
                       selectedOptionIndex === index ? styles.selected : ""
+                    } ${
+                      questionType === "wordToMeaning"
+                        ? selectedLanguage === "ko"
+                          ? "ko-text"
+                          : "jp-text"
+                        : "en-text"
                     }`}
                     onClick={() => handleAnswer(option, index)}
                   >
@@ -194,7 +216,11 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className={styles.score}>
+            <div
+              className={`${styles.score} ${
+                selectedLanguage === "ko" ? "ko-text" : "jp-text"
+              }`}
+            >
               {selectedLanguage === "ko" ? "현재 점수" : "現在のスコア"}:{" "}
               {score}
             </div>

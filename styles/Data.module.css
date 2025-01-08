@@ -24,7 +24,6 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-family: "CookieRun-Regular";
   transition: background-color 0.2s ease;
 }
 
@@ -39,7 +38,6 @@
   border: 1px solid #adb5bd;
   border-radius: 4px;
   cursor: pointer;
-  font-family: "CookieRun-Regular";
   transition: all 0.2s ease;
 }
 
@@ -63,7 +61,6 @@
 .titleRow h1 {
   color: white;
   font-size: 2rem;
-  font-family: "CookieRun-Regular";
   margin: 0;
 }
 
@@ -74,7 +71,6 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-family: "CookieRun-Regular";
   transition: background-color 0.2s ease;
 }
 
@@ -97,7 +93,6 @@
   align-items: center;
   cursor: pointer;
   transition: transform 0.2s ease;
-  font-family: "CookieRun-Regular";
 }
 
 .wordItem:hover {
@@ -142,7 +137,6 @@
 
 .modalHeader h2 {
   margin: 0;
-  font-family: "CookieRun-Regular";
 }
 
 .closeButton {
@@ -165,7 +159,6 @@
 .inputGroup label {
   display: block;
   margin-bottom: 0.5rem;
-  font-family: "CookieRun-Regular";
 }
 
 .inputGroup input {
@@ -173,7 +166,6 @@
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-family: "CookieRun-Regular";
 }
 
 .modalButtons {
@@ -189,7 +181,6 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-family: "CookieRun-Regular";
   transition: background-color 0.2s ease;
 }
 
@@ -204,7 +195,6 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-family: "CookieRun-Regular";
   transition: background-color 0.2s ease;
 }
 
