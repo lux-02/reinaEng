@@ -1,12 +1,11 @@
-import clientPromise from "../../lib/mongodb";
+import { connectToDatabase } from "../../lib/mongodb";
 
 export default async function handler(req, res) {
   try {
     console.log("MongoDB 연결 시도...");
-    const client = await clientPromise;
+    const { db } = await connectToDatabase();
     console.log("MongoDB 연결 성공");
 
-    const db = client.db("reinaeng");
     const collection = db.collection("words");
 
     console.log("데이터 조회 시작...");

@@ -15,31 +15,22 @@ export default function Home() {
   const [isEditing, setIsEditing] = useState(false);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(null);
   const [lastUpdateDate, setLastUpdateDate] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("ko"); // 'ko' or 'jp'
   const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("데이터 fetch 시�");
         const response = await fetch("/api/getWords");
-        console.log("API 응답:", response.status);
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
         const data = await response.json();
-        console.log("받은 데이�:", data);
-
         if (Array.isArray(data.terms) && data.terms.length > 0) {
           setWordList(data.terms);
           if (data.updatedAt) {
             setLastUpdateDate(data.updatedAt.split("T")[0]);
           }
-          // 데이터를 받은 후 바로 문제 생성
           selectRandomQuestions(data.terms, numQuestions);
         } else {
-          console.error("데이터가 �어있거나 형식이 올바르지 않습니다", data);
+          console.error("데이터를 불러올 수 없습니다", data);
         }
       } catch (error) {
         console.error("데이터 로드 실패:", error);
@@ -90,7 +81,8 @@ export default function Home() {
     const currentWord = selectedQuestions[questionIndex];
     const isCorrect =
       (questionType === "wordToMeaning" &&
-        selectedOption.meaning === currentWord.meaning) ||
+        selectedOption[selectedLanguage === "ko" ? "ko_mean" : "jp_mean"] ===
+          currentWord[selectedLanguage === "ko" ? "ko_mean" : "jp_mean"]) ||
       (questionType === "meaningToWord" &&
         selectedOption.word === currentWord.word);
 
@@ -102,6 +94,7 @@ export default function Home() {
     } else {
       const finalScore = isCorrect ? score + 1 : score;
       localStorage.setItem("score", finalScore);
+      localStorage.setItem("selectedLanguage", selectedLanguage);
       localStorage.setItem(
         "results",
         JSON.stringify([...results, { ...currentWord, isCorrect }])
@@ -122,8 +115,17 @@ export default function Home() {
     }
   };
 
+  const toggleLanguage = () => {
+    setSelectedLanguage((prev) => (prev === "ko" ? "jp" : "ko"));
+  };
+
   return (
     <div className={styles.container}>
+      <div className={styles.header}>
+        <button onClick={toggleLanguage} className={styles.localeButton}>
+          {selectedLanguage === "ko" ? "한국어" : "日本語"}
+        </button>
+      </div>
       <div className={styles.quizContainer}>
         <div className={styles.numQuestionsWrap}>
           <div
@@ -152,7 +154,11 @@ export default function Home() {
             <div className={styles.question}>
               {questionType === "wordToMeaning"
                 ? `${selectedQuestions[questionIndex].word}`.toUpperCase()
-                : `${selectedQuestions[questionIndex].meaning}`}
+                : `${
+                    selectedQuestions[questionIndex][
+                      selectedLanguage === "ko" ? "ko_mean" : "jp_mean"
+                    ]
+                  }`}
             </div>
             <div className={styles.progressBarWrap}>
               <div className={styles.progressBarContainer}>
@@ -173,7 +179,9 @@ export default function Home() {
                     onClick={() => handleAnswer(option, index)}
                   >
                     {questionType === "wordToMeaning"
-                      ? option.meaning
+                      ? option[
+                          selectedLanguage === "ko" ? "ko_mean" : "jp_mean"
+                        ]
                       : option.word}
                   </button>
                 ))}
@@ -191,6 +199,12 @@ export default function Home() {
           className={styles.viewAllButton}
         >
           전체 단어 보기
+        </button>
+        <button
+          onClick={() => router.push("/conversation")}
+          className={styles.viewAllButton}
+        >
+          영어 회화
         </button>
       </div>
     </div>

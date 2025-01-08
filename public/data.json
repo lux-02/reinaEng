@@ -1,685 +1,1025 @@
 {
-  "updatedAt": "2024-11-18",
+  "updatedAt": "2025-1-8",
   "terms": [
     {
       "word": "adapt",
-      "meaning": "適応する"
+      "meaning": "適応する",
+      "jp_mean": "適応する",
+      "ko_mean": "적응하다"
     },
     {
       "word": "add",
-      "meaning": "加える"
+      "meaning": "加える",
+      "jp_mean": "加える",
+      "ko_mean": "더하다"
     },
     {
       "word": "adjust",
-      "meaning": "調整する、慣れる"
+      "meaning": "調整する、慣れる",
+      "jp_mean": "調整する、慣れる",
+      "ko_mean": "조정하다, 적응하다"
     },
     {
       "word": "admire",
-      "meaning": "賞賛する、感心する"
+      "meaning": "賞賛する、感心する",
+      "jp_mean": "賞賛する、感心する",
+      "ko_mean": "칭찬하다, 감탄하다"
     },
     {
       "word": "admit",
-      "meaning": "認める"
+      "meaning": "認める",
+      "jp_mean": "認める",
+      "ko_mean": "인정하다"
     },
     {
       "word": "adopt",
-      "meaning": "採用する、取り入れる、養子にする"
+      "meaning": "採用する、取り入れる、養子にする",
+      "jp_mean": "採用する、取り入れる、養子にする",
+      "ko_mean": "채택하다, 들여오다, 입양하다"
     },
     {
       "word": "advance",
-      "meaning": "前進、進む"
+      "meaning": "前進、進む",
+      "jp_mean": "前進、進む",
+      "ko_mean": "전진하다, 나아가다"
     },
     {
       "word": "Advertise",
-      "meaning": "宣伝する"
+      "meaning": "宣伝する",
+      "jp_mean": "宣伝する",
+      "ko_mean": "광고하다, 홍보하다"
     },
     {
       "word": "advise",
-      "meaning": "忠告する、勧める"
+      "meaning": "忠告する、勧める",
+      "jp_mean": "忠告する、勧める",
+      "ko_mean": "조언하다, 권고하다"
     },
     {
       "word": "advocate",
-      "meaning": "提唱する、主張する"
+      "meaning": "提唱する、主張する",
+      "jp_mean": "提唱する、主張する",
+      "ko_mean": "주장하다, 옹호하다"
     },
     {
       "word": "abandon",
-      "meaning": "見捨てる、あきらめる"
+      "meaning": "見捨てる、あきらめる",
+      "jp_mean": "見捨てる、あきらめる",
+      "ko_mean": "버리다, 포기하다"
     },
     {
       "word": "abuse",
-      "meaning": "[名] ①虐待 ②乱用 [他] ③～を悪用する"
+      "meaning": "[名] ①虐待 ②乱用 [他] ③～を悪用する",
+      "jp_mean": "[名] ①虐待 ②乱用 [他] ③～を悪用する",
+      "ko_mean": "[명] ①학대 ②남용 [타] ③악용하다"
     },
     {
       "word": "accept",
-      "meaning": "受け入れる"
+      "meaning": "受け入れる",
+      "jp_mean": "受け入れる",
+      "ko_mean": "받아들이다"
     },
     {
       "word": "accompany",
-      "meaning": "同行する"
+      "meaning": "同行する",
+      "jp_mean": "同行する",
+      "ko_mean": "동행하다"
     },
     {
       "word": "accomplish",
-      "meaning": "成し遂げる、達成する"
+      "meaning": "成し遂げる、達成する",
+      "jp_mean": "成し遂げる、達成する",
+      "ko_mean": "완수하다, 달성하다"
     },
     {
       "word": "accuse",
-      "meaning": "を非難する；を訴える"
+      "meaning": "を非難する；を訴える",
+      "jp_mean": "を非難する；を訴える",
+      "ko_mean": "비난하다, 고소하다"
     },
     {
       "word": "achieve",
-      "meaning": "達成する、成功する"
+      "meaning": "達成する、成功する",
+      "jp_mean": "達成する、成功する",
+      "ko_mean": "달성하다, 성공하다"
     },
     {
       "word": "acknowledge",
-      "meaning": "認める、正当に認識する"
+      "meaning": "認める、正当に認識する",
+      "jp_mean": "認める、正当に認識する",
+      "ko_mean": "인정하다, 정당하게 인식하다"
     },
     {
       "word": "acquired",
-      "meaning": "獲得する、習得する"
+      "meaning": "獲得する、習得する",
+      "jp_mean": "獲得する、習得する",
+      "ko_mean": "획득하다, 습득하다"
     },
     {
       "word": "act",
-      "meaning": "行動する、ふるまう"
+      "meaning": "行動する、ふるまう",
+      "jp_mean": "行動する、ふるまう",
+      "ko_mean": "행동하다, 처신하다"
     },
     {
       "word": "affect",
-      "meaning": "影響する"
+      "meaning": "影響する",
+      "jp_mean": "影響する",
+      "ko_mean": "영향을 미치다"
     },
     {
       "word": "afford",
-      "meaning": "～する余裕がある"
+      "meaning": "～する余裕がある",
+      "jp_mean": "～する余裕がある",
+      "ko_mean": "~할 여유가 있다"
     },
     {
       "word": "agree",
-      "meaning": "同意する"
+      "meaning": "同意する",
+      "jp_mean": "同意する",
+      "ko_mean": "동의하다"
     },
     {
       "word": "aid",
-      "meaning": "援助する"
+      "meaning": "援助する",
+      "jp_mean": "援助する",
+      "ko_mean": "도와주다, 원조하다"
     },
     {
       "word": "allege",
-      "meaning": "(証拠なしに)を主張する"
+      "meaning": "(証拠なしに)を主張する",
+      "jp_mean": "(証拠なしに)を主張する",
+      "ko_mean": "(증거 없이) 주장하다"
     },
     {
       "word": "allow",
-      "meaning": "を許可する、配分する"
+      "meaning": "を許可する、配分する",
+      "jp_mean": "を許可する、配分する",
+      "ko_mean": "허락하다, 할당하다"
     },
     {
       "word": "alter",
-      "meaning": "変更する"
+      "meaning": "変更する",
+      "jp_mean": "変更する",
+      "ko_mean": "바꾸다, 변경하다"
     },
     {
       "word": "amaze",
-      "meaning": "をびっくりさせる、困惑させる"
+      "meaning": "をびっくりさせる、困惑させる",
+      "jp_mean": "をびっくりさせる、困惑させる",
+      "ko_mean": "놀라게 하다, 당황하게 하다"
     },
     {
       "word": "analyze",
-      "meaning": "分析する"
+      "meaning": "分析する",
+      "jp_mean": "分析する",
+      "ko_mean": "분석하다"
     },
     {
       "word": "anger",
-      "meaning": "怒らせる、怒る"
+      "meaning": "怒らせる、怒る",
+      "jp_mean": "怒らせる、怒る",
+      "ko_mean": "화나게 하다, 화를 내다"
     },
     {
       "word": "announce",
-      "meaning": "知らせる；公表する"
+      "meaning": "知らせる；公表する",
+      "jp_mean": "知らせる；公表する",
+      "ko_mean": "알리다, 발표하다"
     },
     {
       "word": "anticipate",
-      "meaning": "予期する、予測する"
+      "meaning": "予期する、予測する",
+      "jp_mean": "予期する、予測する",
+      "ko_mean": "예상하다, 예측하다"
     },
     {
       "word": "apologize",
-      "meaning": "謝罪する"
+      "meaning": "謝罪する",
+      "jp_mean": "謝罪する",
+      "ko_mean": "사과하다"
     },
     {
       "word": "appeal",
-      "meaning": "訴える"
+      "meaning": "訴える",
+      "jp_mean": "訴える",
+      "ko_mean": "호소하다"
     },
     {
       "word": "appear",
-      "meaning": "...のように見える；現れる"
+      "meaning": "...のように見える；現れる",
+      "jp_mean": "...のように見える；現れる",
+      "ko_mean": "~처럼 보이다, 나타나다"
     },
     {
       "word": "apply",
-      "meaning": "申し込む、申請する"
+      "meaning": "申し込む、申請する",
+      "jp_mean": "申し込む、申請する",
+      "ko_mean": "신청하다, 지원하다"
     },
     {
       "word": "appoint",
-      "meaning": "～を任命する、～を指定する"
+      "meaning": "～を任命する、～を指定する",
+      "jp_mean": "～を任命する、～を指定する",
+      "ko_mean": "임명하다, 지정하다"
     },
     {
       "word": "appreciate",
-      "meaning": "ありがたく思う、感謝する"
+      "meaning": "ありがたく思う、感謝する",
+      "jp_mean": "ありがたく思う、感謝する",
+      "ko_mean": "감사히 여기다, 감사하다"
     },
     {
       "word": "approach",
-      "meaning": "近づく、接近する"
+      "meaning": "近づく、接近する",
+      "jp_mean": "近づく、接近する",
+      "ko_mean": "다가가다, 접근하다"
     },
     {
       "word": "approve",
-      "meaning": "賛成する；を承認する"
+      "meaning": "賛成する；を承認する",
+      "jp_mean": "賛成する；を承認する",
+      "ko_mean": "찬성하다, 승인하다"
     },
     {
       "word": "argue",
-      "meaning": "言い争う"
+      "meaning": "言い争う",
+      "jp_mean": "言い争う",
+      "ko_mean": "논쟁하다"
     },
     {
       "word": "arise",
-      "meaning": "生じる、起こる"
+      "meaning": "生じる、起こる",
+      "jp_mean": "生じる、起こる",
+      "ko_mean": "발생하다, 일어나다"
     },
     {
       "word": "arrange",
-      "meaning": "きちんと並べる; 整える、手配する"
+      "meaning": "きちんと並べる; 整える、手配する",
+      "jp_mean": "きちんと並べる; 整える、手配する",
+      "ko_mean": "정리하다, 준비하다"
     },
     {
       "word": "arrest",
-      "meaning": "逮捕する"
+      "meaning": "逮捕する",
+      "jp_mean": "逮捕する",
+      "ko_mean": "체포하다"
     },
     {
       "word": "arrive",
-      "meaning": "到着する"
+      "meaning": "到着する",
+      "jp_mean": "到着する",
+      "ko_mean": "도착하다"
     },
     {
       "word": "ask",
-      "meaning": "尋ねる"
+      "meaning": "尋ねる",
+      "jp_mean": "尋ねる",
+      "ko_mean": "묻다"
     },
     {
       "word": "assess",
-      "meaning": "を評価する、を査定する、(税金・罰金)を課す"
+      "meaning": "を評価する、を査定する、(税金・罰金)を課す",
+      "jp_mean": "を評価する、を査定する、(税金・罰金)を課す",
+      "ko_mean": "평가하다, 산정하다, (세금·벌금을) 부과하다"
     },
     {
       "word": "assign",
-      "meaning": "割り当てる、譲渡する"
+      "meaning": "割り当てる、譲渡する",
+      "jp_mean": "割り当てる、譲渡する",
+      "ko_mean": "할당하다, 양도하다"
     },
     {
       "word": "assist",
-      "meaning": "手伝う、援助する"
+      "meaning": "手伝う、援助する",
+      "jp_mean": "手伝う、援助する",
+      "ko_mean": "돕다, 보조하다"
     },
     {
       "word": "assume",
-      "meaning": "仮定する、推測する"
+      "meaning": "仮定する、推測する",
+      "jp_mean": "仮定する、推測する",
+      "ko_mean": "가정하다, 추측하다"
     },
     {
       "word": "assure",
-      "meaning": "保証する"
+      "meaning": "保証する",
+      "jp_mean": "保証する",
+      "ko_mean": "보장하다"
     },
     {
       "word": "attach",
-      "meaning": "取り付ける、添付する"
+      "meaning": "取り付ける、添付する",
+      "jp_mean": "取り付ける、添付する",
+      "ko_mean": "붙이다, 첨부하다"
     },
     {
       "word": "attack",
-      "meaning": "攻撃する"
+      "meaning": "攻撃する",
+      "jp_mean": "攻撃する",
+      "ko_mean": "공격하다"
     },
     {
       "word": "attempt",
-      "meaning": "試みる、企てる"
+      "meaning": "試みる、企てる",
+      "jp_mean": "試みる、企てる",
+      "ko_mean": "시도하다, 꾀하다"
     },
     {
       "word": "attend",
-      "meaning": "出席する"
+      "meaning": "出席する",
+      "jp_mean": "出席する",
+      "ko_mean": "참석하다"
     },
     {
       "word": "attract",
-      "meaning": "魅了する、引きつける"
+      "meaning": "魅了する、引きつける",
+      "jp_mean": "魅了する、引きつける",
+      "ko_mean": "매료하다, 끌다"
     },
     {
       "word": "avoid",
-      "meaning": "避ける"
+      "meaning": "避ける",
+      "jp_mean": "避ける",
+      "ko_mean": "피하다"
     },
     {
       "word": "award",
-      "meaning": "を授与する"
+      "meaning": "を授与する",
+      "jp_mean": "を授与する",
+      "ko_mean": "수여하다"
     },
     {
       "word": "balance",
-      "meaning": "釣り合う; バランスをとる"
+      "meaning": "釣り合う; バランスをとる",
+      "jp_mean": "釣り合う; バランスをとる",
+      "ko_mean": "균형을 이루다, 균형을 잡다"
     },
     {
       "word": "ban",
-      "meaning": "禁止する"
+      "meaning": "禁止する",
+      "jp_mean": "禁止する",
+      "ko_mean": "금지하다"
     },
     {
       "word": "bar",
-      "meaning": "塞ぐ、出入りを禁じる"
+      "meaning": "塞ぐ、出入りを禁じる",
+      "jp_mean": "塞ぐ、出入りを禁じる",
+      "ko_mean": "막다, 출입을 금지하다"
     },
     {
       "word": "be",
-      "meaning": "〜である"
+      "meaning": "〜である",
+      "jp_mean": "〜である",
+      "ko_mean": "~이다"
     },
     {
       "word": "beat",
-      "meaning": "（を）打つ；を打ち負かす"
+      "meaning": "（を）打つ；を打ち負かす",
+      "jp_mean": "（を）打つ；を打ち負かす",
+      "ko_mean": "(을) 때리다, 물리치다"
     },
     {
       "word": "become",
-      "meaning": "～になる"
+      "meaning": "～になる",
+      "jp_mean": "～になる",
+      "ko_mean": "~이 되다"
     },
     {
       "word": "begin",
-      "meaning": "始まる"
+      "meaning": "始まる",
+      "jp_mean": "始まる",
+      "ko_mean": "시작하다"
     },
     {
       "word": "behave",
-      "meaning": "振る舞う、行動する"
+      "meaning": "振る舞う、行動する",
+      "jp_mean": "振る舞う、行動する",
+      "ko_mean": "행동하다"
     },
     {
       "word": "believe",
-      "meaning": "信じる"
+      "meaning": "信じる",
+      "jp_mean": "信じる",
+      "ko_mean": "믿다"
     },
     {
       "word": "belong",
-      "meaning": "属する"
+      "meaning": "属する",
+      "jp_mean": "属する",
+      "ko_mean": "속하다"
     },
     {
       "word": "bend",
-      "meaning": "曲げる"
+      "meaning": "曲げる",
+      "jp_mean": "曲げる",
+      "ko_mean": "구부리다"
     },
     {
       "word": "bet",
-      "meaning": "賭ける、〜だと確信している"
+      "meaning": "賭ける、〜だと確信している",
+      "jp_mean": "賭ける、〜だと確信している",
+      "ko_mean": "내기하다, ~라고 확신하다"
     },
     {
       "word": "bid",
-      "meaning": "値をつける、競り落とす"
+      "meaning": "値をつける、競り落とす",
+      "jp_mean": "値をつける、競り落とす",
+      "ko_mean": "입찰하다"
     },
     {
       "word": "bind",
-      "meaning": "縛る,結ぶ"
+      "meaning": "縛る,結ぶ",
+      "jp_mean": "縛る,結ぶ",
+      "ko_mean": "묶다, 매다"
     },
     {
       "word": "bite",
-      "meaning": "噛む"
+      "meaning": "噛む",
+      "jp_mean": "噛む",
+      "ko_mean": "물다"
     },
     {
       "word": "blame",
-      "meaning": "非難する、責める"
+      "meaning": "非難する、責める",
+      "jp_mean": "非難する、責める",
+      "ko_mean": "비난하다, 탓하다"
     },
     {
       "word": "bless",
-      "meaning": "祝福する"
+      "meaning": "祝福する",
+      "jp_mean": "祝福する",
+      "ko_mean": "축복하다"
     },
     {
       "word": "block",
-      "meaning": "妨げる； 塞ぐ"
+      "meaning": "妨げる； 塞ぐ",
+      "jp_mean": "妨げる； 塞ぐ",
+      "ko_mean": "막다, 방해하다"
     },
     {
       "word": "blow",
-      "meaning": "吹く、爆破する"
+      "meaning": "吹く、爆破する",
+      "jp_mean": "吹く、爆破する",
+      "ko_mean": "불다, 폭파하다"
     },
     {
       "word": "bomb",
-      "meaning": "爆撃する"
+      "meaning": "爆撃する",
+      "jp_mean": "爆撃する",
+      "ko_mean": "폭격하다"
     },
     {
       "word": "bond",
-      "meaning": "くっつける； 接着する"
+      "meaning": "くっつける； 接着する",
+      "jp_mean": "くっつける； 接着する",
+      "ko_mean": "접착시키다, 결속시키다"
     },
     {
       "word": "boom",
-      "meaning": "とどろく、にわかに景気づく"
+      "meaning": "とどろく、にわかに景気づく",
+      "jp_mean": "とどろく、にわかに景気づく",
+      "ko_mean": "울려 퍼지다, 갑작스레 호황을 맞다"
     },
     {
       "word": "boost",
-      "meaning": "促進する、引き上げる"
+      "meaning": "促進する、引き上げる",
+      "jp_mean": "促進する、引き上げる",
+      "ko_mean": "신장시키다, 끌어올리다"
     },
     {
       "word": "borrow",
-      "meaning": "借りる"
+      "meaning": "借りる",
+      "jp_mean": "借りる",
+      "ko_mean": "빌리다"
     },
     {
       "word": "bother",
-      "meaning": "悩ます、迷惑をかける"
+      "meaning": "悩ます、迷惑をかける",
+      "jp_mean": "悩ます、迷惑をかける",
+      "ko_mean": "괴롭히다, 신경 쓰이게 하다"
     },
     {
       "word": "break",
-      "meaning": "壊す"
+      "meaning": "壊す",
+      "jp_mean": "壊す",
+      "ko_mean": "깨다, 부수다"
     },
     {
       "word": "breathe",
-      "meaning": "呼吸する"
+      "meaning": "呼吸する",
+      "jp_mean": "呼吸する",
+      "ko_mean": "호흡하다"
     },
     {
       "word": "breed",
-      "meaning": "動物が子を生む; 繁殖する"
+      "meaning": "動物が子を生む; 繁殖する",
+      "jp_mean": "動物が子を生む; 繁殖する",
+      "ko_mean": "동물이 새끼를 낳다, 번식하다"
     },
     {
       "word": "bring",
-      "meaning": "持ってくる"
+      "meaning": "持ってくる",
+      "jp_mean": "持ってくる",
+      "ko_mean": "가져오다"
     },
     {
       "word": "broadcast",
-      "meaning": "放送する"
+      "meaning": "放送する",
+      "jp_mean": "放送する",
+      "ko_mean": "방송하다"
     },
     {
       "word": "build",
-      "meaning": "建てる"
+      "meaning": "建てる",
+      "jp_mean": "建てる",
+      "ko_mean": "짓다"
     },
     {
       "word": "burden",
-      "meaning": "重い荷物を積む、負担をかける"
+      "meaning": "重い荷物を積む、負担をかける",
+      "jp_mean": "重い荷物を積む、負担をかける",
+      "ko_mean": "무거운 짐을 지우다, 부담을 주다"
     },
     {
       "word": "burn",
-      "meaning": "燃やす"
+      "meaning": "燃やす",
+      "jp_mean": "燃やす",
+      "ko_mean": "태우다"
     },
     {
       "word": "burst",
-      "meaning": "破裂する、爆破する"
+      "meaning": "破裂する、爆破する",
+      "jp_mean": "破裂する、爆破する",
+      "ko_mean": "터지다, 폭발하다"
     },
     {
       "word": "burry",
-      "meaning": "埋める、埋葬する"
+      "meaning": "埋める、埋葬する",
+      "jp_mean": "埋める、埋葬する",
+      "ko_mean": "묻다, 매장하다"
     },
     {
       "word": "buy",
-      "meaning": "買う"
+      "meaning": "買う",
+      "jp_mean": "買う",
+      "ko_mean": "사다"
     },
     {
       "word": "calculate",
-      "meaning": "計算する"
+      "meaning": "計算する",
+      "jp_mean": "計算する",
+      "ko_mean": "계산하다"
     },
     {
       "word": "call",
-      "meaning": "電話する、叫ぶ"
+      "meaning": "電話する、叫ぶ",
+      "jp_mean": "電話する、叫ぶ",
+      "ko_mean": "전화하다, 외치다"
     },
     {
       "word": "campaign",
-      "meaning": "運動を起こす"
+      "meaning": "運動を起こす",
+      "jp_mean": "運動を起こす",
+      "ko_mean": "캠페인을 벌이다"
     },
     {
       "word": "cancel",
-      "meaning": "取り消す"
+      "meaning": "取り消す",
+      "jp_mean": "取り消す",
+      "ko_mean": "취소하다"
     },
     {
       "word": "capture",
-      "meaning": "を捕らえる；を引きつける"
+      "meaning": "を捕らえる；を引きつける",
+      "jp_mean": "を捕らえる；を引きつける",
+      "ko_mean": "포획하다, 사로잡다"
     },
     {
       "word": "care",
-      "meaning": "気にする、世話をする"
+      "meaning": "気にする、世話をする",
+      "jp_mean": "気にする、世話をする",
+      "ko_mean": "신경 쓰다, 보살피다"
     },
     {
       "word": "carry",
-      "meaning": "運ぶ、取り扱う"
+      "meaning": "運ぶ、取り扱う",
+      "jp_mean": "運ぶ、取り扱う",
+      "ko_mean": "옮기다, 취급하다"
     },
     {
       "word": "catch",
-      "meaning": "捕まえる、(風邪を)引く"
+      "meaning": "捕まえる、(風邪を)引く",
+      "jp_mean": "捕まえる、(風邪を)引く",
+      "ko_mean": "잡다, (감기에) 걸리다"
     },
     {
       "word": "cause",
-      "meaning": "原因となる、引き起こす"
+      "meaning": "原因となる、引き起こす",
+      "jp_mean": "原因となる、引き起こす",
+      "ko_mean": "야기하다, 일으키다"
     },
     {
       "word": "celebrate",
-      "meaning": "祝う"
+      "meaning": "祝う",
+      "jp_mean": "祝う",
+      "ko_mean": "축하하다"
     },
     {
       "word": "change",
-      "meaning": "変える"
+      "meaning": "変える",
+      "jp_mean": "変える",
+      "ko_mean": "바꾸다"
     },
     {
       "word": "characterize",
-      "meaning": "〜とみなす、描く、特徴づける"
+      "meaning": "〜とみなす、描く、特徴づける",
+      "jp_mean": "〜とみなす、描く、特徴づける",
+      "ko_mean": "~로 간주하다, 묘사하다, 특징짓다"
     },
     {
       "word": "charge",
-      "meaning": "請求する"
+      "meaning": "請求する",
+      "jp_mean": "請求する",
+      "ko_mean": "청구하다"
     },
     {
       "word": "chase",
-      "meaning": "追いかける"
+      "meaning": "追いかける",
+      "jp_mean": "追いかける",
+      "ko_mean": "뒤쫓다"
     },
     {
       "word": "chat",
-      "meaning": "おしゃべりする、チャットする"
+      "meaning": "おしゃべりする、チャットする",
+      "jp_mean": "おしゃべりする、チャットする",
+      "ko_mean": "수다 떨다, 채팅하다"
     },
     {
       "word": "cheak",
-      "meaning": "確認する"
+      "meaning": "確認する",
+      "jp_mean": "確認する",
+      "ko_mean": "확인하다"
     },
     {
       "word": "chip",
-      "meaning": "細かく砕ける"
+      "meaning": "細かく砕ける",
+      "jp_mean": "細かく砕ける",
+      "ko_mean": "잘게 부서지다"
     },
     {
       "word": "choose",
-      "meaning": "選ぶ"
+      "meaning": "選ぶ",
+      "jp_mean": "選ぶ",
+      "ko_mean": "고르다"
     },
     {
       "word": "cite",
-      "meaning": "引用する、引き合いに出す"
+      "meaning": "引用する、引き合いに出す",
+      "jp_mean": "引用する、引き合いに出す",
+      "ko_mean": "인용하다, 예로 들다"
     },
     {
       "word": "claim",
-      "meaning": "主張する、要求する"
+      "meaning": "主張する、要求する",
+      "jp_mean": "主張する、要求する",
+      "ko_mean": "주장하다, 요구하다"
     },
     {
       "word": "climb",
-      "meaning": "登る"
+      "meaning": "登る",
+      "jp_mean": "登る",
+      "ko_mean": "오르다"
     },
     {
       "word": "cluster",
-      "meaning": "群がる"
+      "meaning": "群がる",
+      "jp_mean": "群がる",
+      "ko_mean": "무리를 이루다"
     },
     {
       "word": "collapse",
-      "meaning": "つぶれる、崩壊する、倒れる"
+      "meaning": "つぶれる、崩壊する、倒れる",
+      "jp_mean": "つぶれる、崩壊する、倒れる",
+      "ko_mean": "무너지다, 붕괴하다, 쓰러지다"
     },
     {
       "word": "collect",
-      "meaning": "集める"
+      "meaning": "集める",
+      "jp_mean": "集める",
+      "ko_mean": "모으다"
     },
     {
       "word": "combine",
-      "meaning": "組み合わせる, 混ぜ合わせる"
+      "meaning": "組み合わせる, 混ぜ合わせる",
+      "jp_mean": "組み合わせる, 混ぜ合わせる",
+      "ko_mean": "결합하다, 섞다"
     },
     {
       "word": "come",
-      "meaning": "来る"
+      "meaning": "来る",
+      "jp_mean": "来る",
+      "ko_mean": "오다"
     },
     {
       "word": "command",
-      "meaning": "命令する、指揮する"
+      "meaning": "命令する、指揮する",
+      "jp_mean": "命令する、指揮する",
+      "ko_mean": "명령하다, 지휘하다"
     },
     {
       "word": "commit",
-      "meaning": "〈罪など〉を犯す"
+      "meaning": "〈罪など〉を犯す",
+      "jp_mean": "〈罪など〉を犯す",
+      "ko_mean": "(죄 등을) 저지르다"
     },
     {
       "word": "communicate",
-      "meaning": "伝える、やり取りする"
+      "meaning": "伝える、やり取りする",
+      "jp_mean": "伝える、やり取りする",
+      "ko_mean": "전달하다, 소통하다"
     },
     {
       "word": "compare",
-      "meaning": "比較する"
+      "meaning": "比較する",
+      "jp_mean": "比較する",
+      "ko_mean": "비교하다"
     },
     {
       "word": "compete",
-      "meaning": "競争する"
+      "meaning": "競争する",
+      "jp_mean": "競争する",
+      "ko_mean": "경쟁하다"
     },
     {
       "word": "complain",
-      "meaning": "不平を言う"
+      "meaning": "不平を言う",
+      "jp_mean": "不平を言う",
+      "ko_mean": "불평하다"
     },
     {
       "word": "complete",
-      "meaning": "完了する、全部揃える"
+      "meaning": "完了する、全部揃える",
+      "jp_mean": "完了する、全部揃える",
+      "ko_mean": "완료하다, 모두 갖추다"
     },
     {
       "word": "complicate",
-      "meaning": "を複雑にする"
+      "meaning": "を複雑にする",
+      "jp_mean": "を複雑にする",
+      "ko_mean": "복잡하게 하다"
     },
     {
       "word": "compose",
-      "meaning": "構成する、作る、創作する"
+      "meaning": "構成する、作る、創作する",
+      "jp_mean": "構成する、作る、創作する",
+      "ko_mean": "구성하다, 만들다, 작곡하다"
     },
     {
       "word": "comprise",
-      "meaning": "含む、構成する"
+      "meaning": "含む、構成する",
+      "jp_mean": "含む、構成する",
+      "ko_mean": "포함하다, 구성하다"
     },
     {
       "word": "compromise",
-      "meaning": "妥協する"
+      "meaning": "妥協する",
+      "jp_mean": "妥協する",
+      "ko_mean": "타협하다"
     },
     {
       "word": "compute",
-      "meaning": "計算する"
+      "meaning": "計算する",
+      "jp_mean": "計算する",
+      "ko_mean": "계산하다"
     },
     {
       "word": "concentrate",
-      "meaning": "集中する"
+      "meaning": "集中する",
+      "jp_mean": "集中する",
+      "ko_mean": "집중하다"
     },
     {
       "word": "conclude",
-      "meaning": "結論を出す、締結する"
+      "meaning": "結論を出す、締結する",
+      "jp_mean": "結論を出す、締結する",
+      "ko_mean": "결론을 내리다, 체결하다"
     },
     {
       "word": "conduct",
-      "meaning": "導く、案内する"
+      "meaning": "導く、案内する",
+      "jp_mean": "導く、案内する",
+      "ko_mean": "이끌다, 안내하다"
     },
     {
       "word": "confirm",
-      "meaning": "確認する"
+      "meaning": "確認する",
+      "jp_mean": "確認する",
+      "ko_mean": "확인하다"
     },
     {
       "word": "conflict",
-      "meaning": "対立する、矛盾する"
+      "meaning": "対立する、矛盾する",
+      "jp_mean": "対立する、矛盾する",
+      "ko_mean": "충돌하다, 모순되다"
     },
     {
       "word": "confuse",
-      "meaning": "混乱させる"
+      "meaning": "混乱させる",
+      "jp_mean": "混乱させる",
+      "ko_mean": "혼란스럽게 하다"
     },
     {
       "word": "connect",
-      "meaning": "つなぐ、接続する"
+      "meaning": "つなぐ、接続する",
+      "jp_mean": "つなぐ、接続する",
+      "ko_mean": "잇다, 연결하다"
     },
     {
       "word": "consider",
-      "meaning": "考慮する、みなす"
+      "meaning": "考慮する、みなす",
+      "jp_mean": "考慮する、みなす",
+      "ko_mean": "고려하다, ~로 여기다"
     },
     {
       "word": "consist",
-      "meaning": "〜から成り立つ"
+      "meaning": "〜から成り立つ",
+      "jp_mean": "〜から成り立つ",
+      "ko_mean": "~로 구성되다"
     },
     {
       "word": "constitute",
-      "meaning": "構成する"
+      "meaning": "構成する",
+      "jp_mean": "構成する",
+      "ko_mean": "구성하다"
     },
     {
       "word": "construct",
-      "meaning": "〜を建設する,組み立てる"
+      "meaning": "〜を建設する,組み立てる",
+      "jp_mean": "〜を建設する,組み立てる",
+      "ko_mean": "건설하다, 조립하다"
     },
     {
       "word": "consult",
-      "meaning": "相談する、調べる"
+      "meaning": "相談する、調べる",
+      "jp_mean": "相談する、調べる",
+      "ko_mean": "상담하다, 조사하다"
     },
     {
       "word": "consume",
-      "meaning": "消費する"
+      "meaning": "消費する",
+      "jp_mean": "消費する",
+      "ko_mean": "소비하다"
     },
     {
       "word": "contact",
-      "meaning": "連絡する、接触する"
+      "meaning": "連絡する、接触する",
+      "jp_mean": "連絡する、接触する",
+      "ko_mean": "연락하다, 접촉하다"
     },
     {
       "word": "contain",
-      "meaning": "含む、入る"
+      "meaning": "含む、入る",
+      "jp_mean": "含む、入る",
+      "ko_mean": "포함하다, 들어있다"
     },
     {
       "word": "continue",
-      "meaning": "続く、続ける"
+      "meaning": "続く、続ける",
+      "jp_mean": "続く、続ける",
+      "ko_mean": "계속하다"
     },
     {
       "word": "contrast",
-      "meaning": "対照させる"
+      "meaning": "対照させる",
+      "jp_mean": "対照させる",
+      "ko_mean": "대조하다"
     },
     {
       "word": "contribute",
-      "meaning": "貢献する、寄与する"
+      "meaning": "貢献する、寄与する",
+      "jp_mean": "貢献する、寄与する",
+      "ko_mean": "공헌하다, 기여하다"
     },
     {
       "word": "control",
-      "meaning": "支配する、管理する"
+      "meaning": "支配する、管理する",
+      "jp_mean": "支配する、管理する",
+      "ko_mean": "지배하다, 관리하다"
     },
     {
       "word": "convert",
-      "meaning": "転換する、変える"
+      "meaning": "転換する、変える",
+      "jp_mean": "転換する、変える",
+      "ko_mean": "전환하다, 바꾸다"
     },
     {
       "word": "convince",
-      "meaning": "納得させる"
+      "meaning": "納得させる",
+      "jp_mean": "納得させる",
+      "ko_mean": "납득시키다"
     },
     {
       "word": "cook",
-      "meaning": "料理する"
+      "meaning": "料理する",
+      "jp_mean": "料理する",
+      "ko_mean": "요리하다"
     },
     {
       "word": "cope",
-      "meaning": "対処する"
+      "meaning": "対処する",
+      "jp_mean": "対処する",
+      "ko_mean": "대처하다"
     },
     {
       "word": "copy",
-      "meaning": "写す； コピーする； まねる"
+      "meaning": "写す； コピーする； まねる",
+      "jp_mean": "写す； コピーする； まねる",
+      "ko_mean": "베끼다, 복사하다, 모방하다"
     },
     {
       "word": "correspond",
-      "meaning": "対応する、一致する"
+      "meaning": "対応する、一致する",
+      "jp_mean": "対応する、一致する",
+      "ko_mean": "상응하다, 일치하다"
     },
     {
       "word": "cough",
-      "meaning": "咳をする"
+      "meaning": "咳をする",
+      "jp_mean": "咳をする",
+      "ko_mean": "기침하다"
     },
     {
       "word": "count",
-      "meaning": "数える、重要である"
+      "meaning": "数える、重要である",
+      "jp_mean": "数える、重要である",
+      "ko_mean": "세다, 중요하다"
     },
     {
       "word": "counter",
-      "meaning": "反論する"
+      "meaning": "反論する",
+      "jp_mean": "反論する",
+      "ko_mean": "반박하다"
     },
     {
       "word": "crack",
-      "meaning": "割れる"
+      "meaning": "割れる",
+      "jp_mean": "割れる",
+      "ko_mean": "갈라지다"
     },
     {
       "word": "craft",
-      "meaning": "(手作業)で作る、巧妙に作り上げる"
+      "meaning": "(手作業)で作る、巧妙に作り上げる",
+      "jp_mean": "(手作業)で作る、巧妙に作り上げる",
+      "ko_mean": "(수작업으로) 만들다, 정교하게 만들다"
     },
     {
       "word": "crash",
-      "meaning": "衝突する"
+      "meaning": "衝突する",
+      "jp_mean": "衝突する",
+      "ko_mean": "충돌하다"
     },
     {
       "word": "create",
-      "meaning": "創造する、作り出す"
+      "meaning": "創造する、作り出す",
+      "jp_mean": "創造する、作り出す",
+      "ko_mean": "창조하다, 만들어내다"
     },
     {
       "word": "criticize",
-      "meaning": "批判する"
+      "meaning": "批判する",
+      "jp_mean": "批判する",
+      "ko_mean": "비판하다"
     },
     {
       "word": "cross",
-      "meaning": "横断する、交差する"
+      "meaning": "横断する、交差する",
+      "jp_mean": "横断する、交差する",
+      "ko_mean": "건너다, 교차하다"
     },
     {
       "word": "cry",
-      "meaning": "泣く"
+      "meaning": "泣く",
+      "jp_mean": "泣く",
+      "ko_mean": "울다"
     },
     {
       "word": "cut",
-      "meaning": "切る"
+      "meaning": "切る",
+      "jp_mean": "切る",
+      "ko_mean": "자르다"
     },
     {
       "word": "dance",
-      "meaning": "踊る"
+      "meaning": "踊る",
+      "jp_mean": "踊る",
+      "ko_mean": "춤추다"
     },
     {
       "word": "dare",
-      "meaning": "あえて～する、する勇気がある"
+      "meaning": "あえて～する、する勇気がある",
+      "jp_mean": "あえて～する、する勇気がある",
+      "ko_mean": "감히 ~하다, ~할 용기가 있다"
     }
   ]
 }

@@ -8,6 +8,38 @@
   background-color: #111;
 }
 
+.header {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.localeButton {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "CookieRun-Regular";
+  transition: background-color 0.2s ease;
+}
+
+.localeButton:hover {
+  background-color: #0056b3;
+}
+
+.lastUpdated {
+  color: #adb5bd;
+  font-size: 0.9rem;
+  font-family: "CookieRun-Regular";
+}
+
 .quizContainer {
   background-color: #ffffff;
   border-radius: 2rem;
@@ -19,6 +51,7 @@
   align-items: center;
   height: 70%;
   max-width: 30rem;
+  padding: 2rem;
 }
 
 .quizCount {
@@ -42,6 +75,7 @@
   align-items: center;
   box-sizing: border-box;
   padding: 4rem;
+  font-family: "CookieRun-Regular";
 }
 
 .progressBarWrap {
@@ -99,6 +133,7 @@
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  font-family: "CookieRun-Regular";
 }
 
 .optionButton:hover {
@@ -118,6 +153,7 @@
   display: flex;
   justify-content: center;
   align-items: start;
+  font-family: "CookieRun-Regular";
 }
 
 .numQuestionsWrap {
@@ -133,6 +169,8 @@
   padding: 0.2rem 1rem;
   width: max-content;
   border-bottom: 0.2rem solid black;
+  font-family: "CookieRun-Regular";
+  cursor: pointer;
 }
 
 .numInput {
@@ -141,6 +179,7 @@
   font-weight: bold;
   font-size: 1rem;
   text-align: center;
+  font-family: "CookieRun-Regular";
 }
 
 .btnWrap {
@@ -151,21 +190,6 @@
   gap: 2rem;
 }
 
-.updateButton {
-  background-color: none;
-  border: none;
-  background: none;
-  color: gray;
-  border-bottom: 1px solid gray;
-  font-family: "CookieRun-Regular";
-}
-
-.updateButton:hover,
-.viewAllButton:hover {
-  color: rgb(194, 194, 194);
-  cursor: pointer;
-}
-
 .viewAllButton {
   background-color: none;
   border: none;
@@ -173,4 +197,20 @@
   color: gray;
   border-bottom: 1px solid gray;
   font-family: "CookieRun-Regular";
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.viewAllButton:hover {
+  color: rgb(194, 194, 194);
+}
+
+.loading {
+  color: white;
+  font-size: 1.2rem;
+  font-family: "CookieRun-Regular";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }

@@ -1,4 +1,4 @@
-import clientPromise from "../../lib/mongodb";
+import { connectToDatabase } from "../../lib/mongodb";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -7,8 +7,7 @@ export default async function handler(req, res) {
 
   try {
     const { word, meaning } = req.body;
-    const client = await clientPromise;
-    const db = client.db("reinaeng");
+    const { db } = await connectToDatabase();
     const collection = db.collection("words");
 
     const result = await collection.insertOne({
