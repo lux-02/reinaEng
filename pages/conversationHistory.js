@@ -7,9 +7,12 @@ export default function ConversationHistory() {
   const [conversations, setConversations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [expandedId, setExpandedId] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState("ko");
   const router = useRouter();
 
   useEffect(() => {
+    const savedLanguage = localStorage.getItem("selectedLanguage");
+    if (savedLanguage) setSelectedLanguage(savedLanguage);
     fetchConversations();
   }, []);
 
@@ -19,7 +22,12 @@ export default function ConversationHistory() {
       const data = await response.json();
       setConversations(data.conversations);
     } catch (error) {
-      console.error("대화 내역 로드 실패:", error);
+      console.error(
+        selectedLanguage === "ko"
+          ? "대화 내역 로드 실패:"
+          : "会話履歴の読み込みに失敗しました:",
+        error
+      );
     } finally {
       setIsLoading(false);
     }
@@ -27,27 +35,64 @@ export default function ConversationHistory() {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString("ko-KR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    });
+    return date.toLocaleDateString(
+      selectedLanguage === "ko" ? "ko-KR" : "ja-JP",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      }
+    );
   };
 
   const toggleConversation = (id) => {
     setExpandedId(expandedId === id ? null : id);
   };
 
+  const toggleLanguage = () => {
+    const newLanguage = selectedLanguage === "ko" ? "jp" : "ko";
+    setSelectedLanguage(newLanguage);
+    localStorage.setItem("selectedLanguage", newLanguage);
+  };
+
   if (isLoading) {
-    return <div className={styles.loading}>대화 내역을 불러오는 중...</div>;
+    return (
+      <div
+        className={`${styles.loading} ${
+          selectedLanguage === "ko" ? "ko-text" : "jp-text"
+        }`}
+      >
+        {selectedLanguage === "ko"
+          ? "대화 내역을 불러오는 중..."
+          : "会話履歴を読み込んでいます..."}
+      </div>
+    );
   }
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>대화 내역</h1>
+      <div className={styles.header}>
+        <button
+          onClick={toggleLanguage}
+          className={`${styles.localeButton} ${
+            selectedLanguage === "ko" ? "ko-text" : "jp-text"
+          }`}
+          lang={selectedLanguage === "ko" ? "ko" : "ja"}
+        >
+          {selectedLanguage === "ko" ? "한국어" : "日本語"}
+        </button>
+      </div>
+      <h1
+        className={`${styles.title} ${
+          selectedLanguage === "ko" ? "ko-text" : "jp-text"
+        }`}
+        lang={selectedLanguage === "ko" ? "ko" : "ja"}
+      >
+        {selectedLanguage === "ko" ? "대화 내역" : "会話履歴"}
+      </h1>
       <div className={styles.conversationList}>
         {conversations.map((conversation) => (
           <div key={conversation._id} className={styles.conversationItem}>
@@ -55,7 +100,12 @@ export default function ConversationHistory() {
               className={styles.conversationHeader}
               onClick={() => toggleConversation(conversation._id)}
             >
-              <span className={styles.date}>
+              <span
+                className={`${styles.date} ${
+                  selectedLanguage === "ko" ? "ko-text" : "jp-text"
+                }`}
+                lang={selectedLanguage === "ko" ? "ko" : "ja"}
+              >
                 {formatDate(conversation.date)}
               </span>
               <span className={styles.toggleIcon}>
@@ -87,8 +137,14 @@ export default function ConversationHistory() {
           </div>
         ))}
       </div>
-      <button onClick={() => router.push("/")} className={styles.backButton}>
-        메인으로 돌아가기
+      <button
+        onClick={() => router.push("/")}
+        className={`${styles.backButton} ${
+          selectedLanguage === "ko" ? "ko-text" : "jp-text"
+        }`}
+        lang={selectedLanguage === "ko" ? "ko" : "ja"}
+      >
+        {selectedLanguage === "ko" ? "메인으로 돌아가기" : "メインへ戻る"}
       </button>
     </div>
   );
