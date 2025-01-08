@@ -1,43 +1,44 @@
-import { useEffect, useState } from "react";
-import styles from "@/styles/Data.module.css";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import styles from "@/styles/Data.module.css";
 
 export default function Data() {
-  const [wordList, setWordList] = useState([]);
-  const router = useRouter();
-  const [lastUpdateDate, setLastUpdateDate] = useState("");
+  const [words, setWords] = useState([]);
+  const [selectedWord, setSelectedWord] = useState(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [selectedWord, setSelectedWord] = useState(null);
-  const [editForm, setEditForm] = useState({ word: "", meaning: "" });
-  const [addForm, setAddForm] = useState({ word: "", meaning: "" });
+  const [editedWord, setEditedWord] = useState({
+    word: "",
+    jp_mean: "",
+    ko_mean: "",
+  });
+  const [newWord, setNewWord] = useState({
+    word: "",
+    jp_mean: "",
+    ko_mean: "",
+  });
+  const [selectedLanguage, setSelectedLanguage] = useState("ko");
+  const router = useRouter();
 
   useEffect(() => {
-    fetchData();
+    fetchWords();
   }, []);
 
-  const fetchData = async () => {
+  const fetchWords = async () => {
     try {
       const response = await fetch("/api/getWords");
       const data = await response.json();
-
-      if (Array.isArray(data.terms)) {
-        setWordList(data.terms);
-        if (data.updatedAt) {
-          setLastUpdateDate(data.updatedAt.split("T")[0]);
-        }
+      if (data.terms) {
+        setWords(data.terms);
       }
     } catch (error) {
-      console.error("데이터 로드 실패:", error);
+      console.error("Error fetching words:", error);
     }
   };
 
   const handleWordClick = (word) => {
-    setSelectedWord({
-      ...word,
-      _id: word._id.toString(),
-    });
-    setEditForm({ word: word.word, meaning: word.meaning });
+    setSelectedWord(word);
+    setEditedWord(word);
     setIsEditModalOpen(true);
   };
 
@@ -46,22 +47,24 @@ export default function Data() {
     try {
       const response = await fetch("/api/updateWord", {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           _id: selectedWord._id,
-          ...editForm,
+          word: editedWord.word,
+          meaning: editedWord.meaning,
+          jp_mean: editedWord.jp_mean,
+          ko_mean: editedWord.ko_mean,
         }),
       });
 
       if (response.ok) {
         setIsEditModalOpen(false);
-        fetchData(); // 데이터 새로고침
-      } else {
-        alert("단어 수정에 실패했습니다.");
+        fetchWords();
       }
     } catch (error) {
-      console.error("단어 수정 실패:", error);
-      alert("단어 수정에 실패했습니다.");
+      console.error("Error updating word:", error);
     }
   };
 
@@ -70,87 +73,100 @@ export default function Data() {
     try {
       const response = await fetch("/api/addWord", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(addForm),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newWord),
       });
 
       if (response.ok) {
         setIsAddModalOpen(false);
-        setAddForm({ word: "", meaning: "" });
-        fetchData(); // 데이터 새로고침
-      } else {
-        alert("단어 추가에 실패했습니다.");
+        setNewWord({ word: "", meaning: "", jp_mean: "", ko_mean: "" });
+        fetchWords();
       }
     } catch (error) {
-      console.error("단어 추가 실패:", error);
-      alert("단어 추가에 실패했습니다.");
+      console.error("Error adding word:", error);
     }
   };
 
   const handleDeleteWord = async () => {
-    if (window.confirm("정말로 이 단어를 삭제하시겠습니까?")) {
-      try {
-        const response = await fetch("/api/deleteWord", {
-          method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            _id: selectedWord._id,
-          }),
-        });
-
-        if (response.ok) {
-          setIsEditModalOpen(false);
-          fetchData(); // 데이터 새로고침
-        } else {
-          alert("단어 삭제에 실패했습니다.");
-        }
-      } catch (error) {
-        console.error("단어 삭제 실패:", error);
-        alert("단어 삭제에 실패했습니다.");
-      }
+    if (
+      !selectedWord ||
+      !window.confirm(
+        selectedLanguage === "ko"
+          ? "정말로 삭제하시겠습니까?"
+          : "本当に削除しますか？"
+      )
+    ) {
+      return;
     }
+
+    try {
+      const response = await fetch("/api/deleteWord", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ _id: selectedWord._id }),
+      });
+
+      if (response.ok) {
+        setIsEditModalOpen(false);
+        fetchWords();
+      }
+    } catch (error) {
+      console.error("Error deleting word:", error);
+    }
+  };
+
+  const toggleLanguage = () => {
+    setSelectedLanguage((prev) => (prev === "ko" ? "jp" : "ko"));
   };
 
   return (
     <div className={styles.container}>
-      <h1>전체 단어 리스트 ({wordList.length}개)</h1>
-      <table className={styles.wordTable}>
-        <thead>
-          <tr>
-            <th>단어 (Word)</th>
-            <th>뜻 (Meaning)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {wordList.map((wordItem) => (
-            <tr key={wordItem._id} onClick={() => handleWordClick(wordItem)}>
-              <td>{wordItem.word}</td>
-              <td>{wordItem.meaning}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      <div className={styles.buttonContainer}>
-        <button
-          onClick={() => setIsAddModalOpen(true)}
-          className={styles.addButton}
-        >
-          단어 추가
+      <div className={styles.header}>
+        <button onClick={toggleLanguage} className={styles.localeButton}>
+          {selectedLanguage === "ko" ? "한국어" : "日本語"}
         </button>
         <button onClick={() => router.push("/")} className={styles.backButton}>
-          메인 페이지로 돌아가기
+          {selectedLanguage === "ko" ? "메인으로" : "メインへ"}
         </button>
       </div>
 
-      {/* 수정 모달 */}
+      <div className={styles.content}>
+        <div className={styles.titleRow}>
+          <h1>{selectedLanguage === "ko" ? "단어 목록" : "単語リスト"}</h1>
+          <button
+            onClick={() => setIsAddModalOpen(true)}
+            className={styles.addButton}
+          >
+            {selectedLanguage === "ko" ? "단어 추가" : "単語追加"}
+          </button>
+        </div>
+
+        <div className={styles.wordList}>
+          {words.map((word) => (
+            <div
+              key={word._id}
+              className={styles.wordItem}
+              onClick={() => handleWordClick(word)}
+            >
+              <span className={styles.wordText}>{word.word}</span>
+              <span className={styles.meaningText}>
+                {selectedLanguage === "ko" ? word.ko_mean : word.jp_mean}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {isEditModalOpen && (
-        <div className={styles.modal}>
-          <div className={styles.modalContent}>
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
             <div className={styles.modalHeader}>
-              <h2>단어 수정</h2>
+              <h2>{selectedLanguage === "ko" ? "단어 수정" : "単語編集"}</h2>
               <button
-                type="button"
                 onClick={() => setIsEditModalOpen(false)}
                 className={styles.closeButton}
               >
@@ -158,34 +174,53 @@ export default function Data() {
               </button>
             </div>
             <form onSubmit={handleEditSubmit}>
-              <input
-                type="text"
-                value={editForm.word}
-                onChange={(e) =>
-                  setEditForm({ ...editForm, word: e.target.value })
-                }
-                placeholder="단어"
-                required
-              />
-              <input
-                type="text"
-                value={editForm.meaning}
-                onChange={(e) =>
-                  setEditForm({ ...editForm, meaning: e.target.value })
-                }
-                placeholder="의미"
-                required
-              />
+              <div className={styles.inputGroup}>
+                <label>{selectedLanguage === "ko" ? "단어" : "単語"}</label>
+                <input
+                  type="text"
+                  value={editedWord.word}
+                  onChange={(e) =>
+                    setEditedWord({ ...editedWord, word: e.target.value })
+                  }
+                  required
+                />
+              </div>
+              <div className={styles.inputGroup}>
+                <label>
+                  {selectedLanguage === "ko" ? "일본어 뜻" : "日本語の意味"}
+                </label>
+                <input
+                  type="text"
+                  value={editedWord.jp_mean}
+                  onChange={(e) =>
+                    setEditedWord({ ...editedWord, jp_mean: e.target.value })
+                  }
+                  required
+                />
+              </div>
+              <div className={styles.inputGroup}>
+                <label>
+                  {selectedLanguage === "ko" ? "한국어 뜻" : "韓国語の意味"}
+                </label>
+                <input
+                  type="text"
+                  value={editedWord.ko_mean}
+                  onChange={(e) =>
+                    setEditedWord({ ...editedWord, ko_mean: e.target.value })
+                  }
+                  required
+                />
+              </div>
               <div className={styles.modalButtons}>
                 <button
                   type="button"
                   onClick={handleDeleteWord}
                   className={styles.deleteButton}
                 >
-                  삭제
+                  {selectedLanguage === "ko" ? "삭제" : "削除"}
                 </button>
-                <button type="submit" className={styles.editButton}>
-                  수정
+                <button type="submit" className={styles.saveButton}>
+                  {selectedLanguage === "ko" ? "저장" : "保存"}
                 </button>
               </div>
             </form>
@@ -193,14 +228,14 @@ export default function Data() {
         </div>
       )}
 
-      {/* 추가 모달 */}
       {isAddModalOpen && (
-        <div className={styles.modal}>
-          <div className={styles.modalContent}>
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
             <div className={styles.modalHeader}>
-              <h2>단어 추가</h2>
+              <h2>
+                {selectedLanguage === "ko" ? "새 단어 추가" : "新しい単語追加"}
+              </h2>
               <button
-                type="button"
                 onClick={() => setIsAddModalOpen(false)}
                 className={styles.closeButton}
               >
@@ -208,27 +243,46 @@ export default function Data() {
               </button>
             </div>
             <form onSubmit={handleAddSubmit}>
-              <input
-                type="text"
-                value={addForm.word}
-                onChange={(e) =>
-                  setAddForm({ ...addForm, word: e.target.value })
-                }
-                placeholder="단어"
-                required
-              />
-              <input
-                type="text"
-                value={addForm.meaning}
-                onChange={(e) =>
-                  setAddForm({ ...addForm, meaning: e.target.value })
-                }
-                placeholder="의미"
-                required
-              />
+              <div className={styles.inputGroup}>
+                <label>{selectedLanguage === "ko" ? "단어" : "単語"}</label>
+                <input
+                  type="text"
+                  value={newWord.word}
+                  onChange={(e) =>
+                    setNewWord({ ...newWord, word: e.target.value })
+                  }
+                  required
+                />
+              </div>
+              <div className={styles.inputGroup}>
+                <label>
+                  {selectedLanguage === "ko" ? "일본어 뜻" : "日本語の意味"}
+                </label>
+                <input
+                  type="text"
+                  value={newWord.jp_mean}
+                  onChange={(e) =>
+                    setNewWord({ ...newWord, jp_mean: e.target.value })
+                  }
+                  required
+                />
+              </div>
+              <div className={styles.inputGroup}>
+                <label>
+                  {selectedLanguage === "ko" ? "한국어 뜻" : "韓国語の意味"}
+                </label>
+                <input
+                  type="text"
+                  value={newWord.ko_mean}
+                  onChange={(e) =>
+                    setNewWord({ ...newWord, ko_mean: e.target.value })
+                  }
+                  required
+                />
+              </div>
               <div className={styles.modalButtons}>
-                <button type="submit" className={styles.addSubmitButton}>
-                  단어 추가
+                <button type="submit" className={styles.saveButton}>
+                  {selectedLanguage === "ko" ? "추가" : "追加"}
                 </button>
               </div>
             </form>
