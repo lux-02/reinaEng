@@ -155,7 +155,11 @@ export default function Home() {
                 className={styles.numInput}
               />
             ) : (
-              <span>
+              <span
+                className={`${
+                  selectedLanguage === "ko" ? "ko-text" : "jp-text"
+                }`}
+              >
                 {numQuestions} {selectedLanguage === "ko" ? "문제" : "問題"}
               </span>
             )}
@@ -232,15 +236,27 @@ export default function Home() {
       <div className={styles.btnWrap}>
         <button
           onClick={() => router.push("/data")}
-          className={styles.viewAllButton}
+          className={`${styles.viewAllButton} ${
+            selectedLanguage === "ko" ? "ko-text" : "jp-text"
+          }`}
         >
-          {selectedLanguage === "ko" ? "전체 단어 보기" : "全ての単語を見る"}
+          {selectedLanguage === "ko" ? "단어 리스트" : "単語リスト"}
         </button>
         <button
           onClick={() => router.push("/conversation")}
-          className={styles.viewAllButton}
+          className={`${styles.viewAllButton} ${
+            selectedLanguage === "ko" ? "ko-text" : "jp-text"
+          }`}
         >
-          {selectedLanguage === "ko" ? "영어 회화" : "英会話"}
+          {selectedLanguage === "ko" ? "프리토킹" : "フリートーキング"}
+        </button>
+        <button
+          onClick={() => router.push("/pattern")}
+          className={`${styles.viewAllButton} ${
+            selectedLanguage === "ko" ? "ko-text" : "jp-text"
+          }`}
+        >
+          {selectedLanguage === "ko" ? "회화패턴" : "英会話"}
         </button>
       </div>
     </div>
