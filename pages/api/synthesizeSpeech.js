@@ -12,14 +12,24 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Text is required" });
     }
 
+    console.log("Attempting to get auth token...");
     // 인증 토큰 가져오기
-    const token = await getAuth();
-    if (!token) {
-      console.error("Authentication failed: No token received");
-      return res.status(401).json({ error: "Authentication failed" });
+    let token;
+    try {
+      token = await getAuth();
+    } catch (authError) {
+      console.error("Authentication error details:", {
+        message: authError.message,
+        stack: authError.stack,
+        name: authError.name,
+      });
+      return res.status(401).json({
+        error: "Authentication failed",
+        details: authError.message,
+      });
     }
 
-    console.log("Calling Google TTS API...");
+    console.log("Token received, calling Google TTS API...");
     // Google TTS API 호출
     const response = await fetch(
       "https://texttospeech.googleapis.com/v1/text:synthesize",
@@ -50,6 +60,7 @@ export default async function handler(req, res) {
         status: response.status,
         statusText: response.statusText,
         error: errorData,
+        headers: response.headers,
       });
       throw new Error(
         `Google TTS API error: ${response.status} ${response.statusText}. ${
@@ -58,6 +69,7 @@ export default async function handler(req, res) {
       );
     }
 
+    console.log("Received response from Google TTS API");
     const data = await response.json();
 
     if (!data.audioContent) {
@@ -65,12 +77,17 @@ export default async function handler(req, res) {
       throw new Error("No audio content received from Google TTS API");
     }
 
+    console.log("Successfully processed TTS request");
     res.status(200).json({ audioContent: data.audioContent });
   } catch (error) {
-    console.error("Speech synthesis error:", error);
+    console.error("Speech synthesis error:", {
+      message: error.message,
+      stack: error.stack,
+      name: error.name,
+    });
     res.status(500).json({
       error: error.message,
-      stack: process.env.NODE_ENV === "development" ? error.stack : undefined,
+      details: error.stack,
     });
   }
 }
