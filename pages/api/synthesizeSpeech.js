@@ -15,9 +15,11 @@ export default async function handler(req, res) {
     // 인증 토큰 가져오기
     const token = await getAuth();
     if (!token) {
-      throw new Error("Failed to get authentication token");
+      console.error("Authentication failed: No token received");
+      return res.status(401).json({ error: "Authentication failed" });
     }
 
+    console.log("Calling Google TTS API...");
     // Google TTS API 호출
     const response = await fetch(
       "https://texttospeech.googleapis.com/v1/text:synthesize",
@@ -44,6 +46,11 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
+      console.error("Google TTS API Error:", {
+        status: response.status,
+        statusText: response.statusText,
+        error: errorData,
+      });
       throw new Error(
         `Google TTS API error: ${response.status} ${response.statusText}. ${
           errorData.error?.message || ""
@@ -54,6 +61,7 @@ export default async function handler(req, res) {
     const data = await response.json();
 
     if (!data.audioContent) {
+      console.error("No audio content in response:", data);
       throw new Error("No audio content received from Google TTS API");
     }
 

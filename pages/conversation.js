@@ -81,6 +81,11 @@ export default function Conversation() {
 
   const playAudio = async (audioContent) => {
     try {
+      if (!audioContent) {
+        console.error("No audio content provided");
+        return;
+      }
+
       if (!audioRef.current) {
         audioRef.current = new Audio();
       }
@@ -89,14 +94,20 @@ export default function Conversation() {
         type: "audio/mp3",
       });
       const audioUrl = URL.createObjectURL(audioBlob);
+
       audioRef.current.src = audioUrl;
+      audioRef.current.onerror = (e) => {
+        console.error("Audio loading error:", e);
+        setIsPlaying(false);
+      };
 
       if (autoPlayEnabled) {
         try {
           await audioRef.current.play();
           setIsPlaying(true);
         } catch (error) {
-          console.log("자동 재생이 차단되었습니다:", error);
+          console.error("자동 재생이 차단되었습니다:", error);
+          setIsPlaying(false);
         }
       }
 
@@ -106,6 +117,7 @@ export default function Conversation() {
       };
     } catch (error) {
       console.error("오디오 재생 중 오류 발생:", error);
+      setIsPlaying(false);
     }
   };
 
