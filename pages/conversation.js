@@ -10,6 +10,7 @@ export default function Conversation() {
   const [selectedLanguage, setSelectedLanguage] = useState("ko");
   const [sessionId, setSessionId] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
+  const [autoPlayEnabled, setAutoPlayEnabled] = useState(false);
   const audioRef = useRef(null);
   const messagesEndRef = useRef(null);
   const router = useRouter();
@@ -46,13 +47,16 @@ export default function Conversation() {
             content: data.response,
           };
 
+          // 음성 합성을 위해 화자 표시 제거
+          const cleanedText = data.response.replace(/^\[.*?\]\s*/, "");
+
           // 음성 합성 요청
           const audioResponse = await fetch("/api/synthesizeSpeech", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ text: data.response }),
+            body: JSON.stringify({ text: cleanedText }),
           });
 
           if (audioResponse.ok) {
@@ -75,17 +79,52 @@ export default function Conversation() {
     getInitialGreeting();
   }, []);
 
-  const playAudio = (audioContent) => {
-    if (!audioContent || !audioRef.current) return;
+  const playAudio = async (audioContent) => {
+    try {
+      if (!audioRef.current) {
+        audioRef.current = new Audio();
+      }
 
-    const audio = audioRef.current;
-    audio.src = `data:audio/mp3;base64,${audioContent}`;
-    audio.play();
-    setIsPlaying(true);
+      const audioBlob = new Blob([Buffer.from(audioContent, "base64")], {
+        type: "audio/mp3",
+      });
+      const audioUrl = URL.createObjectURL(audioBlob);
+      audioRef.current.src = audioUrl;
 
-    audio.onended = () => {
+      if (autoPlayEnabled) {
+        try {
+          await audioRef.current.play();
+          setIsPlaying(true);
+        } catch (error) {
+          console.log("자동 재생이 차단되었습니다:", error);
+        }
+      }
+
+      audioRef.current.onended = () => {
+        setIsPlaying(false);
+        URL.revokeObjectURL(audioUrl);
+      };
+    } catch (error) {
+      console.error("오디오 재생 중 오류 발생:", error);
+    }
+  };
+
+  const toggleAudio = async (audioContent) => {
+    if (!audioRef.current || !audioRef.current.src) {
+      await playAudio(audioContent);
+    }
+
+    if (isPlaying) {
+      audioRef.current.pause();
       setIsPlaying(false);
-    };
+    } else {
+      try {
+        await audioRef.current.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.error("오디오 재생 중 오류 발생:", error);
+      }
+    }
   };
 
   const scrollToBottom = () => {
@@ -128,13 +167,16 @@ export default function Conversation() {
           content: data.response,
         };
 
+        // 음성 합성을 위해 화자 표시 제거
+        const cleanedText = data.response.replace(/^\[.*?\]\s*/, "");
+
         // 음성 합성 요청
         const audioResponse = await fetch("/api/synthesizeSpeech", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ text: data.response }),
+          body: JSON.stringify({ text: cleanedText }),
         });
 
         if (audioResponse.ok) {
@@ -142,7 +184,8 @@ export default function Conversation() {
           assistantMessage.audioContent = audioData.audioContent;
         }
 
-        setMessages((prev) => [...prev, assistantMessage]);
+        setMessages((prevMessages) => [...prevMessages, assistantMessage]);
+        setInputMessage("");
         playAudio(assistantMessage.audioContent);
       } else {
         setMessages((prev) => [
@@ -156,7 +199,7 @@ export default function Conversation() {
         ]);
       }
     } catch (error) {
-      console.error("Chat error:", error);
+      console.error("Error sending message:", error);
       setMessages((prev) => [
         ...prev,
         {
@@ -249,22 +292,46 @@ export default function Conversation() {
                 } ${selectedLanguage === "ko" ? "ko-text" : "jp-text"}`}
                 lang={selectedLanguage === "ko" ? "ko" : "ja"}
               >
-                <div className={styles.messageContent}>
-                  {message.role === "user" ? (
-                    message.content
-                  ) : (
-                    <>
+                <div className={styles.messageWrapper}>
+                  <div className={styles.messageContent}>
+                    {message.role === "user" ? (
+                      message.content
+                    ) : (
                       <ReactMarkdown>{message.content}</ReactMarkdown>
-                      {message.audioContent && (
-                        <button
-                          className={styles.audioButton}
-                          onClick={() => playAudio(message.audioContent)}
-                          disabled={isPlaying}
+                    )}
+                  </div>
+                  {message.audioContent && message.role === "assistant" && (
+                    <button
+                      className={styles.audioButton}
+                      onClick={() => toggleAudio(message.audioContent)}
+                      disabled={
+                        isPlaying &&
+                        audioRef.current?.src !== message.audioContent
+                      }
+                      aria-label={
+                        isPlaying &&
+                        audioRef.current?.src === message.audioContent
+                          ? "일시정지"
+                          : "재생"
+                      }
+                    >
+                      {isPlaying &&
+                      audioRef.current?.src === message.audioContent ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
                         >
-                          🔊
-                        </button>
+                          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                        </svg>
                       )}
-                    </>
+                    </button>
                   )}
                 </div>
               </div>

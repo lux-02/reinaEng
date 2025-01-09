@@ -14,24 +14,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
   gap: 1rem;
   flex-direction: column;
+  height: 10%;
 }
 
 .localeButton {
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
+  padding: 0.4rem 0.8rem;
+  background-color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   cursor: pointer;
   font-family: "CookieRun-Regular";
   transition: background-color 0.2s ease;
-}
-
-.localeButton:hover {
-  background-color: #0056b3;
 }
 
 .lastUpdated {
@@ -74,7 +69,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 1rem;
   font-family: "CookieRun-Regular";
 }
 
@@ -93,11 +88,12 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  border-radius: 1rem;
 }
 
 .progressBar {
   height: 1rem;
-  border-radius: 0 1rem 1rem 0;
+  border-radius: 1rem;
   background-color: #007bff;
   box-sizing: border-box;
   transition: width 0.3s ease;
@@ -113,7 +109,7 @@
 }
 
 .options {
-  width: 80%;
+  width: 100%;
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -122,6 +118,7 @@
 }
 
 .optionButton {
+  padding: 0.4rem;
   width: 100%;
   height: 20%;
   background-color: #007bff;
@@ -134,14 +131,6 @@
   font-weight: bold;
   transition: background-color 0.3s ease;
   font-family: "CookieRun-Regular";
-}
-
-.optionButton:hover {
-  background-color: #0056b3;
-}
-
-.optionButton.selected {
-  background-color: #0056b3;
 }
 
 .score {
@@ -186,8 +175,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 2rem;
   gap: 2rem;
+  height: 10%;
 }
 
 .viewAllButton {

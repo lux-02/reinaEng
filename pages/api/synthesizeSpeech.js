@@ -7,8 +7,18 @@ export default async function handler(req, res) {
 
   try {
     const { text } = req.body;
-    const token = await getAuth();
 
+    if (!text) {
+      return res.status(400).json({ error: "Text is required" });
+    }
+
+    // 인증 토큰 가져오기
+    const token = await getAuth();
+    if (!token) {
+      throw new Error("Failed to get authentication token");
+    }
+
+    // Google TTS API 호출
     const response = await fetch(
       "https://texttospeech.googleapis.com/v1/text:synthesize",
       {
@@ -33,13 +43,26 @@ export default async function handler(req, res) {
     );
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(
+        `Google TTS API error: ${response.status} ${response.statusText}. ${
+          errorData.error?.message || ""
+        }`
+      );
     }
 
     const data = await response.json();
+
+    if (!data.audioContent) {
+      throw new Error("No audio content received from Google TTS API");
+    }
+
     res.status(200).json({ audioContent: data.audioContent });
   } catch (error) {
     console.error("Speech synthesis error:", error);
-    res.status(500).json({ error: error.message });
+    res.status(500).json({
+      error: error.message,
+      stack: process.env.NODE_ENV === "development" ? error.stack : undefined,
+    });
   }
 }

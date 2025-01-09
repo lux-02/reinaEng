@@ -19,23 +19,19 @@
 
 .localeButton {
   padding: 0.5rem 1rem;
-  background-color: #007bff;
+  background: none;
+  border: 1px solid white;
   color: white;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.localeButton:hover {
-  background-color: #0056b3;
-}
-
 .backButton {
   padding: 0.5rem 1rem;
   background: none;
-  color: #adb5bd;
-  border: 1px solid #adb5bd;
+  color: white;
+  border: 1px solid white;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;

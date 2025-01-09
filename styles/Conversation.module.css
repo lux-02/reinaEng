@@ -3,28 +3,67 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: #111;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
+  height: 90%;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .chatContainer {
   background-color: #ffffff;
-  border-radius: 2rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  width: 100%;
+  height: 90%;
+  padding: 0.2rem;
+}
+
+.messageList {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.inputForm {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 1rem;
+  margin-top: auto;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
   justify-content: space-between;
-  width: 80%;
-  padding: 1.5rem;
+  width: 100%;
+  height: 10%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 10%;
 }
 
 .messagesContainer {
@@ -37,10 +76,31 @@
 }
 
 .message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.messageContent {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
   max-width: 80%;
-  padding: 0.8rem 1rem;
-  border-radius: 1rem;
-  margin: 0.5rem 0;
+  flex-direction: column;
+}
+
+.userMessage .messageContent {
+  background-color: #007bff;
+  color: white;
+  margin-left: auto;
+}
+
+.botMessage .messageContent {
+  background-color: #f8f9fa;
+  color: #212529;
 }
 
 .userMessage {
@@ -54,14 +114,6 @@
   align-self: flex-start;
   background-color: #e9ecef;
   color: #000;
-  border-bottom-left-radius: 0.3rem;
-}
-
-.inputForm {
-  display: flex;
-  gap: 0.5rem;
-  padding: 1rem;
-  background-color: #f8f9fa;
   border-radius: 1rem;
 }
 
@@ -70,7 +122,7 @@
   padding: 0.8rem;
   border: 1px solid #dee2e6;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
   width: 80%;
 }
 
@@ -187,14 +239,6 @@
   line-height: 1.2;
 }
 
-.buttonContainer {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  justify-content: space-between;
-  width: 80%;
-}
-
 .backButton,
 .saveButton {
   flex: 1;
@@ -209,8 +253,13 @@
   transition: all 0.3s ease;
 }
 
+.saveButton {
+  margin: 0.8rem 0 !important;
+}
+
 .backButton {
-  background-color: #00009f;
+  background: none;
+  border: 1px solid gray;
 }
 
 .backButton:hover {
@@ -218,11 +267,11 @@
 }
 
 .saveButton {
-  background-color: #28a745;
+  background-color: #007bff;
 }
 
 .saveButton:hover {
-  background-color: #218838;
+  background-color: #007bff;
 }
 
 .saveButton:disabled {
@@ -232,52 +281,65 @@
 }
 
 .localeButton {
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
+  padding: 0.8rem 1.5rem;
+  background-color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   cursor: pointer;
+  font-family: "CookieRun-Regular";
   transition: background-color 0.2s ease;
-}
-
-.localeButton:hover {
-  background-color: #0056b3;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  gap: 1rem;
-  width: 80%;
-}
-
-.messageList {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  max-height: 20rem;
-  overflow-y: auto;
 }
 
 .audioButton {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.2rem;
-  padding: 0.3rem;
-  margin-left: 0.5rem;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
+  padding: 8px;
+  opacity: 0.8;
+  transition: all 0.2s;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  margin-left: 8px;
 }
 
 .audioButton:hover {
   opacity: 1;
+  background-color: #e0e0e0;
 }
 
 .audioButton:disabled {
   cursor: not-allowed;
-  opacity: 0.3;
+  opacity: 0.5;
+}
+
+.audioButton svg {
+  width: 20px;
+  height: 20px;
+  fill: #666;
+}
+
+.messageWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.botMessage .messageWrapper {
+  justify-content: flex-start;
+}
+
+.userMessage .messageWrapper {
+  justify-content: flex-end;
+  background-color: #ffffff;
+}
+
+.loadingMessage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
