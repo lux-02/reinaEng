@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import styles from "@/styles/ConversationHistory.module.css";
 import ReactMarkdown from "react-markdown";
@@ -8,7 +8,13 @@ export default function ConversationHistory() {
   const [isLoading, setIsLoading] = useState(true);
   const [expandedId, setExpandedId] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState("ko");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
   const router = useRouter();
+
+  useEffect(() => {
+    audioRef.current = new Audio();
+  }, []);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("selectedLanguage");
@@ -56,6 +62,19 @@ export default function ConversationHistory() {
     const newLanguage = selectedLanguage === "ko" ? "jp" : "ko";
     setSelectedLanguage(newLanguage);
     localStorage.setItem("selectedLanguage", newLanguage);
+  };
+
+  const playAudio = (audioContent) => {
+    if (!audioContent || !audioRef.current) return;
+
+    const audio = audioRef.current;
+    audio.src = `data:audio/mp3;base64,${audioContent}`;
+    audio.play();
+    setIsPlaying(true);
+
+    audio.onended = () => {
+      setIsPlaying(false);
+    };
   };
 
   if (isLoading) {
@@ -127,7 +146,18 @@ export default function ConversationHistory() {
                       {message.role === "user" ? (
                         message.content
                       ) : (
-                        <ReactMarkdown>{message.content}</ReactMarkdown>
+                        <>
+                          <ReactMarkdown>{message.content}</ReactMarkdown>
+                          {message.audioContent && (
+                            <button
+                              className={styles.audioButton}
+                              onClick={() => playAudio(message.audioContent)}
+                              disabled={isPlaying}
+                            >
+                              🔊
+                            </button>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>

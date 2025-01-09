@@ -9,8 +9,15 @@ export default function Conversation() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedLanguage, setSelectedLanguage] = useState("ko");
   const [sessionId, setSessionId] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
   const messagesEndRef = useRef(null);
   const router = useRouter();
+
+  useEffect(() => {
+    // Audio 객체는 클라이언트 사이드에서만 생성
+    audioRef.current = new Audio();
+  }, []);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("selectedLanguage");
@@ -34,12 +41,27 @@ export default function Conversation() {
 
         const data = await response.json();
         if (response.ok) {
-          setMessages([
-            {
-              role: "assistant",
-              content: data.response,
+          const assistantMessage = {
+            role: "assistant",
+            content: data.response,
+          };
+
+          // 음성 합성 요청
+          const audioResponse = await fetch("/api/synthesizeSpeech", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
             },
-          ]);
+            body: JSON.stringify({ text: data.response }),
+          });
+
+          if (audioResponse.ok) {
+            const audioData = await audioResponse.json();
+            assistantMessage.audioContent = audioData.audioContent;
+          }
+
+          setMessages([assistantMessage]);
+          playAudio(assistantMessage.audioContent);
         } else {
           console.error("Initial greeting error:", data.error);
         }
@@ -52,6 +74,19 @@ export default function Conversation() {
 
     getInitialGreeting();
   }, []);
+
+  const playAudio = (audioContent) => {
+    if (!audioContent || !audioRef.current) return;
+
+    const audio = audioRef.current;
+    audio.src = `data:audio/mp3;base64,${audioContent}`;
+    audio.play();
+    setIsPlaying(true);
+
+    audio.onended = () => {
+      setIsPlaying(false);
+    };
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -88,13 +123,27 @@ export default function Conversation() {
 
       const data = await response.json();
       if (response.ok) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: "assistant",
-            content: data.response,
+        const assistantMessage = {
+          role: "assistant",
+          content: data.response,
+        };
+
+        // 음성 합성 요청
+        const audioResponse = await fetch("/api/synthesizeSpeech", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-        ]);
+          body: JSON.stringify({ text: data.response }),
+        });
+
+        if (audioResponse.ok) {
+          const audioData = await audioResponse.json();
+          assistantMessage.audioContent = audioData.audioContent;
+        }
+
+        setMessages((prev) => [...prev, assistantMessage]);
+        playAudio(assistantMessage.audioContent);
       } else {
         setMessages((prev) => [
           ...prev,
@@ -196,7 +245,7 @@ export default function Conversation() {
                 className={`${styles.message} ${
                   message.role === "user"
                     ? styles.userMessage
-                    : styles.aiMessage
+                    : styles.botMessage
                 } ${selectedLanguage === "ko" ? "ko-text" : "jp-text"}`}
                 lang={selectedLanguage === "ko" ? "ko" : "ja"}
               >
@@ -204,7 +253,18 @@ export default function Conversation() {
                   {message.role === "user" ? (
                     message.content
                   ) : (
-                    <ReactMarkdown>{message.content}</ReactMarkdown>
+                    <>
+                      <ReactMarkdown>{message.content}</ReactMarkdown>
+                      {message.audioContent && (
+                        <button
+                          className={styles.audioButton}
+                          onClick={() => playAudio(message.audioContent)}
+                          disabled={isPlaying}
+                        >
+                          🔊
+                        </button>
+                      )}
+                    </>
                   )}
                 </div>
               </div>

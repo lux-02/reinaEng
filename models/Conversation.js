@@ -6,6 +6,7 @@ const ConversationSchema = new mongoose.Schema({
     {
       role: String,
       content: String,
+      audioContent: String,
     },
   ],
   date: {
