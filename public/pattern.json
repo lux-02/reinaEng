@@ -1,0 +1,1087 @@
+{
+  "I wanna": {
+    "explanation": {
+      "jp": "「I want to」の略で、～したい時に使うカジュアルな表現。",
+      "kr": "\"I want to\"를 줄인 표현으로, ~하고 싶을 때 사용하는 캐주얼한 말."
+    },
+    "examples": [
+      "I wanna eat pizza.",
+      "I wanna go home now.",
+      "I wanna see a movie."
+    ]
+  },
+  "Let me": {
+    "explanation": {
+      "jp": "相手に何かをさせて欲しい・やらせて欲しい時に使う。",
+      "kr": "상대방에게 무언가를 하게 해 달라고 할 때 쓰는 표현."
+    },
+    "examples": [
+      "Let me help you with the dishes.",
+      "Let me see your new phone.",
+      "Let me try that game."
+    ]
+  },
+  "Thank you for": {
+    "explanation": {
+      "jp": "～してくれてありがとう、～をありがとう、という感謝の表現。",
+      "kr": "~해줘서 고마워, ~에 대해 고마워 라고 감사할 때 쓰는 표현."
+    },
+    "examples": [
+      "Thank you for your help.",
+      "Thank you for coming today.",
+      "Thank you for the birthday gift."
+    ]
+  },
+  "Don't be": {
+    "explanation": {
+      "jp": "「～しないで」「～になるな」と相手を励ます、または注意する時に使う。",
+      "kr": "상대방에게 '~하지 마' 또는 '~가 되지 마'라고 할 때 쓰는 표현."
+    },
+    "examples": [
+      "Don't be shy.",
+      "Don't be late for class.",
+      "Don't be afraid to ask questions."
+    ]
+  },
+  "Don't forget": {
+    "explanation": {
+      "jp": "「～を忘れないで」など、相手に思い出させる時に使う。",
+      "kr": "~을(를) 잊지 말라고 상기시킬 때 쓰는 표현."
+    },
+    "examples": [
+      "Don't forget to lock the door.",
+      "Don't forget your umbrella.",
+      "Don't forget to call your mom."
+    ]
+  },
+  "There is": {
+    "explanation": {
+      "jp": "「～がある・いる」と存在を伝えるときに使う。",
+      "kr": "~이(가) 있다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "There is a good restaurant near here.",
+      "There is a park across the street.",
+      "There is a discount on this item."
+    ]
+  },
+  "I'm happy to": {
+    "explanation": {
+      "jp": "「～できてうれしい」という喜びを表す時に使う。",
+      "kr": "~해서 기쁘다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm happy to see you again.",
+      "I'm happy to help you anytime.",
+      "I'm happy to be part of the team."
+    ]
+  },
+  "I'm gonna": {
+    "explanation": {
+      "jp": "「I'm going to」の略で、未来の予定・意志をカジュアルに表す。",
+      "kr": "\"I'm going to\"를 줄인 표현으로, 미래 계획이나 의지를 캐주얼하게 말함."
+    },
+    "examples": [
+      "I'm gonna visit my parents this weekend.",
+      "I'm gonna buy a new laptop.",
+      "I'm gonna take a break soon."
+    ]
+  },
+  "That sounds": {
+    "explanation": {
+      "jp": "相手の提案・情報などに対して、「～そうだね」「～に聞こえる」と返す時に使う。",
+      "kr": "상대방의 제안이나 정보에 대해 '~처럼 들린다'고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "That sounds great!",
+      "That sounds like a good idea.",
+      "That sounds complicated."
+    ]
+  },
+  "I'd like to": {
+    "explanation": {
+      "jp": "「～したいです」と少し丁寧に希望・意志を伝える時に使う。",
+      "kr": "~하고 싶다고 공손하게 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'd like to order the special.",
+      "I'd like to make a reservation.",
+      "I'd like to learn French someday."
+    ]
+  },
+  "I enjoyed": {
+    "explanation": {
+      "jp": "「～を楽しんだ」「～して楽しかった」と過去形で楽しさを伝える。",
+      "kr": "~를 즐겼다고 말할 때 사용하는 과거형 표현."
+    },
+    "examples": [
+      "I enjoyed the movie last night.",
+      "I enjoyed talking with you.",
+      "I enjoyed the concert."
+    ]
+  },
+  "I'm ready": {
+    "explanation": {
+      "jp": "「～する準備ができている」とやる気や準備完了を伝える。",
+      "kr": "~할 준비가 되었다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm ready to go.",
+      "I'm ready for the exam.",
+      "I'm ready to start now."
+    ]
+  },
+  "I wonder": {
+    "explanation": {
+      "jp": "「～かな」「～かどうか不思議に思う」と推測や疑問を表す。",
+      "kr": "~인지 궁금하거나 의아해할 때 쓰는 표현."
+    },
+    "examples": [
+      "I wonder if it's going to rain.",
+      "I wonder what he's doing now.",
+      "I wonder why she left early."
+    ]
+  },
+  "I mean": {
+    "explanation": {
+      "jp": "「つまり」「いや、そういう意味じゃなくて」など話を補足・修正する時に使う。",
+      "kr": "말을 보충하거나 정정할 때 '~라고 말하자면' 이라는 의미로 쓰는 표현."
+    },
+    "examples": [
+      "I mean, it's too expensive to buy now.",
+      "I mean, we should wait a bit longer.",
+      "I mean, let's be careful with our words."
+    ]
+  },
+  "I forgot to": {
+    "explanation": {
+      "jp": "「～し忘れた」と伝える時に使う。",
+      "kr": "~하는 것을 깜빡했다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I forgot to bring my wallet.",
+      "I forgot to send the email.",
+      "I forgot to call you back."
+    ]
+  },
+  "It was nice": {
+    "explanation": {
+      "jp": "「～してよかった」「～は素晴らしかった」と感想を言う時に使う。",
+      "kr": "~해서 좋았다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "It was nice talking to you.",
+      "It was nice meeting your family.",
+      "It was nice to have a day off."
+    ]
+  },
+  "See you": {
+    "explanation": {
+      "jp": "「またね」「さようなら」の軽い別れの挨拶。",
+      "kr": "가벼운 작별 인사로 '또 봐'."
+    },
+    "examples": ["See you tomorrow!", "See you next time.", "See you around."]
+  },
+  "It seems": {
+    "explanation": {
+      "jp": "「～のようだ」「～っぽい」と推測する時に使う。",
+      "kr": "~인 것 같다고 추측할 때 쓰는 표현."
+    },
+    "examples": [
+      "It seems difficult.",
+      "It seems like he's busy.",
+      "It seems to be a good plan."
+    ]
+  },
+  "I used to": {
+    "explanation": {
+      "jp": "「以前は～していた（今は違う）」と過去の習慣を表す。",
+      "kr": "과거에는 ~했지만 지금은 하지 않는다는 표현."
+    },
+    "examples": [
+      "I used to play soccer every day.",
+      "I used to live in New York.",
+      "I used to eat sweets often."
+    ]
+  },
+  "I'm used to": {
+    "explanation": {
+      "jp": "「～に慣れている」という現在の習慣を表す。",
+      "kr": "~에 익숙하다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm used to waking up early.",
+      "I'm used to this cold weather.",
+      "I'm used to speaking in public."
+    ]
+  },
+  "You must be": {
+    "explanation": {
+      "jp": "「～に違いない」「きっと～でしょう」と相手の状態を推測。",
+      "kr": "~임에 틀림없다고 추측할 때 쓰는 표현."
+    },
+    "examples": [
+      "You must be tired after the trip.",
+      "You must be hungry now.",
+      "You must be very excited."
+    ]
+  },
+  "I'm afraid": {
+    "explanation": {
+      "jp": "「残念だけど」「申し訳ないが」と丁寧に否定・断りを伝える。",
+      "kr": "유감이지만... 라고 정중하게 거절이나 부정할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm afraid I can't join you.",
+      "I'm afraid it's not possible.",
+      "I'm afraid I have some bad news."
+    ]
+  },
+  "I'm sure": {
+    "explanation": {
+      "jp": "「～を確信している」と言う時に使う。",
+      "kr": "~을 확신한다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm sure you'll do great.",
+      "I'm sure he's telling the truth.",
+      "I'm sure we'll find a solution."
+    ]
+  },
+  "Have a nice": {
+    "explanation": {
+      "jp": "「よい～を」「楽しんでね」と別れ際などの挨拶に使う。",
+      "kr": "'좋은 ~ 보내'라고 작별 인사할 때 쓰는 표현."
+    },
+    "examples": [
+      "Have a nice day!",
+      "Have a nice weekend.",
+      "Have a nice trip."
+    ]
+  },
+  "It's time to": {
+    "explanation": {
+      "jp": "「～する時間だ」「～すべき時だ」と言う時に使う。",
+      "kr": "~할 시간이라고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "It's time to go home.",
+      "It's time to take a break.",
+      "It's time to move on."
+    ]
+  },
+  "Tell me about": {
+    "explanation": {
+      "jp": "「～について教えて」「話して」と情報を求める時に使う。",
+      "kr": "~에 대해 말해 달라고 요청할 때 쓰는 표현."
+    },
+    "examples": [
+      "Tell me about your trip.",
+      "Tell me about your new job.",
+      "Tell me about your family."
+    ]
+  },
+  "I feel like...ing": {
+    "explanation": {
+      "jp": "「～したい気がする」と今の気分を伝える時に使う。",
+      "kr": "~하고 싶은 기분이라고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I feel like eating something sweet.",
+      "I feel like going for a walk.",
+      "I feel like staying home today."
+    ]
+  },
+  "I don't care about": {
+    "explanation": {
+      "jp": "「～は気にしない」「興味がない」と言う時に使う。",
+      "kr": "~에 신경 쓰지 않는다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I don't care about the rumors.",
+      "I don't care about fashion trends.",
+      "I don't care about what they say."
+    ]
+  },
+  "I'm not sure": {
+    "explanation": {
+      "jp": "「よくわからない」「確信がない」と言う時に使う。",
+      "kr": "확신이 없음을 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm not sure if he's coming.",
+      "I'm not sure about the details.",
+      "I'm not sure what to do next."
+    ]
+  },
+  "I'm good at": {
+    "explanation": {
+      "jp": "「～が得意だ」と自分の得意分野を言う時に使う。",
+      "kr": "~을(를) 잘한다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm good at math.",
+      "I'm good at cooking pasta.",
+      "I'm good at fixing computers."
+    ]
+  },
+  "don't have to": {
+    "explanation": {
+      "jp": "「～する必要はない」と義務がないことを示す。",
+      "kr": "~할 필요가 없다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "You don't have to hurry.",
+      "You don't have to pay now.",
+      "I don't have to work today."
+    ]
+  },
+  "You'd better": {
+    "explanation": {
+      "jp": "「～した方がいい」と忠告や助言をする時に使う。",
+      "kr": "~하는 게 낫다고 조언할 때 쓰는 표현."
+    },
+    "examples": [
+      "You'd better see a doctor.",
+      "You'd better prepare in advance.",
+      "You'd better call her now."
+    ]
+  },
+  "I don't mind": {
+    "explanation": {
+      "jp": "「気にしないよ」「構わないよ」と相手に配慮を示す時に使う。",
+      "kr": "괜찮다고, 상관없다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I don't mind if it's late.",
+      "I don't mind sharing a room.",
+      "I don't mind waiting here."
+    ]
+  },
+  "Can I ...?": {
+    "explanation": {
+      "jp": "「～してもいいですか？」と相手に許可を求める時に使う。",
+      "kr": "~해도 될지 상대방의 허락을 구할 때 쓰는 표현."
+    },
+    "examples": [
+      "Can I use your phone?",
+      "Can I sit here?",
+      "Can I ask you something?"
+    ]
+  },
+  "How's ...going?": {
+    "explanation": {
+      "jp": "「～はどう進んでる？」と進捗や様子を尋ねる時に使う。",
+      "kr": "~는 어떻게 돼가냐고 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "How's the project going?",
+      "How's your day going?",
+      "How's your training going?"
+    ]
+  },
+  "Do you like ...?": {
+    "explanation": {
+      "jp": "「～は好きですか？」と好みを尋ねる時に使う。",
+      "kr": "~를 좋아하는지 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "Do you like coffee?",
+      "Do you like this movie?",
+      "Do you like spicy food?"
+    ]
+  },
+  "Do you want to ...?": {
+    "explanation": {
+      "jp": "「～したいですか？」と誘ったり意向を尋ねる時に使う。",
+      "kr": "~하고 싶은지 상대에게 묻거나 권유할 때 쓰는 표현."
+    },
+    "examples": [
+      "Do you want to come with me?",
+      "Do you want to grab lunch?",
+      "Do you want to try this game?"
+    ]
+  },
+  "Do you have ...?": {
+    "explanation": {
+      "jp": "「～を持っている？」「～はある？」と所有・存在を尋ねる時に使う。",
+      "kr": "~를 가지고 있는지 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "Do you have a pen?",
+      "Do you have a moment to talk?",
+      "Do you have any questions?"
+    ]
+  },
+  "Is there ...?": {
+    "explanation": {
+      "jp": "「～はありますか？」「～はいますか？」と存在を尋ねる時に使う。",
+      "kr": "~이(가) 있는지 묻는 표현."
+    },
+    "examples": [
+      "Is there a pharmacy nearby?",
+      "Is there a discount for students?",
+      "Is there a restroom on this floor?"
+    ]
+  },
+  "How did you ...?": {
+    "explanation": {
+      "jp": "「どうやって～したの？」と方法を尋ねる時に使う。",
+      "kr": "어떻게 ~했는지 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "How did you fix the computer?",
+      "How did you get here?",
+      "How did you learn to cook?"
+    ]
+  },
+  "Are you ready ...?": {
+    "explanation": {
+      "jp": "「～する準備はできてる？」「心の準備はできてる？」と尋ねる。",
+      "kr": "~할 준비가 됐는지 묻는 표현."
+    },
+    "examples": [
+      "Are you ready to go?",
+      "Are you ready for the exam?",
+      "Are you ready to order?"
+    ]
+  },
+  "How come ...?": {
+    "explanation": {
+      "jp": "「どうして～なの？」と理由を尋ねる時の口語表現。",
+      "kr": "왜 ~한 건지 이유를 물어볼 때 쓰는 구어체 표현."
+    },
+    "examples": [
+      "How come you're late?",
+      "How come you didn't call me?",
+      "How come they left early?"
+    ]
+  },
+  "Do you mind if ...?": {
+    "explanation": {
+      "jp": "「～してもいいですか？」「～して構いませんか？」と丁寧に許可を得る。",
+      "kr": "~해도 괜찮은지 정중히 묻는 표현."
+    },
+    "examples": [
+      "Do you mind if I open the window?",
+      "Do you mind if I join you?",
+      "Do you mind if I sit here?"
+    ]
+  },
+  "What do you think of ...?": {
+    "explanation": {
+      "jp": "「～をどう思う？」と意見を尋ねる時に使う。",
+      "kr": "~에 대해 어떻게 생각하는지 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "What do you think of this idea?",
+      "What do you think of the movie?",
+      "What do you think of my new haircut?"
+    ]
+  },
+  "Should I ...?": {
+    "explanation": {
+      "jp": "「～すべき？」「どうしたらいい？」と助言を求める時に使う。",
+      "kr": "~해야 할지 묻거나 조언을 구할 때 쓰는 표현."
+    },
+    "examples": [
+      "Should I call him now?",
+      "Should I buy this jacket?",
+      "Should I apologize first?"
+    ]
+  },
+  "Do you know how to ...?": {
+    "explanation": {
+      "jp": "「～のやり方を知ってる？」と技能・方法を尋ねる時に使う。",
+      "kr": "~하는 방법을 알고 있는지 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "Do you know how to drive?",
+      "Do you know how to fix this?",
+      "Do you know how to make sushi?"
+    ]
+  },
+  "Have you ever ...?": {
+    "explanation": {
+      "jp": "「今までに～したことある？」と経験を尋ねる時に使う。",
+      "kr": "지금까지 ~해 본 적이 있는지 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "Have you ever been to Paris?",
+      "Have you ever tried yoga?",
+      "Have you ever seen this movie?"
+    ]
+  },
+  "How was ...?": {
+    "explanation": {
+      "jp": "「～はどうだった？」と感想や体験を尋ねる。",
+      "kr": "~는 어땠냐고 감상이나 경험을 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "How was the party?",
+      "How was your trip?",
+      "How was the exam?"
+    ]
+  },
+  "How about ...?": {
+    "explanation": {
+      "jp": "「～はどう？」「～しない？」と提案や意見を求める時に使う。",
+      "kr": "~는 어때? ~할래? 라고 제안할 때 쓰는 표현."
+    },
+    "examples": [
+      "How about some coffee?",
+      "How about going to the beach?",
+      "How about we meet at 7?"
+    ]
+  },
+  "Where can I ...?": {
+    "explanation": {
+      "jp": "「どこで～できる？」と場所を尋ねる時に使う。",
+      "kr": "어디서 ~할 수 있는지 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "Where can I buy a ticket?",
+      "Where can I park my car?",
+      "Where can I find a good restaurant?"
+    ]
+  },
+  "How many ...?": {
+    "explanation": {
+      "jp": "「いくつの～？」「どのくらいの数？」と数量を尋ねる時に使う。",
+      "kr": "~가 몇 개인지 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "How many siblings do you have?",
+      "How many apples do we need?",
+      "How many hours do you work?"
+    ]
+  },
+  "How's ...?": {
+    "explanation": {
+      "jp": "「～はどう？」と状態や近況を尋ねる時に使う。",
+      "kr": "~는 어때? 라고 현재 상태나 상황을 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "How's your new job?",
+      "How's the weather?",
+      "How's your friend doing?"
+    ]
+  },
+  "Is it OK if ...?": {
+    "explanation": {
+      "jp": "「～してもいいですか？」と相手の了承を問う時に使う。",
+      "kr": "~해도 괜찮은지 상대의 동의를 구할 때 쓰는 표현."
+    },
+    "examples": [
+      "Is it OK if I close the window?",
+      "Is it OK if I invite my friend?",
+      "Is it OK if we leave early?"
+    ]
+  },
+  "How can I ...?": {
+    "explanation": {
+      "jp": "「どうやって～したらいいの？」と方法を尋ねる時に使う。",
+      "kr": "어떻게 ~할 수 있는지 방법을 물어볼 때 쓰는 표현."
+    },
+    "examples": [
+      "How can I improve my English?",
+      "How can I get there?",
+      "How can I help you?"
+    ]
+  },
+  "Do I have to ...?": {
+    "explanation": {
+      "jp": "「～しなきゃいけないの？」と義務を尋ねる時に使う。",
+      "kr": "~해야만 하는지 묻는 표현."
+    },
+    "examples": [
+      "Do I have to attend the meeting?",
+      "Do I have to pay now?",
+      "Do I have to wear a suit?"
+    ]
+  },
+  "Don't you think ...?": {
+    "explanation": {
+      "jp": "「～と思わない？」と相手の同意を求める時に使う。",
+      "kr": "~라고 생각하지 않아? 라고 동의를 구할 때 쓰는 표현."
+    },
+    "examples": [
+      "Don't you think it's a bit cold?",
+      "Don't you think we should try?",
+      "Don't you think this is interesting?"
+    ]
+  },
+  "Make sure": {
+    "explanation": {
+      "jp": "「必ず～してね」「ちゃんと～して」と注意を促す時に使う。",
+      "kr": "반드시 ~하라고 주의를 줄 때 쓰는 표현."
+    },
+    "examples": [
+      "Make sure you lock the door.",
+      "Make sure you check the schedule.",
+      "Make sure everything is correct."
+    ]
+  },
+  "I'm planning to": {
+    "explanation": {
+      "jp": "「～する予定だ」と将来の計画を伝える時に使う。",
+      "kr": "~할 계획이라고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm planning to travel abroad.",
+      "I'm planning to start a new project.",
+      "I'm planning to go shopping tomorrow."
+    ]
+  },
+  "It's worth": {
+    "explanation": {
+      "jp": "「～の価値がある」「～する価値がある」と評価を言う時に使う。",
+      "kr": "~할 가치가 있다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "It's worth a try.",
+      "It's worth reading this book.",
+      "It's worth visiting that museum."
+    ]
+  },
+  "That's what": {
+    "explanation": {
+      "jp": "「それが～なんだ」と説明や強調をする時に使う。",
+      "kr": "그것이 ~라고 설명하거나 강조할 때 쓰는 표현."
+    },
+    "examples": [
+      "That's what I mean.",
+      "That's what happened yesterday.",
+      "That's what I was looking for."
+    ]
+  },
+  "I didn't mean to": {
+    "explanation": {
+      "jp": "「～するつもりはなかった」と誤解を解く時に使う。",
+      "kr": "~할 의도는 없었다고 사과나 해명을 할 때 쓰는 표현."
+    },
+    "examples": [
+      "I didn't mean to hurt your feelings.",
+      "I didn't mean to be late.",
+      "I didn't mean to offend you."
+    ]
+  },
+  "I wish": {
+    "explanation": {
+      "jp": "「～ならいいのに」「～を願う」と希望や後悔を表す時に使う。",
+      "kr": "~라면 좋을 텐데, ~를 바라거나 후회할 때 쓰는 표현."
+    },
+    "examples": [
+      "I wish I had more time.",
+      "I wish you were here.",
+      "I wish I knew the answer."
+    ]
+  },
+  "I should have": {
+    "explanation": {
+      "jp": "「～すべきだったのに」と後悔を表す時に使う。",
+      "kr": "~했어야 했는데 라고 후회할 때 쓰는 표현."
+    },
+    "examples": [
+      "I should have studied harder.",
+      "I should have told you earlier.",
+      "I should have saved more money."
+    ]
+  },
+  "According to": {
+    "explanation": {
+      "jp": "「～によると」「～によれば」と情報源を示す時に使う。",
+      "kr": "~에 따르면 이라고 정보 출처를 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "According to the weather report, it'll rain tomorrow.",
+      "According to this article, it's true.",
+      "According to her, the event was canceled."
+    ]
+  },
+  "I might have": {
+    "explanation": {
+      "jp": "「～したかもしれない」と過去の推量を言う時に使う。",
+      "kr": "과거에 ~했을지도 모른다고 추측할 때 쓰는 표현."
+    },
+    "examples": [
+      "I might have left my phone at home.",
+      "I might have seen him before.",
+      "I might have misunderstood the instructions."
+    ]
+  },
+  "I'd rather": {
+    "explanation": {
+      "jp": "「むしろ～したい」「～の方がいい」と好みや意志を表す時に使う。",
+      "kr": "차라리 ~하겠다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'd rather stay home today.",
+      "I'd rather not go out in the rain.",
+      "I'd rather have coffee than tea."
+    ]
+  },
+  "No wonder": {
+    "explanation": {
+      "jp": "「道理で～だ」「なるほど～だ」と納得する時に使う。",
+      "kr": "어쩐지 ~하더라 라며 납득할 때 쓰는 표현."
+    },
+    "examples": [
+      "No wonder he's tired; he didn't sleep.",
+      "No wonder it's so crowded; it's a holiday.",
+      "No wonder she was upset."
+    ]
+  },
+  "you mean ...?": {
+    "explanation": {
+      "jp": "「つまり～ってこと？」「～の意味？」と確認を求める時に使う。",
+      "kr": "즉 ~라는 말이야? 라고 의미를 확인할 때 쓰는 표현."
+    },
+    "examples": [
+      "You mean he's not coming?",
+      "You mean we have to start over?",
+      "You mean this one is broken?"
+    ]
+  },
+  "... ,right?": {
+    "explanation": {
+      "jp": "「～だよね？」「～でしょ？」と確認・同意を求める時に使う。",
+      "kr": "~맞지? 라며 확인이나 동의를 구할 때 쓰는 표현."
+    },
+    "examples": [
+      "You're coming with me, right?",
+      "This is the right address, right?",
+      "We have class today, right?"
+    ]
+  },
+  "That's why": {
+    "explanation": {
+      "jp": "「だから～なんだ」と理由や原因を強調する時に使う。",
+      "kr": "그래서 ~한 거라고 이유를 강조할 때 쓰는 표현."
+    },
+    "examples": [
+      "That's why I called you.",
+      "That's why it's important.",
+      "That's why I'm leaving early."
+    ]
+  },
+  "I told you": {
+    "explanation": {
+      "jp": "「だから言ったでしょ」「言った通りでしょ」と注意喚起や強調。",
+      "kr": "내가 말했잖아, 라며 강조할 때 쓰는 표현."
+    },
+    "examples": [
+      "I told you it would rain.",
+      "I told you not to worry.",
+      "I told you she would be late."
+    ]
+  },
+  "As far as I know": {
+    "explanation": {
+      "jp": "「私の知る限りでは」と自分の知識の範囲を前置きするときに使う。",
+      "kr": "내가 아는 한에서는, 이라고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "As far as I know, he's not coming.",
+      "As far as I know, it's still open.",
+      "As far as I know, everything is fine."
+    ]
+  },
+  "I'm looking forward to": {
+    "explanation": {
+      "jp": "「～を楽しみにしている」と未来への期待を伝える時に使う。",
+      "kr": "~을 기대한다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm looking forward to the party.",
+      "I'm looking forward to seeing you.",
+      "I'm looking forward to my vacation."
+    ]
+  },
+  "That's because": {
+    "explanation": {
+      "jp": "「それは～だからだ」と理由を説明する時に使う。",
+      "kr": "그것은 ~이기 때문이라고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "That's because I was busy.",
+      "That's because we need more time.",
+      "That's because the store was closed."
+    ]
+  },
+  "I've been to": {
+    "explanation": {
+      "jp": "「～に行ったことがある」という経験を表す時に使う。",
+      "kr": "~에 가 본 적이 있다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I've been to Japan once.",
+      "I've been to that restaurant before.",
+      "I've been to Paris many times."
+    ]
+  },
+  "congratulations on": {
+    "explanation": {
+      "jp": "「～おめでとう」と祝いの言葉を伝える時に使う。",
+      "kr": "~에 대해 축하한다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "Congratulations on your promotion!",
+      "Congratulations on passing the exam!",
+      "Congratulations on your wedding!"
+    ]
+  },
+  "Why don't you ...?": {
+    "explanation": {
+      "jp": "「～したらどう？」「～しない？」と提案する時に使う。",
+      "kr": "~하는 게 어때? 라고 제안할 때 쓰는 표현."
+    },
+    "examples": [
+      "Why don't you take a break?",
+      "Why don't you come with us?",
+      "Why don't you try this dish?"
+    ]
+  },
+  "kind of": {
+    "explanation": {
+      "jp": "「ちょっと」「～っぽい」と曖昧に表現する時に使う。",
+      "kr": "조금, 약간 ~같다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm kind of tired today.",
+      "It's kind of spicy.",
+      "He's kind of shy."
+    ]
+  },
+  "You know,": {
+    "explanation": {
+      "jp": "「あのさ」「知ってるでしょ」と相手の注意を引く時に使う口語表現。",
+      "kr": "있잖아, 그거 알아? 라고 대화 시작할 때 쓰는 구어체 표현."
+    },
+    "examples": [
+      "You know, we should leave soon.",
+      "You know, he's really good at singing.",
+      "You know, I don't like spicy food."
+    ]
+  },
+  "I know, but": {
+    "explanation": {
+      "jp": "「わかるけど、でも…」と反論や他の意見を示す時に使う。",
+      "kr": "알지만, 그래도… 라고 반박이나 다른 의견을 제시할 때 쓰는 표현."
+    },
+    "examples": [
+      "I know, but let's consider other options.",
+      "I know, but it's too risky.",
+      "I know, but we have to try."
+    ]
+  },
+  "That's a waste of": {
+    "explanation": {
+      "jp": "「～の無駄だ」「もったいない」と時間・お金などの浪費を指摘する時に使う。",
+      "kr": "~의 낭비라고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "That's a waste of time.",
+      "That's a waste of money.",
+      "That's a waste of food."
+    ]
+  },
+  "It depends on": {
+    "explanation": {
+      "jp": "「～による」「場合による」と状況次第で変わることを言う時に使う。",
+      "kr": "상황에 따라 다르다는 뜻으로, '~에 달려 있다'고 할 때 쓰는 표현."
+    },
+    "examples": [
+      "It depends on the weather.",
+      "It depends on how you look at it.",
+      "It depends on my schedule."
+    ]
+  },
+  "I'm into": {
+    "explanation": {
+      "jp": "「～にハマっている」「～が好きだ」と趣味や関心を伝える時に使う。",
+      "kr": "~에 빠져 있거나, ~를 좋아한다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm into jazz music lately.",
+      "I'm into cooking these days.",
+      "I'm into playing video games."
+    ]
+  },
+  "I'm in": {
+    "explanation": {
+      "jp": "「参加するよ」「賛成」「やる気がある」と意思表明する時に使う。",
+      "kr": "나도 할게, 동참하겠다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "If you want to go, I'm in.",
+      "We're forming a team, and I'm in.",
+      "I'm in for the movie tonight."
+    ]
+  },
+  "I'm on": {
+    "explanation": {
+      "jp": "「～の上にいる」「～に参加中」「～中だ」など状況を説明する時に使う。",
+      "kr": "~ 위에 있다, ~ 중이다 라는 상황을 설명할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'm on the train now.",
+      "I'm on the phone with my mom.",
+      "I'm on a diet these days."
+    ]
+  },
+  "You look": {
+    "explanation": {
+      "jp": "「～に見える」「～そうだ」と相手の様子を伝える時に使う。",
+      "kr": "~처럼 보인다고 상대방의 상태나 외모를 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "You look tired today.",
+      "You look great in that outfit.",
+      "You look happy."
+    ]
+  },
+  "In short,": {
+    "explanation": {
+      "jp": "「要するに」「つまり」をまとめる時に使う。",
+      "kr": "간단히 말해서, 라고 요약할 때 쓰는 표현."
+    },
+    "examples": [
+      "In short, we need more time.",
+      "In short, it's not possible now.",
+      "In short, we're not ready yet."
+    ]
+  },
+  "It doesn't matter": {
+    "explanation": {
+      "jp": "「問題ない」「構わない」「どちらでもいい」と言う時に使う。",
+      "kr": "상관없다, 문제가 되지 않는다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "It doesn't matter where we eat.",
+      "It doesn't matter who does it.",
+      "It doesn't matter if it's late."
+    ]
+  },
+  "It's a shame": {
+    "explanation": {
+      "jp": "「残念だ」「もったいない」と気持ちを表す時に使う。",
+      "kr": "안타깝다고 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "It's a shame we can't go.",
+      "It's a shame he didn't pass.",
+      "It's a shame about the weather."
+    ]
+  },
+  "would you like ...?": {
+    "explanation": {
+      "jp": "「～はいかがですか？」と丁寧に勧める時に使う。",
+      "kr": "~하시겠어요? 라고 정중하게 권할 때 쓰는 표현."
+    },
+    "examples": [
+      "Would you like some coffee?",
+      "Would you like to join us?",
+      "Would you like a piece of cake?"
+    ]
+  },
+  "Would you mind if ...?": {
+    "explanation": {
+      "jp": "「～してもよろしいですか？」と丁寧に許可を求める時に使う。",
+      "kr": "~해도 될까요? 라고 정중하게 묻는 표현."
+    },
+    "examples": [
+      "Would you mind if I opened the window?",
+      "Would you mind if I take this seat?",
+      "Would you mind if I call you later?"
+    ]
+  },
+  "I apologize for": {
+    "explanation": {
+      "jp": "「～について謝罪します」と正式に謝る時に使う。",
+      "kr": "~에 대해 사과한다고 공식적으로 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I apologize for being late.",
+      "I apologize for the confusion.",
+      "I apologize for any inconvenience."
+    ]
+  },
+  "Sorry to bother you, but": {
+    "explanation": {
+      "jp": "「お邪魔してすみませんが」と丁寧に頼み事を切り出す時に使う。",
+      "kr": "실례합니다만, 하고 정중하게 부탁하거나 말을 꺼낼 때 쓰는 표현."
+    },
+    "examples": [
+      "Sorry to bother you, but can you help me?",
+      "Sorry to bother you, but do you have a minute?",
+      "Sorry to bother you, but I need some advice."
+    ]
+  },
+  "It's a pleasure to": {
+    "explanation": {
+      "jp": "「～できて光栄です」「～できて嬉しいです」と丁寧に気持ちを伝える。",
+      "kr": "~해서 기쁘다고 정중하게 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "It's a pleasure to meet you.",
+      "It's a pleasure to work with you.",
+      "It's a pleasure to have you here."
+    ]
+  },
+  "Could you ..?": {
+    "explanation": {
+      "jp": "「～していただけますか？」と丁寧に依頼する時に使う。",
+      "kr": "~해 주시겠어요? 라고 정중하게 부탁할 때 쓰는 표현."
+    },
+    "examples": [
+      "Could you pass me the salt?",
+      "Could you help me with this?",
+      "Could you speak more slowly?"
+    ]
+  },
+  "May I": {
+    "explanation": {
+      "jp": "「～してもよろしいでしょうか？」と丁寧に許可を求める時に使う。",
+      "kr": "~해도 될까요? 라고 정중하게 묻는 표현."
+    },
+    "examples": [
+      "May I use your restroom?",
+      "May I come in?",
+      "May I see your ID?"
+    ]
+  },
+  "Excuse me, but": {
+    "explanation": {
+      "jp": "「失礼ですが」「すみませんが」と話しかける時や質問の前置きに使う。",
+      "kr": "실례합니다만, 하고 말을 꺼낼 때 쓰는 표현."
+    },
+    "examples": [
+      "Excuse me, but where is the station?",
+      "Excuse me, but could you repeat that?",
+      "Excuse me, but do you have a pen?"
+    ]
+  },
+  "I appreciate": {
+    "explanation": {
+      "jp": "「～に感謝しています」「ありがたく思う」と丁寧に感謝を示す。",
+      "kr": "~에 감사한다고 정중하게 말할 때 쓰는 표현."
+    },
+    "examples": [
+      "I appreciate your help.",
+      "I appreciate your patience.",
+      "I appreciate everything you've done."
+    ]
+  },
+  "I'd love to, but": {
+    "explanation": {
+      "jp": "「そうしたいけど、でも…」と断る時に前向きな姿勢を見せつつ理由を言う。",
+      "kr": "그러고 싶지만, ~한 사정이 있다고 부드럽게 거절할 때 쓰는 표현."
+    },
+    "examples": [
+      "I'd love to, but I'm busy tomorrow.",
+      "I'd love to, but I have another appointment.",
+      "I'd love to, but I need to finish my work."
+    ]
+  }
+}
