@@ -165,18 +165,18 @@
 }
 
 .backButton {
-  padding: 0.8rem 1.5rem;
-  background-color: #00009f;
+  padding: 0.5rem 1rem;
+  background: none;
   color: white;
-  border: none;
-  border-radius: 0.4rem;
+  border: 1px solid white;
+  border-radius: 4px;
   cursor: pointer;
-  font-family: "CookieRun-Regular";
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .backButton:hover {
-  background-color: #000080;
+  background-color: #adb5bd;
+  color: #111;
 }
 
 .loading {
@@ -289,4 +289,40 @@
 .sendButton:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+.loadingSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #00009f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.localeButton {
+  padding: 0.8rem 1.5rem;
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-family: "CookieRun-Regular";
+  transition: background-color 0.2s ease;
 }

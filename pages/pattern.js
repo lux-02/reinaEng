@@ -58,9 +58,17 @@ export default function Pattern() {
         <h1 className={styles.title}>
           {selectedLanguage === "ko" ? "영어 패턴" : "英語パターン"}
         </h1>
-        <button className={styles.localeButton} onClick={toggleLanguage}>
-          {selectedLanguage === "ko" ? "日本語" : "한국어"}
-        </button>
+        <div className={styles.headerBtn}>
+          <button
+            onClick={() => router.push("/")}
+            className={styles.backButton}
+          >
+            {selectedLanguage === "ko" ? "뒤로 가기" : "戻る"}
+          </button>
+          <button onClick={toggleLanguage} className={styles.localeButton}>
+            {selectedLanguage === "ko" ? "한국어" : "日本語"}
+          </button>
+        </div>
       </div>
 
       <div className={styles.patternGrid}>
@@ -74,7 +82,7 @@ export default function Pattern() {
               {pattern[selectedLanguage === "ko" ? "name_ko" : "name_jp"]}
             </span>
             <span className={styles.explanationText}>
-              {pattern[selectedLanguage === "ko" ? "brief_ko" : "brief_jp"]}
+              {pattern.explanation[selectedLanguage === "ko" ? "kr" : "jp"]}
             </span>
           </button>
         ))}

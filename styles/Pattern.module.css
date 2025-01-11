@@ -13,8 +13,8 @@
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
 }
 
 .title {
@@ -42,9 +42,10 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  min-height: 150px;
+  gap: 0.8rem;
   text-align: left;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .patternButton:hover {
@@ -57,12 +58,19 @@
   font-weight: bold;
   color: #333;
   font-family: "CookieRun-Regular";
+  margin-bottom: 0.5rem;
 }
 
 .explanationText {
   font-size: 0.9rem;
   color: #666;
   font-family: "CookieRun-Regular";
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
 }
 
 .localeButton {
@@ -76,18 +84,18 @@
 }
 
 .backButton {
-  padding: 0.8rem 1.5rem;
-  background-color: #00009f;
+  padding: 0.5rem 1rem;
+  background: none;
   color: white;
-  border: none;
-  border-radius: 0.4rem;
+  border: 1px solid white;
+  border-radius: 4px;
   cursor: pointer;
-  font-family: "CookieRun-Regular";
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .backButton:hover {
-  background-color: #000080;
+  background-color: #adb5bd;
+  color: #111;
 }
 
 .loading {
@@ -110,4 +118,9 @@
   .patternGrid {
     grid-template-columns: 1fr;
   }
+}
+
+.headerBtn {
+  display: flex;
+  gap: 1rem;
 }
