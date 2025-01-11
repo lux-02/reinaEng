@@ -6,13 +6,15 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { word, meaning } = req.body;
+    const { word, jp_mean, ko_mean } = req.body;
     const { db } = await connectToDatabase();
     const collection = db.collection("words");
 
     const result = await collection.insertOne({
       word,
-      meaning,
+      meaning: jp_mean,
+      jp_mean,
+      ko_mean,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     });
