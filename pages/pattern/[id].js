@@ -252,7 +252,7 @@ export default function PatternDetail() {
           {selectedLanguage === "ko" ? "뒤로 가기" : "戻る"}
         </button>
         <button onClick={toggleLanguage} className={styles.localeButton}>
-          {selectedLanguage === "ko" ? "日本語" : "한국어"}
+          {selectedLanguage === "ko" ? "한국어" : "日本語"}
         </button>
       </div>
 

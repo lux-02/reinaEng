@@ -63,7 +63,7 @@ export default function Pattern() {
             onClick={() => router.push("/")}
             className={styles.backButton}
           >
-            {selectedLanguage === "ko" ? "뒤로 가기" : "戻る"}
+            {selectedLanguage === "ko" ? "메인으로" : "メインへ"}
           </button>
           <button onClick={toggleLanguage} className={styles.localeButton}>
             {selectedLanguage === "ko" ? "한국어" : "日本語"}
