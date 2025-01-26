@@ -326,3 +326,33 @@
   font-family: "CookieRun-Regular";
   transition: background-color 0.2s ease;
 }
+
+.completeButton {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-family: "CookieRun-Regular";
+  transition: background-color 0.2s ease;
+}
+
+.completeButtonWrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.completeButton {
+  margin-top: 2rem;
+  background: #111;
+  padding: 0.8rem 1.5rem;
+}
+
+.completedDate {
+  color: #ccc;
+  width: 100%;
+  text-align: center;
+}

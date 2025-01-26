@@ -234,6 +234,31 @@ export default function PatternDetail() {
     }
   };
 
+  const toggleComplete = async () => {
+    try {
+      const response = await fetch("/api/updatePatternStatus", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          patternId: id,
+          completed: !pattern.completed,
+        }),
+      });
+
+      if (response.ok) {
+        setPattern({
+          ...pattern,
+          completed: !pattern.completed,
+          completedAt: !pattern.completed ? new Date() : null,
+        });
+      }
+    } catch (error) {
+      console.error("Error updating pattern status:", error);
+    }
+  };
+
   if (loading) {
     return (
       <div className={styles.loading}>
@@ -255,6 +280,16 @@ export default function PatternDetail() {
           {selectedLanguage === "ko" ? "한국어" : "日本語"}
         </button>
       </div>
+
+      {pattern.completed && (
+        <div className={styles.completedDate}>
+          {selectedLanguage === "ko" ? "학습 완료일: " : "学習完了日: "}
+          {new Date(pattern.completedAt).toLocaleDateString(
+            selectedLanguage === "ko" ? "ko-KR" : "ja-JP",
+            { year: "numeric", month: "long", day: "numeric" }
+          )}
+        </div>
+      )}
 
       <div className={styles.content}>
         <h1 className={styles.title}>
@@ -384,6 +419,32 @@ export default function PatternDetail() {
               {selectedLanguage === "ko" ? "전송" : "送信"}
             </button>
           </div>
+        </div>
+
+        <div className={`${styles.completeButtonWrap}`}>
+          <button
+            onClick={toggleComplete}
+            className={`${styles.completeButton} ${
+              pattern.completed ? styles.completed : ""
+            }`}
+          >
+            {pattern.completed
+              ? selectedLanguage === "ko"
+                ? "학습 완료 취소"
+                : "学習完了取消"
+              : selectedLanguage === "ko"
+              ? "학습 완료"
+              : "学習完了"}
+          </button>
+          {pattern.completed && (
+            <div className={styles.completedDate}>
+              {selectedLanguage === "ko" ? "학습 완료일: " : "学習完了日: "}
+              {new Date(pattern.completedAt).toLocaleDateString(
+                selectedLanguage === "ko" ? "ko-KR" : "ja-JP",
+                { year: "numeric", month: "long", day: "numeric" }
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

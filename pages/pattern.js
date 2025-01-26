@@ -54,7 +54,20 @@ export default function Pattern() {
         pattern.name_jp.toLowerCase().includes(searchLower)
       );
     });
-    setFilteredPatterns(filtered);
+
+    // 완료되지 않은 패턴을 상단에, 완료된 패턴을 하단에 정렬
+    const sortedPatterns = filtered.sort((a, b) => {
+      if (a.completed === b.completed) {
+        // 완료된 패턴끼리는 완료일 기준 내림차순
+        if (a.completed) {
+          return new Date(b.completedAt) - new Date(a.completedAt);
+        }
+        return 0;
+      }
+      return a.completed ? 1 : -1;
+    });
+
+    setFilteredPatterns(sortedPatterns);
   }, [searchTerm, patterns]);
 
   const toggleLanguage = () => {
@@ -153,7 +166,9 @@ export default function Pattern() {
         {filteredPatterns.map((pattern) => (
           <button
             key={pattern.id}
-            className={styles.patternButton}
+            className={`${styles.patternButton} ${
+              pattern.completed ? styles.completed : ""
+            }`}
             onClick={() => handlePatternClick(pattern.id)}
           >
             <span className={styles.patternText}>
@@ -162,6 +177,14 @@ export default function Pattern() {
             <span className={styles.explanationText}>
               {pattern.explanation[selectedLanguage === "ko" ? "kr" : "jp"]}
             </span>
+            {pattern.completed && (
+              <span className={styles.completedDate}>
+                {new Date(pattern.completedAt).toLocaleDateString(
+                  selectedLanguage === "ko" ? "ko-KR" : "ja-JP",
+                  { year: "numeric", month: "long", day: "numeric" }
+                )}
+              </span>
+            )}
           </button>
         ))}
       </div>
