@@ -17,6 +17,8 @@ export default function Pattern() {
     },
     examples: ["", "", ""],
   });
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredPatterns, setFilteredPatterns] = useState([]);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("selectedLanguage");
@@ -43,6 +45,17 @@ export default function Pattern() {
 
     fetchPatterns();
   }, []);
+
+  useEffect(() => {
+    const filtered = patterns.filter((pattern) => {
+      const searchLower = searchTerm.toLowerCase();
+      return (
+        pattern.name_ko.toLowerCase().includes(searchLower) ||
+        pattern.name_jp.toLowerCase().includes(searchLower)
+      );
+    });
+    setFilteredPatterns(filtered);
+  }, [searchTerm, patterns]);
 
   const toggleLanguage = () => {
     const newLanguage = selectedLanguage === "ko" ? "jp" : "ko";
@@ -124,9 +137,20 @@ export default function Pattern() {
           </button>
         </div>
       </div>
+      <div className={styles.searchContainer}>
+        <input
+          type="text"
+          placeholder={
+            selectedLanguage === "ko" ? "패턴 검색..." : "パターン検索..."
+          }
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className={styles.searchInput}
+        />
+      </div>
 
       <div className={styles.patternGrid}>
-        {patterns.map((pattern) => (
+        {filteredPatterns.map((pattern) => (
           <button
             key={pattern.id}
             className={styles.patternButton}
@@ -163,27 +187,19 @@ export default function Pattern() {
             </div>
             <form onSubmit={handleAddPattern}>
               <div className={styles.inputGroup}>
-                <label className="ko-text">한국어 패턴 이름</label>
+                <label className="ko-text">패턴 이름 / パターン名</label>
                 <input
                   type="text"
                   value={newPattern.name_ko}
                   onChange={(e) =>
-                    setNewPattern({ ...newPattern, name_ko: e.target.value })
+                    setNewPattern({
+                      ...newPattern,
+                      name_ko: e.target.value,
+                      name_jp: e.target.value,
+                    })
                   }
                   required
                   className="ko-text"
-                />
-              </div>
-              <div className={styles.inputGroup}>
-                <label className="jp-text">日本語パターン名</label>
-                <input
-                  type="text"
-                  value={newPattern.name_jp}
-                  onChange={(e) =>
-                    setNewPattern({ ...newPattern, name_jp: e.target.value })
-                  }
-                  required
-                  className="jp-text"
                 />
               </div>
               <div className={styles.inputGroup}>
