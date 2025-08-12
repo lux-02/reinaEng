@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
 export default function Home() {
@@ -125,140 +126,149 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <button
-          onClick={toggleLanguage}
-          className={`${styles.localeButton} ${
-            selectedLanguage === "ko" ? "ko-text" : "jp-text"
-          }`}
-          lang={selectedLanguage === "ko" ? "ko" : "ja"}
-        >
-          {selectedLanguage === "ko" ? "한국어" : "日本語"}
-        </button>
-      </div>
-      <div className={styles.quizContainer}>
-        <div className={styles.numQuestionsWrap}>
-          <div
-            className={styles.numQuestions}
-            onClick={() => setIsEditing(true)}
+    <>
+      <Head>
+        <title>Voca Quiz - 영어 단어 퀴즈</title>
+        <meta
+          name="description"
+          content="영어 단어를 재미있게 학습하고 퀴즈로 테스트해보세요"
+        />
+      </Head>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <button
+            onClick={toggleLanguage}
+            className={`${styles.localeButton} ${
+              selectedLanguage === "ko" ? "ko-text" : "jp-text"
+            }`}
+            lang={selectedLanguage === "ko" ? "ko" : "ja"}
           >
-            {isEditing ? (
-              <input
-                type="number"
-                value={numQuestions}
-                onChange={(e) => setNumQuestions(parseInt(e.target.value))}
-                onBlur={handleQuestionCountChange}
-                onKeyDown={handleKeyDown}
-                min="1"
-                max={wordList.length}
-                className={styles.numInput}
-              />
-            ) : (
-              <span
-                className={`${
+            {selectedLanguage === "ko" ? "한국어" : "日本語"}
+          </button>
+        </div>
+        <div className={styles.quizContainer}>
+          <div className={styles.numQuestionsWrap}>
+            <div
+              className={styles.numQuestions}
+              onClick={() => setIsEditing(true)}
+            >
+              {isEditing ? (
+                <input
+                  type="number"
+                  value={numQuestions}
+                  onChange={(e) => setNumQuestions(parseInt(e.target.value))}
+                  onBlur={handleQuestionCountChange}
+                  onKeyDown={handleKeyDown}
+                  min="1"
+                  max={wordList.length}
+                  className={styles.numInput}
+                />
+              ) : (
+                <span
+                  className={`${
+                    selectedLanguage === "ko" ? "ko-text" : "jp-text"
+                  }`}
+                >
+                  {numQuestions} {selectedLanguage === "ko" ? "문제" : "問題"}
+                </span>
+              )}
+            </div>
+          </div>
+
+          {selectedQuestions.length > 0 ? (
+            <>
+              <div className={styles.question}>
+                <span
+                  className={
+                    questionType === "wordToMeaning"
+                      ? "en-text"
+                      : selectedLanguage === "ko"
+                      ? "ko-text"
+                      : "jp-text"
+                  }
+                >
+                  {questionType === "wordToMeaning"
+                    ? `${selectedQuestions[questionIndex].word}`.toUpperCase()
+                    : `${
+                        selectedQuestions[questionIndex][
+                          selectedLanguage === "ko" ? "ko_mean" : "jp_mean"
+                        ]
+                      }`}
+                </span>
+              </div>
+              <div className={styles.progressBarWrap}>
+                <div className={styles.progressBarContainer}>
+                  <div
+                    className={styles.progressBar}
+                    style={{ width: `${progress}%` }}
+                  ></div>
+                </div>
+              </div>
+              <div className={styles.optionsWrap}>
+                <div className={styles.options}>
+                  {options.map((option, index) => (
+                    <button
+                      key={index}
+                      className={`${styles.optionButton} ${
+                        selectedOptionIndex === index ? styles.selected : ""
+                      } ${
+                        questionType === "wordToMeaning"
+                          ? selectedLanguage === "ko"
+                            ? "ko-text"
+                            : "jp-text"
+                          : "en-text"
+                      }`}
+                      onClick={() => handleAnswer(option, index)}
+                    >
+                      {questionType === "wordToMeaning"
+                        ? option[
+                            selectedLanguage === "ko" ? "ko_mean" : "jp_mean"
+                          ]
+                        : option.word}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div
+                className={`${styles.score} ${
                   selectedLanguage === "ko" ? "ko-text" : "jp-text"
                 }`}
               >
-                {numQuestions} {selectedLanguage === "ko" ? "문제" : "問題"}
-              </span>
-            )}
-          </div>
+                {selectedLanguage === "ko" ? "현재 점수" : "現在のスコア"}:{" "}
+                {score}
+              </div>
+            </>
+          ) : (
+            <p>{selectedLanguage === "ko" ? "로딩 중..." : "読み込み中..."}</p>
+          )}
         </div>
-
-        {selectedQuestions.length > 0 ? (
-          <>
-            <div className={styles.question}>
-              <span
-                className={
-                  questionType === "wordToMeaning"
-                    ? "en-text"
-                    : selectedLanguage === "ko"
-                    ? "ko-text"
-                    : "jp-text"
-                }
-              >
-                {questionType === "wordToMeaning"
-                  ? `${selectedQuestions[questionIndex].word}`.toUpperCase()
-                  : `${
-                      selectedQuestions[questionIndex][
-                        selectedLanguage === "ko" ? "ko_mean" : "jp_mean"
-                      ]
-                    }`}
-              </span>
-            </div>
-            <div className={styles.progressBarWrap}>
-              <div className={styles.progressBarContainer}>
-                <div
-                  className={styles.progressBar}
-                  style={{ width: `${progress}%` }}
-                ></div>
-              </div>
-            </div>
-            <div className={styles.optionsWrap}>
-              <div className={styles.options}>
-                {options.map((option, index) => (
-                  <button
-                    key={index}
-                    className={`${styles.optionButton} ${
-                      selectedOptionIndex === index ? styles.selected : ""
-                    } ${
-                      questionType === "wordToMeaning"
-                        ? selectedLanguage === "ko"
-                          ? "ko-text"
-                          : "jp-text"
-                        : "en-text"
-                    }`}
-                    onClick={() => handleAnswer(option, index)}
-                  >
-                    {questionType === "wordToMeaning"
-                      ? option[
-                          selectedLanguage === "ko" ? "ko_mean" : "jp_mean"
-                        ]
-                      : option.word}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div
-              className={`${styles.score} ${
-                selectedLanguage === "ko" ? "ko-text" : "jp-text"
-              }`}
-            >
-              {selectedLanguage === "ko" ? "현재 점수" : "現在のスコア"}:{" "}
-              {score}
-            </div>
-          </>
-        ) : (
-          <p>{selectedLanguage === "ko" ? "로딩 중..." : "読み込み中..."}</p>
-        )}
+        <div className={styles.btnWrap}>
+          <button
+            onClick={() => router.push("/data")}
+            className={`${styles.viewAllButton} ${
+              selectedLanguage === "ko" ? "ko-text" : "jp-text"
+            }`}
+          >
+            {selectedLanguage === "ko" ? "단어 리스트" : "単語リスト"}
+          </button>
+          <button
+            onClick={() => router.push("/conversation")}
+            className={`${styles.viewAllButton} ${
+              selectedLanguage === "ko" ? "ko-text" : "jp-text"
+            }`}
+          >
+            {selectedLanguage === "ko" ? "프리토킹" : "フリートーキング"}
+          </button>
+          <button
+            onClick={() => router.push("/pattern")}
+            className={`${styles.viewAllButton} ${
+              selectedLanguage === "ko" ? "ko-text" : "jp-text"
+            }`}
+          >
+            {selectedLanguage === "ko" ? "회화패턴" : "英会話"}
+          </button>
+        </div>
       </div>
-      <div className={styles.btnWrap}>
-        <button
-          onClick={() => router.push("/data")}
-          className={`${styles.viewAllButton} ${
-            selectedLanguage === "ko" ? "ko-text" : "jp-text"
-          }`}
-        >
-          {selectedLanguage === "ko" ? "단어 리스트" : "単語リスト"}
-        </button>
-        <button
-          onClick={() => router.push("/conversation")}
-          className={`${styles.viewAllButton} ${
-            selectedLanguage === "ko" ? "ko-text" : "jp-text"
-          }`}
-        >
-          {selectedLanguage === "ko" ? "프리토킹" : "フリートーキング"}
-        </button>
-        <button
-          onClick={() => router.push("/pattern")}
-          className={`${styles.viewAllButton} ${
-            selectedLanguage === "ko" ? "ko-text" : "jp-text"
-          }`}
-        >
-          {selectedLanguage === "ko" ? "회화패턴" : "英会話"}
-        </button>
-      </div>
-    </div>
+    </>
   );
 }

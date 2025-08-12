@@ -65,7 +65,7 @@ export default function Login() {
   return (
     <div className={styles.container}>
       <div className={styles.loginBox}>
-        <h1 className={styles.title}>Reina English</h1>
+        <h1 className={styles.title}>Voca Quiz</h1>
         <p className={styles.descriptionKR}>
           영어 학습을 시작하기 위해 로그인해주세요.
         </p>

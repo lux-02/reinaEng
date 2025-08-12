@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import styles from "@/styles/PatternDetail.module.css";
 
 export default function PatternDetail() {
@@ -268,185 +269,194 @@ export default function PatternDetail() {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <button
-          onClick={() => router.push("/pattern")}
-          className={styles.backButton}
-        >
-          {selectedLanguage === "ko" ? "뒤로 가기" : "戻る"}
-        </button>
-        <button onClick={toggleLanguage} className={styles.localeButton}>
-          {selectedLanguage === "ko" ? "한국어" : "日本語"}
-        </button>
-      </div>
-
-      {pattern.completed && (
-        <div className={styles.completedDate}>
-          {selectedLanguage === "ko" ? "학습 완료일: " : "学習完了日: "}
-          {new Date(pattern.completedAt).toLocaleDateString(
-            selectedLanguage === "ko" ? "ko-KR" : "ja-JP",
-            { year: "numeric", month: "long", day: "numeric" }
-          )}
-        </div>
-      )}
-
-      <div className={styles.content}>
-        <h1 className={styles.title}>
-          {pattern[selectedLanguage === "ko" ? "name_ko" : "name_jp"]}
-        </h1>
-
-        <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            {selectedLanguage === "ko" ? "설명" : "説明"}
-          </h2>
-          <p className={styles.explanation}>
-            {pattern.explanation[selectedLanguage === "ko" ? "kr" : "jp"]}
-          </p>
+    <>
+      <Head>
+        <title>Voca Quiz - 패턴 상세</title>
+        <meta
+          name="description"
+          content="영어 회화 패턴을 자세히 학습하고 퀴즈로 테스트해보세요"
+        />
+      </Head>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <button
+            onClick={() => router.push("/pattern")}
+            className={styles.backButton}
+          >
+            {selectedLanguage === "ko" ? "뒤로 가기" : "戻る"}
+          </button>
+          <button onClick={toggleLanguage} className={styles.localeButton}>
+            {selectedLanguage === "ko" ? "한국어" : "日本語"}
+          </button>
         </div>
 
-        <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>
-            {selectedLanguage === "ko" ? "예시" : "例文"}
-          </h2>
-          {pattern.examples.map((example, index) => (
-            <div key={index} className={styles.example}>
-              <code className={styles.exampleCode}>{example}</code>
-            </div>
-          ))}
-        </div>
-
-        {quizLoading ? (
-          <div className={styles.quizSection}>
-            <h2 className={styles.quizTitle}>
-              {selectedLanguage === "ko"
-                ? "퀴즈 생성 중..."
-                : "クイズを生成中..."}
-            </h2>
-            <div className={styles.loadingSpinner}>
-              <div className={styles.spinner}></div>
-            </div>
+        {pattern.completed && (
+          <div className={styles.completedDate}>
+            {selectedLanguage === "ko" ? "학습 완료일: " : "学習完了日: "}
+            {new Date(pattern.completedAt).toLocaleDateString(
+              selectedLanguage === "ko" ? "ko-KR" : "ja-JP",
+              { year: "numeric", month: "long", day: "numeric" }
+            )}
           </div>
-        ) : (
-          quizData &&
-          quizData[selectedLanguage] && (
-            <div className={styles.quizSection}>
-              <h2 className={styles.quizTitle}>
-                {selectedLanguage === "ko" ? "퀴즈" : "クイズ"}
-              </h2>
-              <p className={styles.quizQuestion}>
-                {quizData[selectedLanguage].question}
-              </p>
-              <div className={styles.quizOptions}>
-                {quizData[selectedLanguage].options.map((option, index) => (
-                  <button
-                    key={index}
-                    className={`${styles.quizOption} ${
-                      selectedAnswer === index ? styles.selected : ""
-                    } ${
-                      showFeedback
-                        ? index === quizData.correctAnswer
-                          ? styles.correct
-                          : selectedAnswer === index
-                          ? styles.incorrect
-                          : ""
-                        : ""
-                    }`}
-                    onClick={() => handleAnswerSelect(index)}
-                    disabled={showFeedback}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-              {showFeedback && (
-                <div
-                  className={`${styles.feedback} ${
-                    selectedAnswer === quizData.correctAnswer
-                      ? styles.correct
-                      : styles.incorrect
-                  }`}
-                >
-                  {selectedAnswer === quizData.correctAnswer
-                    ? selectedLanguage === "ko"
-                      ? "정답입니다!"
-                      : "正解です！"
-                    : selectedLanguage === "ko"
-                    ? "틀렸습니다. 다시 시도해보세요."
-                    : "不正解です。もう一度挑戦してください。"}
-                </div>
-              )}
-            </div>
-          )
         )}
 
-        <div className={styles.chatSection}>
-          <h2 className={styles.sectionTitle}>
-            {selectedLanguage === "ko" ? "AI 채팅" : "AIチャット"}
-          </h2>
-          <div className={styles.chatMessages}>
-            {chatMessages.map((message, index) => (
-              <div
-                key={index}
-                className={`${styles.chatMessage} ${
-                  message.role === "user"
-                    ? styles.userMessage
-                    : styles.aiMessage
-                }`}
-              >
-                {message.content}
+        <div className={styles.content}>
+          <h1 className={styles.title}>
+            {pattern[selectedLanguage === "ko" ? "name_ko" : "name_jp"]}
+          </h1>
+
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>
+              {selectedLanguage === "ko" ? "설명" : "説明"}
+            </h2>
+            <p className={styles.explanation}>
+              {pattern.explanation[selectedLanguage === "ko" ? "kr" : "jp"]}
+            </p>
+          </div>
+
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>
+              {selectedLanguage === "ko" ? "예시" : "例文"}
+            </h2>
+            {pattern.examples.map((example, index) => (
+              <div key={index} className={styles.example}>
+                <code className={styles.exampleCode}>{example}</code>
               </div>
             ))}
           </div>
-          <div className={styles.chatInput}>
-            <input
-              type="text"
-              value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              onKeyPress={(e) => e.key === "Enter" && sendChatMessage()}
-              placeholder={
-                selectedLanguage === "ko"
-                  ? "메시지를 입력하세요..."
-                  : "メッセージを入力してください..."
-              }
-              disabled={isSending}
-            />
+
+          {quizLoading ? (
+            <div className={styles.quizSection}>
+              <h2 className={styles.quizTitle}>
+                {selectedLanguage === "ko"
+                  ? "퀴즈 생성 중..."
+                  : "クイズを生成中..."}
+              </h2>
+              <div className={styles.loadingSpinner}>
+                <div className={styles.spinner}></div>
+              </div>
+            </div>
+          ) : (
+            quizData &&
+            quizData[selectedLanguage] && (
+              <div className={styles.quizSection}>
+                <h2 className={styles.quizTitle}>
+                  {selectedLanguage === "ko" ? "퀴즈" : "クイズ"}
+                </h2>
+                <p className={styles.quizQuestion}>
+                  {quizData[selectedLanguage].question}
+                </p>
+                <div className={styles.quizOptions}>
+                  {quizData[selectedLanguage].options.map((option, index) => (
+                    <button
+                      key={index}
+                      className={`${styles.quizOption} ${
+                        selectedAnswer === index ? styles.selected : ""
+                      } ${
+                        showFeedback
+                          ? index === quizData.correctAnswer
+                            ? styles.correct
+                            : selectedAnswer === index
+                            ? styles.incorrect
+                            : ""
+                          : ""
+                      }`}
+                      onClick={() => handleAnswerSelect(index)}
+                      disabled={showFeedback}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+                {showFeedback && (
+                  <div
+                    className={`${styles.feedback} ${
+                      selectedAnswer === quizData.correctAnswer
+                        ? styles.correct
+                        : styles.incorrect
+                    }`}
+                  >
+                    {selectedAnswer === quizData.correctAnswer
+                      ? selectedLanguage === "ko"
+                        ? "정답입니다!"
+                        : "正解です！"
+                      : selectedLanguage === "ko"
+                      ? "틀렸습니다. 다시 시도해보세요."
+                      : "不正解です。もう一度挑戦してください。"}
+                  </div>
+                )}
+              </div>
+            )
+          )}
+
+          <div className={styles.chatSection}>
+            <h2 className={styles.sectionTitle}>
+              {selectedLanguage === "ko" ? "AI 채팅" : "AIチャット"}
+            </h2>
+            <div className={styles.chatMessages}>
+              {chatMessages.map((message, index) => (
+                <div
+                  key={index}
+                  className={`${styles.chatMessage} ${
+                    message.role === "user"
+                      ? styles.userMessage
+                      : styles.aiMessage
+                  }`}
+                >
+                  {message.content}
+                </div>
+              ))}
+            </div>
+            <div className={styles.chatInput}>
+              <input
+                type="text"
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+                onKeyPress={(e) => e.key === "Enter" && sendChatMessage()}
+                placeholder={
+                  selectedLanguage === "ko"
+                    ? "메시지를 입력하세요..."
+                    : "メッセージを入力してください..."
+                }
+                disabled={isSending}
+              />
+              <button
+                onClick={sendChatMessage}
+                className={styles.sendButton}
+                disabled={isSending}
+              >
+                {selectedLanguage === "ko" ? "전송" : "送信"}
+              </button>
+            </div>
+          </div>
+
+          <div className={`${styles.completeButtonWrap}`}>
             <button
-              onClick={sendChatMessage}
-              className={styles.sendButton}
-              disabled={isSending}
+              onClick={toggleComplete}
+              className={`${styles.completeButton} ${
+                pattern.completed ? styles.completed : ""
+              }`}
             >
-              {selectedLanguage === "ko" ? "전송" : "送信"}
+              {pattern.completed
+                ? selectedLanguage === "ko"
+                  ? "학습 완료 취소"
+                  : "学習完了取消"
+                : selectedLanguage === "ko"
+                ? "학습 완료"
+                : "学習完了"}
             </button>
+            {pattern.completed && (
+              <div className={styles.completedDate}>
+                {selectedLanguage === "ko" ? "학습 완료일: " : "学習完了日: "}
+                {new Date(pattern.completedAt).toLocaleDateString(
+                  selectedLanguage === "ko" ? "ko-KR" : "ja-JP",
+                  { year: "numeric", month: "long", day: "numeric" }
+                )}
+              </div>
+            )}
           </div>
         </div>
-
-        <div className={`${styles.completeButtonWrap}`}>
-          <button
-            onClick={toggleComplete}
-            className={`${styles.completeButton} ${
-              pattern.completed ? styles.completed : ""
-            }`}
-          >
-            {pattern.completed
-              ? selectedLanguage === "ko"
-                ? "학습 완료 취소"
-                : "学習完了取消"
-              : selectedLanguage === "ko"
-              ? "학습 완료"
-              : "学習完了"}
-          </button>
-          {pattern.completed && (
-            <div className={styles.completedDate}>
-              {selectedLanguage === "ko" ? "학습 완료일: " : "学習完了日: "}
-              {new Date(pattern.completedAt).toLocaleDateString(
-                selectedLanguage === "ko" ? "ko-KR" : "ja-JP",
-                { year: "numeric", month: "long", day: "numeric" }
-              )}
-            </div>
-          )}
-        </div>
       </div>
-    </div>
+    </>
   );
 }

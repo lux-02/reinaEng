@@ -1,7 +1,8 @@
 {
-  "name": "main",
+  "name": "voca-quiz",
   "version": "0.1.0",
   "private": true,
+  "description": "Voca Quiz - 영어 단어 학습 및 퀴즈 애플리케이션",
   "scripts": {
     "dev": "next dev",
     "build": "npm install --legacy-peer-deps && next build",

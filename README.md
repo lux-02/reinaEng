@@ -1,3 +1,7 @@
+# Voca Quiz
+
+영어 단어 학습 및 퀴즈 애플리케이션입니다.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
 ## Getting Started

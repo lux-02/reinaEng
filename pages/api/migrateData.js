@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
     // MongoDB 연결
     const client = await clientPromise;
-    const db = client.db("reinaeng");
+    const db = client.db("vocaquiz");
     const collection = db.collection("words");
 
     // 기존 데이터 삭제
